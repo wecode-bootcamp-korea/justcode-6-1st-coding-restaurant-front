@@ -12,9 +12,7 @@ import { useState } from 'react';
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
 
-
   const mypageChangeTab = e => {
-
     const navTabsList = document.getElementsByClassName(css.navTabsList);
     const tabName = e.target.getAttribute('name');
 
@@ -73,7 +71,6 @@ function Mypage() {
                 name="orderList"
                 onClick={mypageChangeTab}
                 className={`${css.navTabsList} ${css.bottom}`}
-
               >
                 주문 내역
               </li>
