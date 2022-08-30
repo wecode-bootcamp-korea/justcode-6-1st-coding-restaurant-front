@@ -1,10 +1,26 @@
-html {
-  background: #eee;
-  position: relative;
-  font-size: 16px;
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
+
+@font-face {
+  font-family: 'noto sans KR';
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
 }
 
-li {
+html {
+  font-family: 'noto sans KR', sans-serif;
+  background: #eee;
+  position: relative;
+  font-size: 17px;
+  height: 100%;
+}
+
+// li {
+//   list-style: none;
+//   padding-left: 0px;
+//   float: left;
+// }
+
+.navBarItem,
+.navTabsList {
   list-style: none;
   padding-left: 0px;
   float: left;
@@ -13,12 +29,20 @@ li {
 .container {
   position: absolute;
   left: 50%;
-  overflow: hidden;
+
   margin-left: calc(1140px / -2);
+  width: 1140px;
+  // height: 590px;
+
+  height: auto;
+
+  border: 1px solid #dddb;
+  background: #fff none repeat scroll 0 0;
 
   .mypageContent {
     width: 1140px;
-    height: 590px;
+    // height: 590px;
+
     border: 1px solid #dddb;
     background: #fff none repeat scroll 0 0;
 
@@ -30,8 +54,8 @@ li {
       width: 90%;
 
       .mypageFont {
-        font-size: 1.8rem;
-        font-weight: 700;
+        font-size: 35px;
+        font-weight: 600;
       }
     }
 
@@ -39,50 +63,50 @@ li {
       margin-top: 20px;
       margin-left: 50px;
 
-      .box-left {
+      .boxLeft {
         max-width: 148px;
         max-height: 148px;
         display: table-cell;
         vertical-align: top;
       }
-      .box-body {
+      .boxBody {
         display: table-cell;
         vertical-align: top;
 
-        .box-heading {
+        .boxHeading {
           margin-bottom: 22px;
         }
 
         .nanum {
-          font-size: 25px;
+          font-size: 30px;
           padding-bottom: 25px;
+          padding-left: 35px;
         }
       }
 
-      .nav-bar > li:first-child {
+      .navBar > li:first-child {
         border-right: 1px solid #e9e4db;
       }
-      .nav-bar-item {
+      .navBarItem {
         padding-right: 25px;
         margin-right: 20px;
       }
     }
 
-    .my-tabs {
+    .myTabs {
       display: table;
       margin-left: auto;
       margin-right: auto;
       margin-bottom: 15px;
 
-      .nav-tabs {
+      .navTabs {
         display: table-cell;
 
-        .nav-tabs-list {
-          font-weight: 700;
+        .navTabsList {
           margin-right: 25px;
         }
 
-        .nav-hover:hover {
+        .navHover:hover {
           cursor: pointer;
           color: #908471;
         }
@@ -92,17 +116,18 @@ li {
         }
       }
     }
-    .section-title {
+    .sectionTitle {
       padding-top: 30px;
       padding-bottom: 20px;
       border-top: 1px solid #e9e4db;
       margin-left: 50px;
       width: 90%;
       color: #908471;
+      font-size: 28px;
     }
-    .row-list {
-      padding-top: 100px;
-      border-top: 1px solid #e9e4db;
+
+    .rowList {
+      // border-top: 1px solid #e9e4db;
       margin-left: 50px;
       width: 90%;
       text-align: center;

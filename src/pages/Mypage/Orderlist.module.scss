@@ -1,0 +1,47 @@
+.orderList {
+  border-top: 0.5px solid #e9e4db;
+  margin-left: 50px;
+  width: 90%;
+  border-collapse: collapse;
+  font-size: 18px;
+
+  .order {
+    // padding-bottom: 20px;
+    margin-left: 30px;
+    border-bottom: 0.5px solid #e9e4db;
+    text-align: center;
+    height: 50px;
+    font-weight: 500;
+    color: #908471;
+  }
+
+  .orderListCol {
+    text-align: center;
+  }
+
+  .orderListItem {
+    height: 150px;
+  }
+
+  .borderBottom {
+    border-bottom: 0.5px solid #e9e4db;
+    padding: 10px;
+  }
+
+  .nameColor {
+    color: #908471;
+  }
+
+  .orderNum {
+    font-weight: 500;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.479);
+  }
+  .orderPrice {
+    font-weight: 500;
+  }
+
+  .orderDate {
+    color: rgb(158, 158, 158);
+    font-size: 14.5px;
+  }
+}
