@@ -1,0 +1,104 @@
+.cart-item {
+  .item-brand {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 12px;
+    border: 1px solid #e9e4db;
+    border-width: 1px 0px;
+    font-size: 14px;
+    color: #0a0a0a;
+  }
+
+  .item-body {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 12px;
+  }
+
+  .item-img {
+    width: 110px;
+    height: 161.14px;
+    object-fit: cover;
+    margin-right: 30px;
+  }
+
+  .item-detail {
+    width: 935px;
+
+    .item-name {
+      display: flex;
+      padding-bottom: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #444444;
+    }
+
+    .item-detail-list {
+      display: flex;
+      justify-content: space-between;
+      color: #666666;
+      font-size: 14px;
+
+      .item-select {
+        display: flex;
+      }
+
+      span {
+        width: 100px;
+        margin-right: 36px;
+      }
+
+      .item-option {
+        width: 315px;
+        display: flex;
+        color: #908471;
+        font-weight: 600;
+        margin-left: 5px;
+      }
+
+      .price {
+        margin-right: 45px;
+      }
+
+      .small {
+        width: 30px;
+      }
+
+      .total-price {
+        width: 81px;
+        margin-left: 20px;
+        margin-right: 46px;
+      }
+
+      .count {
+        margin-right: 30px;
+
+        .button {
+          margin: 0px 5px;
+          padding-bottom: 3px;
+          width: 15px;
+          height: 15px;
+          border-radius: 50%;
+          font-size: 18px;
+          border: 2px solid #bfaf96;
+          background: #fff;
+          color: #bfaf96;
+        }
+      }
+
+      .delivery-fee {
+        margin-right: 45px;
+      }
+
+      .delete {
+        margin-left: 5px;
+        margin-right: 20px;
+        border: 1px solid #ddd;
+        color: #bfaf96;
+        background-color: inherit;
+        height: 20px;
+        width: 20px;
+      }
+    }
+  }
+}
