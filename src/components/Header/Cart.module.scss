@@ -1,0 +1,19 @@
+.cart-box {
+  padding-left: 5px;
+  display: flex;
+  align-items: center;
+  img {
+    height: 18px;
+  }
+  div {
+    span {
+      background-color: #bfaf96;
+      width: 15px;
+      color: white;
+      font-weight: bold;
+      padding: 2px 9px;
+      font-size: 10px;
+      border-radius: 8px;
+    }
+  }
+}
