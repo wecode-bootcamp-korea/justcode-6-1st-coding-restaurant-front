@@ -2,19 +2,16 @@ import React, { Component } from 'react';
 import css from './Mypage.module.scss';
 import myimg from './img/myimg.png';
 import Orderlist from './Orderlist';
-// import Orderdetail from './pages/Mypage/Orderdetail';
-// import Point from './pages/Mypage/Point';
-// import Profile from './pages/Mypage/Profile';
-// import Review from './pages/Mypage/Review';
+// import Orderdetail from './Orderdetail';
+// import Point from './Point';
+// import Profile from './Profile';
+import Review from './Review';
 
 const onClickHandler = e => {
-  console.log(e.target.classList.contains(css.bottom));
   const navTabsList = document.getElementsByClassName(css.navTabsList);
-  console.log(navTabsList);
   // 클릭 이벤트가 발생했을 시 메뉴 리스트들을 가져옴
   // 순환을 하면서 bottom 클래스가 있는지 확인
   for (let i = 0; i < navTabsList.length; i++) {
-    console.log(navTabsList[i]);
     if (navTabsList[i].classList.contains(css.bottom)) {
       navTabsList[i].classList.remove(css.bottom);
     }
@@ -83,7 +80,8 @@ function Mypage() {
             </li>
           </ul>
         </nav>
-        <Orderlist />
+        {/* <Orderlist /> */}
+        <Review />
       </div>
     </div>
   );
