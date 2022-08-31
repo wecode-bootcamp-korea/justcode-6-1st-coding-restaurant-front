@@ -10,14 +10,13 @@ function CartItem({ item, cartList, setCartList }) {
   const [itemTotalPrice, setItemTotalPrice] = useState(
     Number(`${count * price}`)
   );
-  const [finalPrice, setFinalPrice] = useState(0);
-
-  cartList && console.log(cartList);
 
   const deleteClick = () => {
-    //item의 아이디와 cartList의 아이디가 같다면 cartList에서 해당 아이템 제거후 setCartList
-    if (item.id === cartList.id) {
-    }
+    const newCartList = cartList.filter((item, index) => {
+      return id != item.id;
+    });
+
+    setCartList(newCartList);
   };
 
   return (

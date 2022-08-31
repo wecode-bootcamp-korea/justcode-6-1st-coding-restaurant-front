@@ -77,7 +77,6 @@ function Cart() {
         </div>
         <div className={css['price-zone']}>
           <div className={css['price-sum']}>
-            {' '}
             <div>상품 합계 </div>
             <div>60,000원 </div>
             <div>+ </div>
