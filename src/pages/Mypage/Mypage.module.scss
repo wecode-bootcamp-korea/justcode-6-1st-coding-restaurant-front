@@ -1,0 +1,125 @@
+@font-face {
+  font-family: 'noto sans KR';
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
+}
+
+.mypageBackground {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: #eee;
+  font-family: 'noto sans KR', sans-serif;
+  font-size: 17px;
+}
+
+.navBarItem,
+.navTabsList {
+  list-style: none;
+  float: left;
+  padding-left: 0px;
+}
+
+.container {
+  position: absolute;
+  left: 50%;
+  margin-left: calc(1140px / -2);
+  width: 1140px;
+  height: auto;
+  margin-top: 100px;
+  border: 1px solid #dddb;
+  background: #fff none repeat scroll 0 0;
+
+  .mypageContent {
+    width: 1140px;
+    border: 1px solid #dddb;
+    background: #fff none repeat scroll 0 0;
+
+    .headerSection {
+      width: 90%;
+      padding-bottom: 0.7rem;
+      margin-top: 20px;
+      margin-left: 50px;
+      border-bottom: 0.5px solid #e9e4db;
+
+      .mypageFont {
+        font-size: 35px;
+        font-weight: 600;
+      }
+    }
+
+    .mypageHeaderBox {
+      margin-top: 20px;
+      margin-left: 50px;
+
+      .boxLeft {
+        display: table-cell;
+        max-width: 148px;
+        max-height: 148px;
+        vertical-align: top;
+      }
+      .boxBody {
+        display: table-cell;
+        vertical-align: top;
+
+        .boxHeading {
+          margin-bottom: 22px;
+        }
+
+        .nanum {
+          padding-bottom: 25px;
+          padding-left: 35px;
+          font-size: 30px;
+        }
+      }
+
+      .navBar > li:first-child {
+        border-right: 1px solid #e9e4db;
+      }
+      .navBarItem {
+        padding-right: 25px;
+        margin-right: 20px;
+      }
+    }
+
+    .myTabs {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 15px;
+
+      .navTabs {
+        display: table-cell;
+
+        .navTabsList {
+          margin-right: 25px;
+        }
+
+        .navHover:hover {
+          cursor: pointer;
+          color: #908471;
+        }
+        .bottom {
+          padding-bottom: 7px;
+          border-bottom: 5px solid #908471;
+        }
+      }
+    }
+    .sectionTitle {
+      width: 90%;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      border-top: 1px solid #e9e4db;
+      margin-left: 50px;
+      color: #908471;
+      font-size: 28px;
+    }
+
+    .rowList {
+      width: 90%;
+      height: 50px;
+      margin-left: 50px;
+      margin-top: 30px;
+      text-align: center;
+    }
+  }
+}
