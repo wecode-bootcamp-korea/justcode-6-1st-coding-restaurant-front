@@ -43,11 +43,6 @@
         display: flex;
       }
 
-      span {
-        width: 100px;
-        margin-right: 36px;
-      }
-
       .item-option {
         width: 315px;
         display: flex;
@@ -56,38 +51,41 @@
         margin-left: 5px;
       }
 
+      span {
+        width: 100px;
+      }
+
+      div {
+        display: flex;
+      }
+
       .price {
-        margin-right: 45px;
+        width: 100px;
       }
 
       .small {
-        width: 30px;
-      }
-
-      .total-price {
-        width: 81px;
-        margin-left: 20px;
-        margin-right: 46px;
+        width: 105px;
       }
 
       .count {
-        margin-right: 30px;
-
         .button {
-          margin: 0px 5px;
-          padding-bottom: 3px;
-          width: 15px;
-          height: 15px;
-          border-radius: 50%;
-          font-size: 18px;
-          border: 2px solid #bfaf96;
-          background: #fff;
-          color: #bfaf96;
+          height: 14px;
+          background-color: inherit;
+          margin: 0px 10px;
+          opacity: 50%;
         }
       }
 
+      .total-price {
+        width: 110px;
+      }
+
       .delivery-fee {
-        margin-right: 45px;
+        width: 105px;
+      }
+
+      .delivery-date {
+        margin-right: 15px;
       }
 
       .delete {

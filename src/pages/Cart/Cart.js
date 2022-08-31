@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import css from './Cart.module.scss';
 import CartItem from '../../components/CartItem/CartItem';
 
 function Cart() {
+  const [cartList, setCartList] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/cartList.json')
+      .then(res => res.json())
+      .then(data => {
+        setCartList(data.carts);
+      });
+  }, []);
+
   return (
     <>
       <nav className={css.nav}>nav바</nav>
@@ -14,7 +24,13 @@ function Cart() {
         </div>
         <ul className={css['order-process']}>
           <li className={css.step}>
-            <div className={css['step-number']}>1</div>
+            <div
+              className={`
+                ${css['step-number']} ${css.active}
+              `}
+            >
+              1
+            </div>
             <span className={css.title}>장바구니</span>
             <img
               className={css['next-step']}
@@ -47,8 +63,12 @@ function Cart() {
             <div className={css['caption-option']}>도착예정일</div>
             <div className={css['caption-delete']}>삭제</div>
           </div>
-          <CartItem />
-          <CartItem />
+          {cartList.length &&
+            cartList.map(item => {
+              return (
+                <CartItem key={item.id} item={item} setCartList={setCartList} />
+              );
+            })}
         </div>
         <div className={css['price-zone']}>
           <div className={css['price-sum']}>
