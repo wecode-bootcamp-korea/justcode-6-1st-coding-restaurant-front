@@ -6,46 +6,40 @@
 }
 
 html {
-  font-family: 'noto sans KR', sans-serif;
-  background: #eee;
-  position: relative;
-  font-size: 17px;
   height: 100%;
+  position: relative;
+  background: #eee;
+  font-family: 'noto sans KR', sans-serif;
+  font-size: 17px;
 }
 
 .navBarItem,
 .navTabsList {
   list-style: none;
-  padding-left: 0px;
   float: left;
+  padding-left: 0px;
 }
 
 .container {
   position: absolute;
   left: 50%;
-
   margin-left: calc(1140px / -2);
   width: 1140px;
-  // height: 590px;
-
   height: auto;
-
   border: 1px solid #dddb;
   background: #fff none repeat scroll 0 0;
 
   .mypageContent {
     width: 1140px;
-    // height: 590px;
-
     border: 1px solid #dddb;
     background: #fff none repeat scroll 0 0;
 
     .headerSection {
-      border-bottom: 0.5px solid #e9e4db;
+      width: 90%;
       padding-bottom: 0.7rem;
       margin-top: 20px;
       margin-left: 50px;
-      width: 90%;
+      border-bottom: 0.5px solid #e9e4db;
 
       .mypageFont {
         font-size: 35px;
@@ -58,9 +52,9 @@ html {
       margin-left: 50px;
 
       .boxLeft {
+        display: table-cell;
         max-width: 148px;
         max-height: 148px;
-        display: table-cell;
         vertical-align: top;
       }
       .boxBody {
@@ -72,9 +66,9 @@ html {
         }
 
         .nanum {
-          font-size: 30px;
           padding-bottom: 25px;
           padding-left: 35px;
+          font-size: 30px;
         }
       }
 
@@ -111,19 +105,18 @@ html {
       }
     }
     .sectionTitle {
+      width: 90%;
       padding-top: 30px;
       padding-bottom: 20px;
       border-top: 1px solid #e9e4db;
       margin-left: 50px;
-      width: 90%;
       color: #908471;
       font-size: 28px;
     }
 
     .rowList {
-      // border-top: 1px solid #e9e4db;
-      margin-left: 50px;
       width: 90%;
+      margin-left: 50px;
       text-align: center;
     }
   }
