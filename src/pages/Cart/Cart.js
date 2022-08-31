@@ -66,7 +66,12 @@ function Cart() {
           {cartList.length &&
             cartList.map(item => {
               return (
-                <CartItem key={item.id} item={item} setCartList={setCartList} />
+                <CartItem
+                  key={item.id}
+                  item={item}
+                  cartList={cartList}
+                  setCartList={setCartList}
+                />
               );
             })}
         </div>

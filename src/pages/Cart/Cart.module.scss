@@ -1,6 +1,7 @@
 * {
-  text-align: center;
   background-color: #eee;
+
+  text-align: center;
 
   .nav {
     height: 130px;
@@ -9,16 +10,16 @@
 
   .container {
     width: 1138px;
-    background-color: white;
-    border: 1px solid #ddd;
     margin: 30px auto;
     padding: 30px;
+    background-color: white;
+    border: 1px solid #ddd;
 
     .content-header {
       background-color: inherit;
       display: flex;
-      vertical-align: middle;
       padding: 38px 0px;
+      vertical-align: middle;
 
       h1 {
         background-color: inherit;
@@ -26,43 +27,43 @@
       }
 
       small {
-        color: #928470;
-        background-color: inherit;
-        font-size: small;
         padding-left: 14px;
         padding-top: 14px;
+        background-color: inherit;
+        color: #928470;
+        font-size: small;
       }
     }
 
     .order-process {
-      background-color: inherit;
-      padding: 38px 0px;
-      color: #928470;
       display: flex;
-      text-align: center;
-      border: 1px solid #e9e4db;
       justify-content: center;
+      padding: 38px 0px;
+      border: 1px solid #e9e4db;
+      background-color: inherit;
+      color: #928470;
+      text-align: center;
 
       li.step {
-        background-color: inherit;
         display: flex;
+        background-color: inherit;
         align-items: center;
 
         .step-number {
           width: 32px;
           height: 32px;
-          border-radius: 50%;
-          font-size: 18px;
-          border: 1px solid #bfaf96;
-          background: #fff;
-          color: #bfaf96;
           padding-top: 1px;
           margin-right: 16px;
+          border: 1px solid #bfaf96;
+          border-radius: 50%;
+          font-size: 18px;
+          background: #fff;
+          color: #bfaf96;
         }
 
         .active {
-          background-color: #908471;
           border-color: #908471;
+          background-color: #908471;
           color: white;
         }
 
@@ -74,31 +75,31 @@
         .next-step {
           width: 12px;
           height: 12px;
+          margin: 0px 25px;
           background-color: inherit;
           opacity: 15%;
-          margin: 0px 25px;
         }
       }
     }
     .cart-list {
       .item-to-order {
-        background-color: inherit;
         display: flex;
-        vertical-align: middle;
         margin: 18px 0px;
         padding: 18px 0px;
         border: 1px solid #e9e4db;
         border-width: 1px 0px;
+        background-color: inherit;
         color: #908471;
         font-size: 23px;
         font-weight: 700px;
+        vertical-align: middle;
       }
 
       .cart-caption-list {
         display: flex;
+        justify-content: space-between;
         padding: 15px 0px;
         background-color: inherit;
-        justify-content: space-between;
         color: #908471;
         font-weight: bold;
         font-size: 13px;
@@ -121,7 +122,6 @@
     .price-zone {
       display: flex;
       justify-content: flex-end;
-      align-items: center;
       padding: 15px 0px;
       margin-bottom: 40px;
       border: 1px solid #e9e4db;
@@ -129,13 +129,14 @@
       color: #666666;
       font-size: 16px;
       font-weight: 700px;
+      align-items: center;
 
       .price-sum {
         display: flex;
         justify-content: flex-end;
-        align-items: center;
-        border-right: 1px solid #e9e4db;
         height: 44px;
+        border-right: 1px solid #e9e4db;
+        align-items: center;
       }
 
       div {
@@ -143,8 +144,8 @@
       }
 
       .final-price {
-        font-size: 33px;
         color: #908471;
+        font-size: 33px;
       }
     }
 
@@ -152,12 +153,12 @@
       margin-bottom: 64px;
 
       button {
-        background-color: inherit;
         width: 240px;
-        border: 1px solid #928470;
         padding: 15px 30px;
-        font-size: 17px;
         margin: 0px 6px;
+        border: 1px solid #928470;
+        background-color: inherit;
+        font-size: 17px;
       }
 
       .button-total {
@@ -167,8 +168,8 @@
     }
 
     .order-more-zone {
-      font-size: 14px;
       margin-bottom: 45px;
+      font-size: 14px;
 
       .order-more {
         margin: 10px 0px;

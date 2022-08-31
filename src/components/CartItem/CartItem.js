@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({ item, setCartList }) {
+function CartItem({ item, cartList, setCartList }) {
   const { id, brandName, itemName, img, option, deliveryFee, deliveryDate } =
     item;
   const [count, setCount] = useState(item.quantity);
@@ -11,6 +11,14 @@ function CartItem({ item, setCartList }) {
     Number(`${count * price}`)
   );
   const [finalPrice, setFinalPrice] = useState(0);
+
+  cartList && console.log(cartList);
+
+  const deleteClick = () => {
+    //item의 아이디와 cartList의 아이디가 같다면 cartList에서 해당 아이템 제거후 setCartList
+    if (item.id === cartList.id) {
+    }
+  };
 
   return (
     <>
@@ -54,7 +62,12 @@ function CartItem({ item, setCartList }) {
 
                 <span className={css['delivery-date']}>{deliveryDate}</span>
 
-                <button className={`${css.small} ${css.delete}`}>x</button>
+                <button
+                  onClick={deleteClick}
+                  className={`${css.small} ${css.delete}`}
+                >
+                  x
+                </button>
               </div>
             </div>
           </div>
