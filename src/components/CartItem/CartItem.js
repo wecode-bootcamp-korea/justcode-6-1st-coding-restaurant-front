@@ -10,13 +10,24 @@ function CartItem({ item, cartList, setCartList }) {
   const [itemTotalPrice, setItemTotalPrice] = useState(
     Number(`${count * price}`)
   );
+  const freeDelivery =
+    itemTotalPrice >= 50000 ? 0 : deliveryFee.toLocaleString();
 
   const deleteClick = () => {
     const newCartList = cartList.filter((item, index) => {
       return id != item.id;
     });
-
     setCartList(newCartList);
+  };
+
+  const countPlus = () => {
+    setCount(count + 1);
+    setItemTotalPrice(Number(`${(count + 1) * price}`));
+  };
+
+  const countMinus = () => {
+    count >= 2 && setCount(count - 1);
+    setItemTotalPrice(Number(`${count * price}`));
   };
 
   return (
@@ -42,11 +53,13 @@ function CartItem({ item, cartList, setCartList }) {
                 <span className={css.price}>{price.toLocaleString()} 원</span>
                 <span className={`${css.small} ${css.count}`}>
                   <img
+                    onClick={countMinus}
                     src=" https://cdn-icons-png.flaticon.com/128/992/992683.png"
                     className={`${css.button} ${css.minus}`}
                   />
                   {count}
                   <img
+                    onClick={countPlus}
                     src="https://cdn-icons-png.flaticon.com/128/3303/3303893.png"
                     className={`${css.button} ${css.plus}`}
                   />
@@ -55,9 +68,7 @@ function CartItem({ item, cartList, setCartList }) {
                 <span className={css['total-price']}>
                   {itemTotalPrice.toLocaleString()} 원
                 </span>
-                <span className={css['delivery-fee']}>
-                  {deliveryFee.toLocaleString()} 원
-                </span>
+                <span className={css['delivery-fee']}>{freeDelivery} 원</span>
 
                 <span className={css['delivery-date']}>{deliveryDate}</span>
 
