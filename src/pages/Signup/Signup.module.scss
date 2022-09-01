@@ -188,6 +188,9 @@
         margin-left: 10px;
         color: #928470;
         text-decoration: underline;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }

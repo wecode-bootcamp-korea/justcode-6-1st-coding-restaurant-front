@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import css from './Signup.module.scss';
 
 function Signup() {
-  const navigate = useNavigate('/login');
+  const navigate = useNavigate();
 
   const [emailSignUp, setEmailSignUp] = useState(false);
   const [isValid, setIsValid] = useState(false);
@@ -276,7 +276,12 @@ function Signup() {
 
           <div className={css['account-postbox']}>
             이미 미래식당 회원이신가요?
-            <a className={css['text-link']} onClick={navigate}>
+            <a
+              className={css['text-link']}
+              onClick={() => {
+                navigate('/login');
+              }}
+            >
               로그인하기
             </a>
           </div>
