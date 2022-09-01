@@ -2,10 +2,14 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 import Login from './Login/Login';
-import Mypage from './Mypage/Mypage';
 import Signup from './Signup/Signup';
+
+import Mypage from './Mypage/Mypage';
 import Orderlist from './Mypage/Orderlist';
 import Review from './Mypage/Review';
+import ReviewModal from './Mypage/ReviewModal';
+
+import Cart from './Cart/Cart';
 import Category from './Category/Category';
 import Shop from './Category/Shop';
 import AboutUs from './Category/AboutUs';
@@ -19,11 +23,15 @@ function Router() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+      </Routes>
+      {/* 마이페이지 관련 라우터 */}
+      <Routes>
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/orderlist" element={<Orderlist />} />
         <Route path="/review" element={<Review />} />
-        {/* <Route path="/cart" element={<Cart />} /> */}
-        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route path="/reviewmodal" element={<ReviewModal />} />
       </Routes>
       <Routes>
         {/* 카테고리 관련 라우터 */}

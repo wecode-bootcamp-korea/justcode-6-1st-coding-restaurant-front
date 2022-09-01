@@ -1,8 +1,15 @@
 import orderReviewCss from './Review.module.scss';
 import css from './Mypage.module.scss';
 import foodImg from './img/cake.png';
+import { useState } from 'react';
+import ReviewModal from './ReviewModal';
 
 function Review() {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const showModal = () => {
+    setModalOpen(true);
+  };
   return (
     <div>
       <div className={css.sectionTitle}>
@@ -20,10 +27,15 @@ function Review() {
               </span>
             </td>
             <td className={orderReviewCss.buttonId}>
-              <button className={orderReviewCss.button}>등록</button>
-              {/* 특정 조건 시 버튼 나타남 */}
-              <button className={orderReviewCss.button}>수정</button>
-              {/* <button className={orderReviewCss.button}>삭제</button> */}
+              <div>
+                <button className={orderReviewCss.button} onClick={showModal}>
+                  등록
+                </button>
+                {modalOpen && <ReviewModal setModalOpen={setModalOpen} />}
+                {/* 특정 조건 시 버튼 나타남 */}
+                <button className={orderReviewCss.button}>수정</button>
+                {/* <button className={orderReviewCss.button}>삭제</button> */}
+              </div>
             </td>
           </tr>
         </tbody>
