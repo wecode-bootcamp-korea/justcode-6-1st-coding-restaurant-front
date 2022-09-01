@@ -7,7 +7,7 @@ function Cart() {
   const [cartList, setCartList] = useState([]);
   const [itemPrice, setItemPrice] = useState([]); //아이템 한개 총 합계
   const [itemPriceArr, setItemPriceArr] = useState([]); //아이템 한개 총 합계의 배열
-  const [itemTotal, setItemTotal] = useState(0); //전체아이템 총 합계
+  const [itemTotal, setItemTotal] = useState([]); //전체아이템 총 합계
   const [totalDelivery, setTotalDelivery] = useState(0); //총 배달료
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
 
@@ -97,7 +97,6 @@ function Cart() {
                     setCartList={setCartList}
                     itemTotal={itemTotal}
                     itemPrice={itemPrice}
-                    setItemPrice={setItemPrice}
                   />
                 );
               })}

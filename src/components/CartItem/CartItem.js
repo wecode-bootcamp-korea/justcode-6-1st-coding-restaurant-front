@@ -13,20 +13,17 @@ function CartItem({ item, cartList, setCartList }) {
   const freeDelivery =
     itemTotalPrice >= 50000 ? '무료배송' : deliveryFee.toLocaleString() + ' 원';
 
-  // useEffect(() => {
-  //   setItemPrice(Number(itemPrice) + Number(itemTotalPrice));
-  // }, [itemTotalPrice]);
-
   const deleteClick = () => {
-    const newCartList = cartList.filter((item, index) => {
+    const newCartList = cartList.filter(item => {
       return id != item.id;
     });
     setCartList(newCartList);
   };
 
   const countPlus = () => {
+    let newPrice = Number(`${(count + 1) * price}`);
     setCount(count + 1);
-    setItemTotalPrice(Number(`${(count + 1) * price}`));
+    setItemTotalPrice(newPrice);
   };
 
   const countMinus = () => {

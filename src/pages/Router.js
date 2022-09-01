@@ -26,10 +26,7 @@ function Router() {
         <Route path="/orderlist" element={<Orderlist />} />
         <Route path="/review" element={<Review />} />
         <Route path="/aboutUs" element={<AboutUs />} />
-      </Routes>
-      <Routes>
-        {/* 카테고리 관련 라우터 */}
-        <Route path="/category/:id" element={<Category />} />
+        <Route path="/products/:id" element={<Category />} />
         <Route path="/shops" element={<Shop />} />
       </Routes>
     </BrowserRouter>
