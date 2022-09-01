@@ -13,7 +13,6 @@ import Shop from './Category/Shop';
 import AboutUs from './Category/AboutUs';
 import Header from '../components/Header/Header';
 
-
 function Router() {
   return (
     <BrowserRouter>
