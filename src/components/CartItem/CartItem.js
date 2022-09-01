@@ -11,7 +11,11 @@ function CartItem({ item, cartList, setCartList }) {
     Number(`${count * price}`)
   );
   const freeDelivery =
-    itemTotalPrice >= 50000 ? 0 : deliveryFee.toLocaleString();
+    itemTotalPrice >= 50000 ? '무료배송' : deliveryFee.toLocaleString() + ' 원';
+
+  // useEffect(() => {
+  //   setItemPrice(Number(itemPrice) + Number(itemTotalPrice));
+  // }, [itemTotalPrice]);
 
   const deleteClick = () => {
     const newCartList = cartList.filter((item, index) => {
@@ -27,7 +31,7 @@ function CartItem({ item, cartList, setCartList }) {
 
   const countMinus = () => {
     count >= 2 && setCount(count - 1);
-    setItemTotalPrice(Number(`${count * price}`));
+    count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
   };
 
   return (
@@ -35,7 +39,7 @@ function CartItem({ item, cartList, setCartList }) {
       <div className={css['cart-item']}>
         <div className={css['item-brand']}>
           {brandName} (도착일이 같다면 50,000 원 이상 무료 배송 / 현재{' '}
-          {itemTotalPrice}원)
+          {itemTotalPrice.toLocaleString()} 원)
         </div>
         <div className={css['item-body']}>
           <img className={css['item-img']} alt={itemName} src={img} />
@@ -68,7 +72,7 @@ function CartItem({ item, cartList, setCartList }) {
                 <span className={css['total-price']}>
                   {itemTotalPrice.toLocaleString()} 원
                 </span>
-                <span className={css['delivery-fee']}>{freeDelivery} 원</span>
+                <span className={css['delivery-fee']}>{freeDelivery}</span>
 
                 <span className={css['delivery-date']}>{deliveryDate}</span>
 
