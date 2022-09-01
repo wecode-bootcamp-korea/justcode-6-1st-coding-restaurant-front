@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import css from './Mypage.module.scss';
 import myimg from './img/myimg.png';
 import Orderlist from './Orderlist';
@@ -6,22 +7,23 @@ import Orderlist from './Orderlist';
 // import Point from './Point';
 // import Profile from './Profile';
 import Review from './Review';
-
-const onClickHandler = e => {
-  const navTabsList = document.getElementsByClassName(css.navTabsList);
-  // 클릭 이벤트가 발생했을 시 메뉴 리스트들을 가져옴
-  // 순환을 하면서 bottom 클래스가 있는지 확인
-  for (let i = 0; i < navTabsList.length; i++) {
-    if (navTabsList[i].classList.contains(css.bottom)) {
-      navTabsList[i].classList.remove(css.bottom);
-    }
-  }
-  e.target.classList.add(css.bottom);
-  // 만약에 있다면 그 클래스를 지워야함
-  // 그리고 클릭한 타겟 엘레멘트에 bottom 클래스를 넣어줌
-};
+import { useState } from 'react';
 
 function Mypage() {
+  const [navigate, setNavigate] = useState(<Orderlist />);
+
+  const onClickHandler = e => {
+    const navTabsList = document.getElementsByClassName(css.navTabsList);
+    for (let i = 0; i < navTabsList.length; i++) {
+      if (navTabsList[i].classList.contains(css.bottom)) {
+        navTabsList[i].classList.remove(css.bottom);
+      }
+    }
+    console.log(e.target);
+    e.target.classList.add(css.bottom);
+    console.log(navigate);
+  };
+
   return (
     <div className={css.mypageBackground}>
       <div className={css.container}>
@@ -55,12 +57,14 @@ function Mypage() {
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
+                name="주문 내역"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover} ${css.bottom}`}
               >
                 주문 내역
               </li>
               <li
+                name="미식평"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
@@ -68,12 +72,14 @@ function Mypage() {
               </li>
 
               <li
+                name="포인트"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
                 포인트
               </li>
               <li
+                name="내 정보"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
@@ -81,8 +87,9 @@ function Mypage() {
               </li>
             </ul>
           </nav>
+          {navigate}
           {/* <Orderlist /> */}
-          <Review />
+          {/* <Review /> */}
         </div>
       </div>
     </div>
