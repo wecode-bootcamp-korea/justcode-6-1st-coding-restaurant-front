@@ -7,10 +7,40 @@ function Signup() {
   const navigate = useNavigate('/login');
 
   const [emailSignUp, setEmailSignUp] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [repassword, setRePassword] = useState('');
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [birthday, setBirthday] = useState('');
   const [gender, setGender] = useState('');
 
   const emailSignUpClick = e => {
     setEmailSignUp(true);
+  };
+
+  const onEmailHandle = e => {
+    setEmail(e.target.value);
+  };
+
+  const onPasswordHandle = e => {
+    setPassword(e.target.value);
+  };
+
+  const onRePasswordHandle = e => {
+    setRePassword(e.target.value);
+  };
+
+  const onNameHandle = e => {
+    setName(e.target.value);
+  };
+
+  const onPhoneHandle = e => {
+    setPhone(e.target.value);
+  };
+
+  const onBirthdayHandle = e => {
+    setBirthday(e.target.value);
   };
 
   const genderClick = e => {
@@ -48,9 +78,9 @@ function Signup() {
           </div>
         </div>
         <div className={css.divideror}>
-          <div className={css['divideror-left']}></div>
+          <div className={css['divideror-line']}></div>
           <span className={css.text}>또는</span>
-          <div className={css['divideror-right']}></div>
+          <div className={css['divideror-line']}></div>
         </div>
         <div className={css['account-type-box']}>
           <a className={css.btn} onClick={emailSignUpClick}>
@@ -68,9 +98,11 @@ function Signup() {
                   id="userId"
                   type="email"
                   name="userId"
+                  value={email}
                   placeholder="이메일을 입력해주세요."
                   required="true"
                   className={css['input-text']}
+                  onChange={onEmailHandle}
                 />
               </div>
               <div className={css['user-password']}>
@@ -81,9 +113,11 @@ function Signup() {
                   id="userPassword"
                   type="password"
                   name="userPassword"
+                  value={password}
                   placeholder="비밀번호를 입력해주세요.(6자리 이상)"
                   required="true"
                   className={css['input-text']}
+                  onChange={onPasswordHandle}
                 />
               </div>
               <div className={css['user-repassword']}>
@@ -94,9 +128,11 @@ function Signup() {
                   id="userRePassword"
                   type="password"
                   name="userRePassword"
+                  value={repassword}
                   placeholder="비밀번호를 다시 한 번 입력해주세요."
                   required="true"
                   className={css['input-text']}
+                  onChange={onRePasswordHandle}
                 />
               </div>
               <div className={css['user-name']}>
@@ -107,9 +143,11 @@ function Signup() {
                   id="userName"
                   type="text"
                   name="name"
+                  value={name}
                   placeholder="이름을 입력해주세요."
                   required="true"
                   className={css['input-text']}
+                  onChange={onNameHandle}
                 />
               </div>
               <div className={css['user-phonenumber']}>
@@ -120,9 +158,11 @@ function Signup() {
                   id="userPhone"
                   type="text"
                   name="phone"
+                  value={phone}
                   placeholder="예 : 01012345678"
                   required="true"
                   className={css['input-text']}
+                  onChange={onPhoneHandle}
                 />
               </div>
               <div className={css['user-birthday']}>
@@ -133,9 +173,11 @@ function Signup() {
                   id="userBirthday"
                   type="text"
                   name="birthday"
+                  value={birthday}
                   placeholder="예 : 19840707"
                   required="true"
                   className={css['input-text']}
+                  onChange={onBirthdayHandle}
                 />
               </div>
               <div className={css['user-gender']}>
