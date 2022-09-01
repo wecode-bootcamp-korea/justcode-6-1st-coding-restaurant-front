@@ -9,6 +9,7 @@ import Orderlist from './Mypage/Orderlist';
 import Review from './Mypage/Review';
 import ReviewModal from './Mypage/ReviewModal';
 import ReviewModalRevise from './Mypage/ReviewModalRevise';
+import Point from './Mypage/Point';
 
 import Cart from './Cart/Cart';
 import Category from './Category/Category';
@@ -34,6 +35,7 @@ function Router() {
         <Route path="/review" element={<Review />} />
         <Route path="/reviewmodal" element={<ReviewModal />} />
         <Route path="/reviewModalRevise" element={<ReviewModalRevise />} />
+        <Route path="/point" element={<Point />} />
       </Routes>
       <Routes>
         {/* 카테고리 관련 라우터 */}
