@@ -80,8 +80,8 @@ function Mypage() {
             </li>
           </ul>
         </nav>
-        <Orderlist />
-        {/* <Review /> */}
+        {/* <Orderlist /> */}
+        <Review />
       </div>
     </div>
   );
