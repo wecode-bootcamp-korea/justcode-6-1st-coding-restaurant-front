@@ -14,14 +14,25 @@ function Mypage() {
 
   const onClickHandler = e => {
     const navTabsList = document.getElementsByClassName(css.navTabsList);
+    const tabName = e.target.getAttribute('name');
+
     for (let i = 0; i < navTabsList.length; i++) {
       if (navTabsList[i].classList.contains(css.bottom)) {
         navTabsList[i].classList.remove(css.bottom);
       }
     }
-    console.log(e.target);
     e.target.classList.add(css.bottom);
-    console.log(navigate);
+
+    switch (tabName) {
+      case 'orderList':
+        return setNavigate(<Orderlist />);
+      case 'review':
+        return setNavigate(<Review />);
+      // case 'point':
+      //   setNavigate(<Point />);
+      // case 'profile':
+      //   setNavigate(<Profile/>);
+    }
   };
 
   return (
@@ -57,14 +68,14 @@ function Mypage() {
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
-                name="주문 내역"
+                name="orderList"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover} ${css.bottom}`}
               >
                 주문 내역
               </li>
               <li
-                name="미식평"
+                name="review"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
@@ -72,14 +83,14 @@ function Mypage() {
               </li>
 
               <li
-                name="포인트"
+                name="point"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
                 포인트
               </li>
               <li
-                name="내 정보"
+                name="profile"
                 onClick={onClickHandler}
                 className={`${css.navTabsList} ${css.navHover}`}
               >

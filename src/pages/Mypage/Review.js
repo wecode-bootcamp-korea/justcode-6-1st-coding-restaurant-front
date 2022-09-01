@@ -38,14 +38,42 @@ function Review() {
                   등록
                 </button>
                 {modalOpen && <ReviewModal setModalOpen={setModalOpen} />}
-                <button className={orderReviewCss.button} onClick={reviseModal}>
+                {/* <button className={orderReviewCss.button} onClick={reviseModal}>
                   수정
                 </button>
                 {ReviewModalReviseOpen && (
                   <ReviewModalRevise
                     setReviewModalReviseOpen={setReviewModalReviseOpen}
                   />
-                )}
+                )} */}
+                {/* 특정 조건 시 버튼 나타남 */}
+                {/* <button className={orderReviewCss.button}>삭제</button> */}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <img className={orderReviewCss.foodImg} src={foodImg}></img>
+            </td>
+            <td className={orderReviewCss.tdSize}>
+              <span className={orderReviewCss.order}>
+                [어디야커피] 달콤살벌 벌꿀 케이크
+              </span>
+            </td>
+            <td className={orderReviewCss.buttonId}>
+              <div>
+                <button className={orderReviewCss.button} onClick={showModal}>
+                  등록
+                </button>
+                {modalOpen && <ReviewModal setModalOpen={setModalOpen} />}
+                {/* <button className={orderReviewCss.button} onClick={reviseModal}>
+                  수정
+                </button>
+                {ReviewModalReviseOpen && (
+                  <ReviewModalRevise
+                    setReviewModalReviseOpen={setReviewModalReviseOpen}
+                  />
+                )} */}
                 {/* 특정 조건 시 버튼 나타남 */}
                 {/* <button className={orderReviewCss.button}>삭제</button> */}
               </div>
