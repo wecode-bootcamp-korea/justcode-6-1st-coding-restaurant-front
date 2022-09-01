@@ -10,10 +10,6 @@ import Category from './Category/Category';
 import Shop from './Category/Shop';
 import AboutUs from './Category/AboutUs';
 import Header from '../components/Header/Header';
-<<<<<<< HEAD
-=======
-
->>>>>>> c120096a082a8c0462ad108687c464939a176319
 
 function Router() {
   return (
