@@ -7,28 +7,56 @@ function Signup() {
   const navigate = useNavigate('/login');
 
   const [emailSignUp, setEmailSignUp] = useState(false);
+  const [isValid, setIsValid] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [repassword, setRePassword] = useState('');
+  const [rePassword, setRePassword] = useState('');
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [birthday, setBirthday] = useState('');
   const [gender, setGender] = useState('');
+  const [femaleBorder, setFemaleBorder] = useState('#d3d3d3');
+  const [maleBorder, setMaleBorder] = useState('#d3d3d3');
 
   const emailSignUpClick = e => {
     setEmailSignUp(true);
   };
 
   const onEmailHandle = e => {
-    setEmail(e.target.value);
+    const emailValue = e.target.value;
+    setEmail(emailValue);
+  };
+
+  const name_pattern = /^[가-힣]{2,4}$/;
+  const phone_pattern = /^010-?([0-9]{3,4})-?([0-9]{4})$/;
+  const birthday_pattern =
+    /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+
+  const userSignUp = () => {
+    email.includes('@') &&
+    2 >= email.split('.').length - 1 >= 1 &&
+    password.length >= 10
+      ? setIsValid(true)
+      : setIsValid(false);
+    if (password !== rePassword) {
+      alert('비밀번호를 확인하세요!');
+    } else if (name_pattern.test(name) == false) {
+      alert('이름은 2~4자리여야 합니다.');
+    } else if (phone_pattern.test(phone) == false) {
+      alert('전화번호는 010으로 시작하는 10~11자리여야 합니다.');
+    } else if (birthday_pattern.test(birthday) == false) {
+      alert('생년월일 8자리를 확인해주세요.');
+    }
   };
 
   const onPasswordHandle = e => {
-    setPassword(e.target.value);
+    const passwordValue = e.target.value;
+    setPassword(passwordValue);
   };
 
   const onRePasswordHandle = e => {
-    setRePassword(e.target.value);
+    const repasswordValue = e.target.value;
+    setRePassword(repasswordValue);
   };
 
   const onNameHandle = e => {
@@ -44,7 +72,15 @@ function Signup() {
   };
 
   const genderClick = e => {
-    setGender(e.target.value);
+    const genderValue = e.target.value;
+    setGender(genderValue);
+    if (genderValue == 1) {
+      setFemaleBorder('#bfaf96');
+      setMaleBorder('#d3d3d3');
+    } else if (genderValue == 2) {
+      setMaleBorder('#bfaf96');
+      setFemaleBorder('#d3d3d3');
+    }
   };
 
   return (
@@ -89,7 +125,7 @@ function Signup() {
           </div>
           {emailSignUp && (
             <div className={css['member-by-email']}>
-              <form className={css['account-form-body']} method="POST">
+              <form className={css['account-form-body']}>
                 <div className={css['user-email']}>
                   <label for="userId" className={css.string}>
                     아이디(이메일)*
@@ -128,7 +164,7 @@ function Signup() {
                     id="userRePassword"
                     type="password"
                     name="userRePassword"
-                    value={repassword}
+                    value={rePassword}
                     placeholder="비밀번호를 다시 한 번 입력해주세요."
                     required="true"
                     className={css['input-text']}
@@ -184,15 +220,23 @@ function Signup() {
                   <label className={css.string}>성별*</label>
                   <div className={css['gender-box']}>
                     <button
+                      style={{
+                        borderColor: femaleBorder,
+                      }}
                       className={css.female}
-                      value="여"
+                      type="button"
+                      value="1"
                       onClick={genderClick}
                     >
                       여
                     </button>
                     <button
+                      style={{
+                        borderColor: maleBorder,
+                      }}
                       className={css.male}
-                      value="남"
+                      type="button"
+                      value="2"
                       onClick={genderClick}
                     >
                       남
@@ -223,6 +267,7 @@ function Signup() {
                     className={css.btn}
                     type="submit"
                     value="회원가입하기"
+                    onClick={userSignUp}
                   />
                 </div>
               </form>

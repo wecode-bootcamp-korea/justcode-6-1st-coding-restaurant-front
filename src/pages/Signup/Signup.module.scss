@@ -1,7 +1,7 @@
 .signup {
   padding: 50px 0;
   background-color: #eee;
-  height: 100%;
+  height: 88vh;
 
   .container {
     display: flex;
@@ -15,13 +15,14 @@
 
     .header {
       text-align: center;
-      margin: 10px;
+      margin: 21px 21px 13px;
       .title {
         font-family: 'Noto Sans', serif;
         font-size: 30px;
       }
       p {
-        margin-top: 5px;
+        margin-top: 13px;
+        font-size: 14px;
         color: #665844;
         opacity: 0.6;
       }
@@ -31,7 +32,7 @@
       width: 100%;
       height: 1px;
       margin: 10px;
-      background-color: #665844;
+      background-color: rgba(102, 88, 68, 0.1);
     }
 
     .social-account {
@@ -43,6 +44,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-top: 6px;
         span {
           align-items: center;
           text-align: center;
@@ -52,7 +54,6 @@
       }
 
       .social-account-facebook {
-        margin-top: 6px;
         background-color: #2c589e;
         &:hover {
           background-color: #1359cb;
@@ -60,7 +61,6 @@
       }
 
       .social-account-naver {
-        margin-top: 6px;
         background-color: #3bb400;
         &:hover {
           background-color: #308e02;
@@ -68,7 +68,6 @@
       }
 
       .social-account-kakao {
-        margin-top: 6px;
         background-color: #fbde00;
         span {
           color: black;
@@ -79,7 +78,6 @@
       }
 
       .social-account-apple {
-        margin-top: 6px;
         background-color: #000000;
         img {
           background-color: white;
@@ -98,14 +96,16 @@
       .divideror-line {
         width: 169px;
         height: 1px;
-        background-color: #665844;
+        background-color: rgba(102, 88, 68, 0.1);
         margin-top: 10px;
       }
       span {
         display: flex;
-        text-align: center;
         width: 32px;
         margin: 0 15px;
+        color: #928470;
+        text-align: center;
+        font-size: 11px;
       }
     }
 
@@ -134,6 +134,7 @@
         input {
           padding: 10px;
           margin-top: 10px;
+          border: 1px solid lightgray;
         }
         .input-text {
           font-size: 17px;
@@ -149,6 +150,10 @@
 
       .user-gender > .gender-box {
         display: inline;
+        button {
+          border: 1px solid lightgrey;
+          border-radius: 3px;
+        }
         .female,
         .male {
           width: 50%;
