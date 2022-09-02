@@ -5,15 +5,29 @@ import css from './Login.module.scss';
 function Login() {
   const navigate = useNavigate();
 
-  const [userId, setUserId] = useState('');
+  const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
 
   const onUserEmailHandle = e => {
-    setUserId(e.target.value);
+    const userEmailValue = e.target.value;
+    setUserEmail(userEmailValue);
   };
 
   const onUserPasswordHandle = e => {
-    setUserPassword(e.target.value);
+    const userPasswordValue = e.target.value;
+    setUserPassword(userPasswordValue);
+  };
+
+  const loginClick = () => {
+    if (
+      !userEmail.includes('@') ||
+      userEmail.split('.').length - 1 < 1 ||
+      userEmail.split('.').length - 1 > 2
+    ) {
+      alert('사용자 이메일이 맞지 않습니다.');
+    } else if (userPassword.length < 10) {
+      alert('비밀번호는 10자리이상이어야 합니다.');
+    }
   };
 
   return (
@@ -24,7 +38,12 @@ function Login() {
         </div>
         <div className={css.divider}></div>
         <div className={css['account-box']}>
-          <form className={css['form-postbox']}>
+          <form
+            className={css['form-postbox']}
+            onSubmit={e => {
+              e.preventDefault();
+            }}
+          >
             <div className={css['form-postbox-id']}>
               <label for="loginUserEmail" className={css.string}>
                 이메일 *
@@ -33,7 +52,7 @@ function Login() {
                 id="loginUserEmail"
                 type="email"
                 name="email"
-                value={userId}
+                value={userEmail}
                 placeholder="이메일을 입력해주세요."
                 required="true"
                 className={css['input-text']}
@@ -56,7 +75,7 @@ function Login() {
               />
             </div>
             <div className={css['login-btn']}>
-              <button className={css.btn} type="submit">
+              <button className={css.btn} type="submit" onClick={loginClick}>
                 로그인하기
               </button>
             </div>
