@@ -9,8 +9,7 @@ import Profile from '../../components/Mypage/Profile';
 
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
-
-  const onClickHandler = e => {
+  const mypageChangeTab = e => {
     const navTabsList = document.getElementsByClassName(css.navTabsList);
     const tabName = e.target.getAttribute('name');
 
@@ -69,30 +68,30 @@ function Mypage() {
             <ul className={css.navTabs}>
               <li
                 name="orderList"
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover} ${css.bottom}`}
+                onClick={mypageChangeTab}
+                className={`${css.navTabsList} ${css.bottom}`}
               >
                 주문 내역
               </li>
               <li
                 name="review"
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover}`}
+                onClick={mypageChangeTab}
+                className={css.navTabsList}
               >
                 미식평
               </li>
 
               <li
                 name="point"
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover}`}
+                onClick={mypageChangeTab}
+                className={css.navTabsList}
               >
                 포인트
               </li>
               <li
                 name="profile"
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover}`}
+                onClick={mypageChangeTab}
+                className={css.navTabsList}
               >
                 내 정보
               </li>
