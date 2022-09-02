@@ -1,5 +1,5 @@
-import pointCss from './Point.module.scss';
-import css from './Mypage.module.scss';
+import pointCss from '../Mypage/Point.module.scss';
+import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState, useEffect } from 'react';
 
 function Point() {

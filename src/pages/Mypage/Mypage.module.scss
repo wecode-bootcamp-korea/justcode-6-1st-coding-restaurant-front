@@ -12,8 +12,7 @@
   font-size: 17px;
 }
 
-.navBarItem,
-.navTabsList {
+.navBarItem {
   list-style: none;
   float: left;
   padding-left: 0px;
@@ -90,13 +89,17 @@
         display: table-cell;
 
         .navTabsList {
+          padding-left: 0px;
           margin-right: 25px;
+          list-style: none;
+          float: left;
         }
 
         .navHover:hover {
           cursor: pointer;
           color: #908471;
         }
+
         .bottom {
           padding-bottom: 7px;
           border-bottom: 5px solid #908471;

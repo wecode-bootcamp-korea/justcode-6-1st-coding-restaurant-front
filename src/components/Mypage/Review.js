@@ -1,6 +1,5 @@
-import orderReviewCss from './Review.module.scss';
-import css from './Mypage.module.scss';
-import foodImg from './img/cake.png';
+import orderReviewCss from '../Mypage/Review.module.scss';
+import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState } from 'react';
 import ReviewModal from './ReviewModal';
 import ReviewModalRevise from './ReviewModalRevise';
@@ -25,7 +24,10 @@ function Review() {
         <tbody>
           <tr>
             <td>
-              <img className={orderReviewCss.foodImg} src={foodImg}></img>
+              <img
+                className={orderReviewCss.foodImg}
+                src={`${process.env.PUBLIC_URL}/image/mypage/cake.png`}
+              ></img>
             </td>
             <td className={orderReviewCss.tdSize}>
               <span className={orderReviewCss.order}>
@@ -53,7 +55,10 @@ function Review() {
           </tr>
           <tr>
             <td>
-              <img className={orderReviewCss.foodImg} src={foodImg}></img>
+              <img
+                className={orderReviewCss.foodImg}
+                src={`${process.env.PUBLIC_URL}/image/mypage/cake.png`}
+              ></img>
             </td>
             <td className={orderReviewCss.tdSize}>
               <span className={orderReviewCss.order}>

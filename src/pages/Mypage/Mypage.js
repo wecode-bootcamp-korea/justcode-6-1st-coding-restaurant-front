@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
-import css from './Mypage.module.scss';
-import myimg from './img/myimg.png';
-import Orderlist from './Orderlist';
-import Point from './Point';
-import Review from './Review';
 import { useState } from 'react';
-// import Orderdetail from './Orderdetail';
-// import Profile from './Profile';
+import css from './Mypage.module.scss';
+import Orderlist from '../../components/Mypage/Orderlist';
+import Point from '../../components/Mypage/Point';
+import Review from '../../components/Mypage/Review';
+import Profile from '../../components/Mypage/Profile';
 
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
@@ -30,8 +28,8 @@ function Mypage() {
         return setNavigate(<Review />);
       case 'point':
         return setNavigate(<Point />);
-      // case 'profile':
-      //  return setNavigate(<Profile/>);
+      case 'profile':
+        return setNavigate(<Profile />);
     }
   };
 
@@ -44,7 +42,9 @@ function Mypage() {
           </header>
           <section className={css.mypageHeaderBox}>
             <div className={css.boxLeft}>
-              <img src={myimg}></img>
+              <img
+                src={`${process.env.PUBLIC_URL}/image/mypage/profile.jpg`}
+              ></img>
             </div>
             <div className={css.boxBody}>
               <div className={css.boxHeading}>
