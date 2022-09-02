@@ -8,7 +8,7 @@ function Point() {
   useEffect(() => {
     fetch('/data/point.json')
       .then(res => res.json())
-      .then(data => setpoint(data));
+      .then(data => setpoint(data.data));
   }, []);
 
   return (

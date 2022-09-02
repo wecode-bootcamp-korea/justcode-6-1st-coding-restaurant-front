@@ -1,7 +1,39 @@
 import profileCss from './Profile.module.scss';
 import css from '../../pages/Mypage/Mypage.module.scss';
+import { useState, useEffect } from 'react';
 
 function Profile() {
+  const [myProfile, setMyProfile] = useState({
+    email: '',
+    name: '',
+    phoneNumber: '',
+    postalCode: '',
+    address: '',
+    address1: '',
+    gender: '',
+    birthday: '',
+    isConsent: false,
+  });
+
+  useEffect(() => {
+    fetch('/data/myprofile.json')
+      .then(res => res.json())
+      .then(data =>
+        setMyProfile({
+          ...myProfile,
+          email: data.data.email,
+          name: data.data.name,
+          phoneNumber: data.data.phoneNumber,
+          postalCode: data.data.postalCode,
+          address: data.data.address,
+          address1: data.data.address1,
+          gender: data.data.gender,
+          birthday: data.data.birthday,
+          isConsent: data.data.isConsent,
+        })
+      );
+  }, []);
+
   return (
     <div>
       <div className={profileCss.myProfile}>
@@ -12,7 +44,10 @@ function Profile() {
           <div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>아이디(이메일)</label>
-              <input className={profileCss.formInput}></input>
+              <input
+                className={profileCss.formInput}
+                defaultValue={myProfile.email}
+              ></input>
             </div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>비밀번호</label>
@@ -22,7 +57,10 @@ function Profile() {
             </div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>이름</label>
-              <input className={profileCss.formInput}></input>
+              <input
+                className={profileCss.formInput}
+                defaultValue={myProfile.name}
+              ></input>
             </div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>휴대폰 번호</label>
@@ -33,8 +71,9 @@ function Profile() {
               <div className={profileCss.inputBox}>
                 <div>
                   <input
-                    className={`${profileCss.formInput} ${profileCss.addrNum}`}
+                    className={profileCss.addrNum}
                     placeholder="우편번호"
+                    defaultValue={myProfile.postalCode}
                   ></input>
                   <span>
                     <button className={profileCss.formBtn}>
@@ -45,10 +84,12 @@ function Profile() {
                 <input
                   className={profileCss.formInput}
                   placeholder="기본 주소"
+                  defaultValue={myProfile.address}
                 ></input>
                 <input
                   className={profileCss.formInput}
                   placeholder="상세 주소"
+                  defaultValue={myProfile.address1}
                 ></input>
               </div>
             </div>
@@ -57,9 +98,17 @@ function Profile() {
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>성별</label>
               <div className={profileCss.genderBox}>
-                <input type="radio" name="gender"></input>
+                <input
+                  type="radio"
+                  name="gender"
+                  checked={myProfile.gender === '여성'}
+                ></input>
                 <span className={profileCss.gender}>여성</span>
-                <input type="radio" name="gender"></input>
+                <input
+                  type="radio"
+                  name="gender"
+                  checked={myProfile.gender === '남성'}
+                ></input>
                 <span className={profileCss.gender}>남성</span>
               </div>
             </div>
@@ -79,7 +128,11 @@ function Profile() {
 
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>정보수신동의</label>
-              <input className={profileCss.consent} type="checkbox"></input>
+              <input
+                className={profileCss.consent}
+                type="checkbox"
+                checked={myProfile.isConsent}
+              ></input>
               <span>미래식당의 이벤트, 프로모션 수신 동의(선택)</span>
             </div>
           </div>

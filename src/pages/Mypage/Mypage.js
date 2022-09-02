@@ -1,14 +1,35 @@
 import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useState } from 'react';
 import css from './Mypage.module.scss';
 import Orderlist from '../../components/Mypage/Orderlist';
 import Point from '../../components/Mypage/Point';
 import Review from '../../components/Mypage/Review';
 import Profile from '../../components/Mypage/Profile';
+import { useState, useEffect } from 'react';
 
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    profileImg: '',
+    myOrderCnt: 0,
+    point: 0,
+  });
+
+  useEffect(() => {
+    fetch('/data/mypage.json')
+      .then(res => res.json())
+      .then(data =>
+        setUserInfo({
+          ...userInfo,
+          name: data.data.name,
+          profileImg: data.data.profileImg,
+          myOrderCnt: data.data.myOrderCnt,
+          point: data.data.point,
+        })
+      );
+  }, []);
+
   const mypageChangeTab = e => {
     const navTabsList = document.getElementsByClassName(css.navTabsList);
     const tabName = e.target.getAttribute('name');
@@ -42,28 +63,32 @@ function Mypage() {
           <section className={css.mypageHeaderBox}>
             <div className={css.boxLeft}>
               <img
-                src={`${process.env.PUBLIC_URL}/image/mypage/profile.jpg`}
+                className={css.profileimg}
+                src={
+                  userInfo.profileImg !== ''
+                    ? userInfo.profileImg
+                    : `${process.env.PUBLIC_URL}/image/mypage/profile.jpg`
+                }
               ></img>
             </div>
             <div className={css.boxBody}>
               <div className={css.boxHeading}>
-                <span className={css.nanum}>이은지</span>
+                <span className={css.nanum}>{userInfo.name}</span>
               </div>
               <div>
                 <ul className={css.navBar}>
                   <li className={css.navBarItem}>
                     먹어본 메뉴
-                    <span> 0개</span>
+                    <span> {userInfo.myOrderCnt}개</span>
                   </li>
                   <li className={css.navBarItem}>
                     미식 포인트
-                    <span> 0원</span>
+                    <span> {userInfo.point}원</span>
                   </li>
                 </ul>
               </div>
             </div>
           </section>
-
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
