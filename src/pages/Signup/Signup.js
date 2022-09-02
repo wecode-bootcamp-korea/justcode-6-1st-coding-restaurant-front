@@ -30,7 +30,7 @@ function Signup() {
   const name_pattern = /^[가-힣]{2,4}$/;
   const phone_pattern = /^010-?([0-9]{3,4})-?([0-9]{4})$/;
   const birthday_pattern =
-    /^(19[0-9][0-9]|20\d{2})-(0[0-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/;
+    /^(19[0-9][0-9]|20\d{2})(0[0-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])$/;
 
   const userSignUp = () => {
     email.includes('@') &&
@@ -46,6 +46,25 @@ function Signup() {
       alert('전화번호는 010으로 시작하는 10~11자리여야 합니다.');
     } else if (birthday_pattern.test(birthday) == false) {
       alert('생년월일 8자리를 확인해주세요.');
+    } else if (!gender) {
+      alert('성별을 확인해주세요.');
+    } else {
+      fetch('http://localhost:8000/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+          name: name,
+          phoneNumber: phone,
+          birth: birthday,
+          gender: gender,
+        }),
+      })
+        .then(response => response.json())
+        .then(result => alert(result.message));
     }
   };
 
@@ -74,10 +93,10 @@ function Signup() {
   const genderClick = e => {
     const genderValue = e.target.value;
     setGender(genderValue);
-    if (genderValue == 1) {
+    if (genderValue == 'female') {
       setFemaleBorder('#bfaf96');
       setMaleBorder('#d3d3d3');
-    } else if (genderValue == 2) {
+    } else if (genderValue == 'male') {
       setMaleBorder('#bfaf96');
       setFemaleBorder('#d3d3d3');
     }
@@ -125,7 +144,12 @@ function Signup() {
           </div>
           {emailSignUp && (
             <div className={css['member-by-email']}>
-              <form className={css['account-form-body']}>
+              <form
+                className={css['account-form-body']}
+                onSubmit={e => {
+                  e.preventDefault();
+                }}
+              >
                 <div className={css['user-email']}>
                   <label for="userId" className={css.string}>
                     아이디(이메일)*
@@ -150,7 +174,7 @@ function Signup() {
                     type="password"
                     name="userPassword"
                     value={password}
-                    placeholder="비밀번호를 입력해주세요.(6자리 이상)"
+                    placeholder="비밀번호를 입력해주세요.(10자리 이상)"
                     required="true"
                     className={css['input-text']}
                     onChange={onPasswordHandle}
@@ -225,7 +249,7 @@ function Signup() {
                       }}
                       className={css.female}
                       type="button"
-                      value="1"
+                      value="female"
                       onClick={genderClick}
                     >
                       여
@@ -236,7 +260,7 @@ function Signup() {
                       }}
                       className={css.male}
                       type="button"
-                      value="2"
+                      value="male"
                       onClick={genderClick}
                     >
                       남
