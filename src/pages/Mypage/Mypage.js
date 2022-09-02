@@ -87,7 +87,6 @@ function Mypage() {
               </div>
             </div>
           </section>
-
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
