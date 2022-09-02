@@ -70,14 +70,14 @@ function Mypage() {
               <li
                 name="orderList"
                 onClick={mypageChangeTab}
-                className={`${css.navTabsList} ${css.navHover} ${css.bottom}`}
+                className={`${css.navTabsList} ${css.bottom}`}
               >
                 주문 내역
               </li>
               <li
                 name="review"
                 onClick={mypageChangeTab}
-                className={`${css.navTabsList} ${css.navHover}`}
+                className={css.navTabsList}
               >
                 미식평
               </li>
@@ -85,14 +85,14 @@ function Mypage() {
               <li
                 name="point"
                 onClick={mypageChangeTab}
-                className={`${css.navTabsList} ${css.navHover}`}
+                className={css.navTabsList}
               >
                 포인트
               </li>
               <li
                 name="profile"
                 onClick={mypageChangeTab}
-                className={`${css.navTabsList} ${css.navHover}`}
+                className={css.navTabsList}
               >
                 내 정보
               </li>

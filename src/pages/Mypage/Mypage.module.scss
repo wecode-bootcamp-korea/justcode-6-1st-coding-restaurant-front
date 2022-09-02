@@ -7,11 +7,12 @@
   font-size: 17px;
 }
 
-.navBarItem,
-.navTabsList {
+.navBarItem {
   list-style: none;
   float: left;
   padding-left: 0px;
+  padding-right: 25px;
+  margin-right: 20px;
 }
 
 .container {
@@ -70,10 +71,6 @@
       .navBar > li:first-child {
         border-right: 1px solid #e9e4db;
       }
-      .navBarItem {
-        padding-right: 25px;
-        margin-right: 20px;
-      }
     }
 
     .myTabs {
@@ -86,13 +83,17 @@
         display: table-cell;
 
         .navTabsList {
+          list-style: none;
+          float: left;
+          padding-left: 0px;
           margin-right: 25px;
         }
 
-        .navHover:hover {
+        .navTabsList:hover {
           cursor: pointer;
           color: #908471;
         }
+
         .bottom {
           padding-bottom: 7px;
           border-bottom: 5px solid #908471;
