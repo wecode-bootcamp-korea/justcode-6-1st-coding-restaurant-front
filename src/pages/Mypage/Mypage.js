@@ -78,13 +78,14 @@ function Mypage() {
                 name="review"
                 onClick={mypageChangeTab}
                 className={css.navTabsList}
+              >
                 미식평
               </li>
 
               <li
                 name="point"
                 onClick={mypageChangeTab}
-                className={css.navTabsList
+                className={css.navTabsList}
               >
                 포인트
               </li>
