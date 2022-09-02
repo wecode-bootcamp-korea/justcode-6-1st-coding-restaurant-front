@@ -12,7 +12,7 @@ import { useState } from 'react';
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
 
-  const onClickHandler = e => {
+  const mypageChangeTab = e => {
     const navTabsList = document.getElementsByClassName(css.navTabsList);
     const tabName = e.target.getAttribute('name');
 
@@ -31,7 +31,7 @@ function Mypage() {
       // case 'point':
       //   setNavigate(<Point />);
       // case 'profile':
-      //   setNavigate(<Profile/>);
+      //   setNavigate(<Profile />);
     }
   };
 
@@ -69,14 +69,14 @@ function Mypage() {
             <ul className={css.navTabs}>
               <li
                 name="orderList"
-                onClick={onClickHandler}
+                onClick={mypageChangeTab}
                 className={`${css.navTabsList} ${css.navHover} ${css.bottom}`}
               >
                 주문 내역
               </li>
               <li
                 name="review"
-                onClick={onClickHandler}
+                onClick={mypageChangeTab}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
                 미식평
@@ -84,14 +84,14 @@ function Mypage() {
 
               <li
                 name="point"
-                onClick={onClickHandler}
+                onClick={mypageChangeTab}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
                 포인트
               </li>
               <li
                 name="profile"
-                onClick={onClickHandler}
+                onClick={mypageChangeTab}
                 className={`${css.navTabsList} ${css.navHover}`}
               >
                 내 정보
@@ -99,8 +99,6 @@ function Mypage() {
             </ul>
           </nav>
           {navigate}
-          {/* <Orderlist /> */}
-          {/* <Review /> */}
         </div>
       </div>
     </div>
