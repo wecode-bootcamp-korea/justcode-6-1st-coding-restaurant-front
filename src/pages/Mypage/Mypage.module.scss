@@ -1,22 +1,24 @@
-@font-face {
-  font-family: 'noto sans KR';
-  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap');
-}
-
 .mypageBackground {
   width: 100vw;
   height: 100vh;
   position: relative;
   background: #eee;
-  font-family: 'noto sans KR', sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
   font-size: 17px;
 }
 
-.navBarItem,
-.navTabsList {
+.navBarItem {
   list-style: none;
   float: left;
-  padding-left: 0px;
+  padding-left: 10px;
+  padding-right: 25px;
+  margin-right: 20px;
+}
+
+.profileimg {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
 }
 
 .container {
@@ -66,6 +68,7 @@
         }
 
         .nanum {
+          padding-left: 8px;
           padding-bottom: 25px;
           font-size: 30px;
         }
@@ -73,10 +76,6 @@
 
       .navBar > li:first-child {
         border-right: 1px solid #e9e4db;
-      }
-      .navBarItem {
-        padding-right: 25px;
-        margin-right: 20px;
       }
     }
 
@@ -90,13 +89,17 @@
         display: table-cell;
 
         .navTabsList {
+          list-style: none;
+          float: left;
+          padding-left: 0px;
           margin-right: 25px;
         }
 
-        .navHover:hover {
+        .navTabsList:hover {
           cursor: pointer;
           color: #908471;
         }
+
         .bottom {
           padding-bottom: 7px;
           border-bottom: 5px solid #908471;
