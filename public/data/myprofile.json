@@ -1,0 +1,13 @@
+{
+  "data": {
+    "email": "zmzmzm@gmail.com",
+    "name": "이은지",
+    "phoneNumber": "010-0110-0110",
+    "postalCode": "41123",
+    "address": "서울시 강남구 테헤란로 23",
+    "address1": "스타필드 코엑스몰",
+    "gender": "여성",
+    "birthday": "19991209",
+    "isConsent": true
+  }
+}

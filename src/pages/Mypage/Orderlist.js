@@ -6,7 +6,7 @@ function Orderlist() {
   const [orderList, setOrderListArray] = useState([]);
 
   useEffect(() => {
-    fetch('/data/OrderlistData.json')
+    fetch('/data/Orderlist.json')
       .then(res => res.json())
       .then(data => setOrderListArray(data));
   }, []);

@@ -10,9 +10,15 @@
 .navBarItem {
   list-style: none;
   float: left;
-  padding-left: 0px;
+  padding-left: 10px;
   padding-right: 25px;
   margin-right: 20px;
+}
+
+.profileimg {
+  width: 144px;
+  height: 144px;
+  border-radius: 50%;
 }
 
 .container {
@@ -62,6 +68,7 @@
         }
 
         .nanum {
+          padding-left: 8px;
           padding-bottom: 25px;
           font-size: 30px;
         }
