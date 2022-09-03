@@ -1,0 +1,42 @@
+{
+  "name": "100%호밀빵",
+  "description": "담백하게 즐기는 건강한 호밀빵",
+  "contentImg": "공통이미지url",
+  "review": [
+    {
+      "id": 1,
+      "name": "박예선",
+      "rating": 3,
+      "content": "고소해요",
+      "reviewCommentId": [3, 4, 5, 6]
+    },
+    {
+      "id": 2,
+      "name": "김코딩",
+      "rating": 5,
+      "title": "아침에 먹기 좋아요",
+      "content": "재구매임...."
+    }
+  ],
+  "price": 10000,
+  "bundle": [
+    {
+      "id": 1,
+      "option": "소",
+      "price": 10000,
+      "quantity": null
+    },
+    {
+      "id": 2,
+      "option": "중",
+      "price": 15000,
+      "quantity": null
+    },
+    {
+      "id": 3,
+      "option": "대",
+      "price": 20000,
+      "quantity": null
+    }
+  ]
+}
