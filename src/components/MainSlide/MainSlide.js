@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 
 import css from './MainSlide.module.scss';
 
-// 슬라이드 이미지 넣기ㅇ
-// 버튼 구현ㅇ
-// 버튼 누르면 오른쪽 왼쪽 이미지 위치 바뀜
-// 맨끝으로 오면 반대편 끝으로 이어지게
-// 이미지 부드럽게 바뀌기
-// 이미지 바뀌면 우측아래 숫자 바뀌게
-
 function MainSlide() {
   const [imgData, setImgData] = useState([]);
   const [imgLocation, setImgLocation] = useState(0);

@@ -37,12 +37,10 @@
     top: 42%;
     width: 100vw;
     align-items: center;
-    //overflow: hidden;
+    overflow: hidden;
 
     .description-box {
       display: flex;
-      // position: relative;
-      //width: 300vw;
 
       .description {
         width: 100vw;
@@ -56,16 +54,6 @@
           margin-top: 5px;
         }
       }
-    }
-
-    .button-right {
-      position: absolute;
-      left: 93.45%;
-    }
-
-    .button-left {
-      position: absolute;
-      transform: scaleX(-1);
     }
 
     .button {
@@ -85,6 +73,16 @@
       &:hover {
         opacity: 65%;
       }
+    }
+
+    .button-right {
+      position: absolute;
+      left: 93.45%;
+    }
+
+    .button-left {
+      position: absolute;
+      transform: scaleX(-1);
     }
 
     .slide-idx {
