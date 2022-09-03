@@ -6,7 +6,7 @@ function MainSlide() {
   const [imgData, setImgData] = useState([]);
   const [imgLocation, setImgLocation] = useState(0);
   const [slideIdx, setSlideIdx] = useState(0);
-  const slideLen = imgData.length; //5
+  const slideLen = imgData.length;
 
   const rightBtnClick = () => {
     if (slideIdx < slideLen - 1) {
