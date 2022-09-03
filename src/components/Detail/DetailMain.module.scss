@@ -1,6 +1,18 @@
 .main {
-  width: 847.5px;
+  width: 75%;
   padding: 55px;
   border: 1px solid #ddd;
   background-color: white;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .content-tab {
+    display: flex;
+  }
+  .review-box {
+    border: 1px solid #ddd;
+  }
 }

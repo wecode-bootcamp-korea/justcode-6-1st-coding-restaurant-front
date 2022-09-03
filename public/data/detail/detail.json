@@ -11,7 +11,7 @@
       "img": "sample url"
     }
   ],
-  "contentImg": "공통이미지url",
+  "contentImg": "https://cdn.pixabay.com/photo/2015/06/10/08/42/bibimbap-804611__340.jpg",
   "review": [
     {
       "id": 1,
@@ -25,7 +25,8 @@
       "name": "김코딩",
       "rating": 5,
       "title": "아침에 먹기 좋아요",
-      "content": "재구매임...."
+      "content": "재구매임....",
+      "reviewCommentId": []
     }
   ],
   "price": 10000,

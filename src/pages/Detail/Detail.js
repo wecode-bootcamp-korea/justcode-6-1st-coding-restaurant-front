@@ -13,12 +13,8 @@ const Detail = () => {
   return (
     <div className={css.detail}>
       <div className={css.container}>
-        <div className={css.main}>
-          <DetailMain />
-        </div>
-        <div className={css.sub}>
-          <DetailSub />
-        </div>
+        <DetailMain />
+        <DetailSub />
       </div>
     </div>
   );
