@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Navigate } from 'react-router-dom';
 import css from './Mypage.module.scss';
 import myimg from './img/myimg.png';
 import Orderlist from './Orderlist';
@@ -6,22 +7,34 @@ import Orderlist from './Orderlist';
 // import Point from './Point';
 // import Profile from './Profile';
 import Review from './Review';
-
-const onClickHandler = e => {
-  const navTabsList = document.getElementsByClassName(css.navTabsList);
-  // 클릭 이벤트가 발생했을 시 메뉴 리스트들을 가져옴
-  // 순환을 하면서 bottom 클래스가 있는지 확인
-  for (let i = 0; i < navTabsList.length; i++) {
-    if (navTabsList[i].classList.contains(css.bottom)) {
-      navTabsList[i].classList.remove(css.bottom);
-    }
-  }
-  e.target.classList.add(css.bottom);
-  // 만약에 있다면 그 클래스를 지워야함
-  // 그리고 클릭한 타겟 엘레멘트에 bottom 클래스를 넣어줌
-};
+import { useState } from 'react';
 
 function Mypage() {
+  const [navigate, setNavigate] = useState(<Orderlist />);
+
+  const mypageChangeTab = e => {
+    const navTabsList = document.getElementsByClassName(css.navTabsList);
+    const tabName = e.target.getAttribute('name');
+
+    for (let i = 0; i < navTabsList.length; i++) {
+      if (navTabsList[i].classList.contains(css.bottom)) {
+        navTabsList[i].classList.remove(css.bottom);
+      }
+    }
+    e.target.classList.add(css.bottom);
+
+    switch (tabName) {
+      case 'orderList':
+        return setNavigate(<Orderlist />);
+      case 'review':
+        return setNavigate(<Review />);
+      // case 'point':
+      //   setNavigate(<Point />);
+      // case 'profile':
+      //   setNavigate(<Profile />);
+    }
+  };
+
   return (
     <div className={css.mypageBackground}>
       <div className={css.container}>
@@ -55,34 +68,37 @@ function Mypage() {
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover} ${css.bottom}`}
+                name="orderList"
+                onClick={mypageChangeTab}
+                className={`${css.navTabsList} ${css.bottom}`}
               >
                 주문 내역
               </li>
               <li
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover}`}
+                name="review"
+                onClick={mypageChangeTab}
+                className={css.navTabsList}
               >
                 미식평
               </li>
 
               <li
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover}`}
+                name="point"
+                onClick={mypageChangeTab}
+                className={css.navTabsList}
               >
                 포인트
               </li>
               <li
-                onClick={onClickHandler}
-                className={`${css.navTabsList} ${css.navHover}`}
+                name="profile"
+                onClick={mypageChangeTab}
+                className={css.navTabsList}
               >
                 내 정보
               </li>
             </ul>
           </nav>
-          {/* <Orderlist /> */}
-          <Review />
+          {navigate}
         </div>
       </div>
     </div>
