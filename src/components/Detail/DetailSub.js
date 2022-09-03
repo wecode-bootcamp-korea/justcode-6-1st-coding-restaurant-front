@@ -8,7 +8,7 @@ const DetailSub = ({ price, bundles }) => {
 
   return (
     <div className={css.sub}>
-      <div>가격 : {price.toLocaleString()} 원</div>
+      <div>가격 : {price.toLocaleString()} 원부터~</div>
       <div>배송비 : {deliveryFee}</div>
       <div className={css['option']}>
         메뉴 선택하기 :{' '}

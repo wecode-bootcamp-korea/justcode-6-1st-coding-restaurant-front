@@ -7,11 +7,20 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
     <div className={css.main}>
       <div>{name}</div>
       <div>{description}</div>
-      <div>이미지 슬라이드</div>
+      <div>
+        이미지 슬라이드
+        <img src={slideImgs[0].img} />
+      </div>
       <div>
         <div className={css['content-tab']}>
+          <div>제품 상세</div>
+          <div> /미식평</div>
+          <div> /배송정보</div>
+          <div> /질문과답변(임시)</div>
+        </div>
+        <div className={css['content-box']}>
           <div>
-            <img src="/image/sample/bibimbap.jpg" />
+            <img src={content} />
           </div>
           <div>
             {reviews.map(review => {
@@ -22,10 +31,14 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
                     별점: {review.rating}
                   </div>
                   <div className={css['review-content']}>{review.content}</div>
-                  {!review.reviewCommentId == null && (
+                  {!(review.reviewCommentId == null) && (
                     <div>
                       {review.reviewCommentId.map(reviewComment => {
-                        return <div key={reviewComment}>{reviewComment}</div>;
+                        return (
+                          <div key={reviewComment}>
+                            대댓 id : {reviewComment}
+                          </div>
+                        );
                       })}
                     </div>
                   )}
@@ -33,9 +46,7 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
               );
             })}
           </div>
-
-          <div>배송정보</div>
-          <div>질문과답변(임시)</div>
+          <div>배송정보이미지</div>
         </div>
       </div>
     </div>

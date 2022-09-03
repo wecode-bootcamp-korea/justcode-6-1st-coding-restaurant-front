@@ -12,57 +12,81 @@ import css from './Detail.module.scss';
 
 const Detail = () => {
   const params = useParams();
-  const [id, setId] = useState(0);
+  // const [id, setId] = useState(0);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [slideImgs, setSlideImgs] = useState([]);
-  const [contentImg, setContentImg] = useState('');
+  const [content, setContent] = useState('');
   const [reviews, setReviews] = useState([]);
   const [price, setPrice] = useState(0);
   const [bundles, setBundles] = useState([]);
 
-  // useEffect(() => {
-  //   fetch('/data/detail/detail.json')
+  //목데이터 사용해 fetch
+  useEffect(() => {
+    fetch('/data/detail/detail.json')
+      .then(res => res.json())
+      .then(data => {
+        const {
+          name,
+          description,
+          fixedprice,
+          content,
+          bundles,
+          images,
+          reviews,
+        } = data;
+        setName(name);
+        setDescription(description);
+        setSlideImgs(images);
+        setContent(content);
+        setReviews(reviews);
+        setPrice(fixedprice);
+        setBundles(bundles);
+      });
+  }, []);
+
+  // <<<<<< 임시 api >>>>>>
+  //
+  // useEffect(
+  //   fetch('백앤드서버', {
+  //     headers: params.id,
+  //   })
   //     .then(res => res.json())
   //     .then(data => {
   //       const {
-  //         id,
   //         name,
   //         description,
-  //         images,
-  //         contentImg,
-  //         reviews,
   //         fixedprice,
+  //         content,
   //         bundles,
-  //       } = data.data[0];
-  //       setId(id);
+  //         images,
+  //         reviews,
+  //       } = data;
   //       setName(name);
   //       setDescription(description);
   //       setSlideImgs(images);
-  //       setContentImg(contentImg);
+  //       setContent(content);
   //       setReviews(reviews);
-  //       setPrice(fixedprice);
+  //       setFixedPrice(fixedprice);
   //       setBundles(bundles);
-  //     });
-  // }, []);
-
-  useEffect('/data/detail/detail.json', {
-    headers: params.id,
-  })
-    .then(res => res.json())
-    .then(data => console.log(data));
+  //     console.log(data.id);
+  //     }),
+  //   []
+  // );
 
   return (
     <div className={css.detail}>
       <div className={css.container}>
-        <DetailMain
-          name={name}
-          description={description}
-          slideImgs={slideImgs}
-          contentImg={contentImg}
-          reviews={reviews}
-        />
-        <DetailSub price={price} bundles={bundles} />
+        {name && description && slideImgs && content && reviews && (
+          <DetailMain
+            name={name}
+            description={description}
+            slideImgs={slideImgs}
+            content={content}
+            reviews={reviews}
+          />
+        )}
+        {price && bundles && <DetailSub price={price} bundles={bundles} />}
       </div>
     </div>
   );
