@@ -37,7 +37,7 @@ function MainSlide() {
   };
 
   useEffect(() => {
-    fetch('/data/mainSlide.json')
+    fetch('/data/main/mainSlide.json')
       .then(res => res.json())
       .then(data => {
         setImgData(data.items);
