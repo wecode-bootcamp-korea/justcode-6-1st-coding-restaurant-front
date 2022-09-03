@@ -5,7 +5,7 @@ import myimg from './img/myimg.png';
 import Orderlist from './Orderlist';
 import Point from './Point';
 import Review from './Review';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 // import Orderdetail from './Orderdetail';
 // import Profile from './Profile';
 
@@ -66,10 +66,13 @@ function Mypage() {
             <div className={css.boxLeft}>
               <img
                 className={css.profileimg}
-               
-                className={css.profileimg}
-                src={userInfo.profileImg !== '' ? userInfo.profileImg : userInfo.profileImg !== '' ? userInfo.profileImg : myimg}
-              
+                src={
+                  userInfo.profileImg !== ''
+                    ? userInfo.profileImg
+                    : userInfo.profileImg !== ''
+                    ? userInfo.profileImg
+                    : myimg
+                }
               ></img>
             </div>
             <div className={css.boxBody}>
@@ -104,14 +107,13 @@ function Mypage() {
                 onClick={mypageChangeTab}
                 className={css.navTabsList}
               >
-              >
                 미식평
               </li>
 
               <li
                 name="point"
                 onClick={mypageChangeTab}
-                className={css.navTabsList}}
+                className={css.navTabsList}
               >
                 포인트
               </li>
