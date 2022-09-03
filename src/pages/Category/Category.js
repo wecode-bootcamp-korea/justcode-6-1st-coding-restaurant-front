@@ -7,33 +7,45 @@ import Title from '../../components/Category/Title';
 
 function Category() {
   const [data, setData] = useState([]);
+  const [category, setCategory] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
-  // console.log(location);
+  /////////////////////목데이터 사용//////////////////////////
   useEffect(() => {
-    fetch(`http://localhost:8000/products?${location.search}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    fetch('/data/categorylist.json')
       .then(res => res.json())
-      .then(res => setData(res.data));
-  }, [location.search]);
+      .then(res => {
+        setData(res.data);
+      });
+  }, []);
 
-  const handleBtn = () => {};
+  //////////////////////통신 사용////////////////////////
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/products?${location.search}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setData(res.data));
+  // }, [location.search]);
+  const handleBtn = page => {
+    const query = `category=${data.category}&orderBy=${page}`;
+    navigate(`/products/?${query}`);
+  };
   return (
     <div className={css.container}>
       <header>
         <div className={css['title-menu']}>
-          <Title />
+          <Title props={data[0]} />
         </div>
         <div className={css['select-menu']}>
-          <Button />
+          <Button handleBtn={handleBtn} />
         </div>
       </header>
-      <CardList />
+      <CardList props={category} />
     </div>
   );
 }

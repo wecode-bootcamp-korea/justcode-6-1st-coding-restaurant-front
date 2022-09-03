@@ -25,14 +25,10 @@
     }
 
     .select-menu {
-      padding-left: 5px;
-      span {
+      button {
         &:hover {
           cursor: pointer;
           color: #908471;
-        }
-        &:focus {
-          font-size: 40px;
         }
       }
     }

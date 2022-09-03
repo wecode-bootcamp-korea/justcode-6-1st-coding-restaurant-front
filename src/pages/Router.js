@@ -33,7 +33,7 @@ function Router() {
         <Route path="/reviewmodal" element={<ReviewModal />} />
         <Route path="/reviewModalRevise" element={<ReviewModalRevise />} />
         <Route path="/point" element={<Point />} />
-        <Route path="/category/:id" element={<Category />} />
+        <Route path="/products" element={<Category />} />
         <Route path="/shops" element={<Shop />} />
       </Routes>
     </BrowserRouter>

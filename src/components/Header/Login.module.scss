@@ -2,4 +2,12 @@
   display: flex;
   justify-content: space-around;
   margin-right: 5px;
+  a {
+    padding: 0 5px;
+    text-decoration: none;
+    color: #444444;
+    &:hover {
+      color: #bfaf96;
+    }
+  }
 }
