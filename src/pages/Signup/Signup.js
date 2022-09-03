@@ -64,7 +64,13 @@ function Signup() {
         }),
       })
         .then(response => response.json())
-        .then(result => alert(result.message));
+        .then(result => {
+          if (result.message === 'userCreated') {
+            navigate('/login');
+          } else {
+            alert('회원가입에 실패하였습니다.');
+          }
+        });
     }
   };
 
