@@ -1,6 +1,16 @@
 {
   "name": "100%호밀빵",
   "description": "담백하게 즐기는 건강한 호밀빵",
+  "slideImg": [
+    {
+      "id": 1,
+      "img": "sample url"
+    },
+    {
+      "id": 2,
+      "img": "sample url"
+    }
+  ],
   "contentImg": "공통이미지url",
   "review": [
     {
