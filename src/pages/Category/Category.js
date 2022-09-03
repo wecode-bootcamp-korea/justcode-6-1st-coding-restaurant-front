@@ -31,6 +31,7 @@ function Category() {
   //     .then(res => res.json())
   //     .then(res => setData(res.data));
   // }, [location.search]);
+
   const handleBtn = page => {
     const query = `category=${data.category}&orderBy=${page}`;
     navigate(`/products/?${query}`);
@@ -39,13 +40,13 @@ function Category() {
     <div className={css.container}>
       <header>
         <div className={css['title-menu']}>
-          <Title props={data[0]} />
+          <Title />
         </div>
         <div className={css['select-menu']}>
           <Button handleBtn={handleBtn} />
         </div>
       </header>
-      <CardList props={category} />
+      <CardList props={data} />
     </div>
   );
 }
