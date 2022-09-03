@@ -2,7 +2,6 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 import Login from './Login/Login';
-import Mypage from './Mypage/Mypage';
 import Signup from './Signup/Signup';
 
 import Mypage from './Mypage/Mypage';
@@ -27,6 +26,10 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+      </Routes>
+      {/* 마이페이지 관련 라우터 */}
+      <Routes>
         <Route path="/aboutUs" element={<AboutUs />} />
       </Routes>
       {/* 마이페이지 관련 라우터 */}

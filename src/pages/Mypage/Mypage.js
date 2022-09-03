@@ -66,7 +66,10 @@ function Mypage() {
             <div className={css.boxLeft}>
               <img
                 className={css.profileimg}
-                src={userInfo.profileImg !== '' ? userInfo.profileImg : myimg}
+               
+                className={css.profileimg}
+                src={userInfo.profileImg !== '' ? userInfo.profileImg : userInfo.profileImg !== '' ? userInfo.profileImg : myimg}
+              
               ></img>
             </div>
             <div className={css.boxBody}>
@@ -87,7 +90,6 @@ function Mypage() {
               </div>
             </div>
           </section>
-
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
@@ -102,13 +104,14 @@ function Mypage() {
                 onClick={mypageChangeTab}
                 className={css.navTabsList}
               >
+              >
                 미식평
               </li>
 
               <li
                 name="point"
                 onClick={mypageChangeTab}
-                className={css.navTabsList}
+                className={css.navTabsList}}
               >
                 포인트
               </li>
