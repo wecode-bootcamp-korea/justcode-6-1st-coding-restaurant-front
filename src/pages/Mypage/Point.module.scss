@@ -1,0 +1,33 @@
+.orderList {
+  width: 90%;
+  margin-left: 50px;
+  border-top: 0.5px solid #e9e4db;
+  border-collapse: collapse;
+  font-size: 18px;
+
+  .order {
+    height: 50px;
+    margin-left: 30px;
+    border-bottom: 0.5px solid #e9e4db;
+    text-align: center;
+    color: #908471;
+    font-weight: 500;
+  }
+
+  .borderBottom {
+    padding: 10px;
+    border-bottom: 0.5px solid #e9e4db;
+
+    .thCss {
+      width: 35%;
+    }
+  }
+
+  .tdBox {
+    text-align: center;
+
+    .tdFont {
+      font-size: 17px;
+    }
+  }
+}

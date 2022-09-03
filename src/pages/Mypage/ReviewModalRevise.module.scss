@@ -1,0 +1,89 @@
+.container {
+  width: 70%;
+  height: 60%;
+  z-index: 999; /* 최상단 위치 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #eee;
+  border: 1px solid #eee;
+  border-radius: 5px;
+
+  .reviewAdd {
+    border-bottom: 0.5px solid #e9e4db;
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: 50px;
+    color: #908471;
+    font-size: 20px;
+  }
+
+  .tdCss {
+    width: 90%;
+    height: 70%;
+    left: 40px;
+    position: absolute;
+    padding-top: 5px;
+    padding-left: 45px;
+
+    .orderTdSize {
+      width: 500px;
+      padding-top: 15px;
+    }
+
+    .order {
+      height: 50px;
+      padding-bottom: 30px;
+      color: #908471;
+      font-weight: 500;
+      font-size: 18px;
+    }
+  }
+
+  .close {
+    width: 35px;
+    right: 15px;
+    top: 13px;
+    position: absolute;
+    font-family: 'noto sans KR';
+    font-size: 15px;
+    color: #908471;
+  }
+  .close:hover,
+  .reviewAddButton:hover {
+    cursor: pointer;
+  }
+
+  .reviewInput {
+    width: 600px;
+    height: 40%;
+    padding-top: 10px;
+    padding-left: 15px;
+    margin-top: 40px;
+    font-size: 14px;
+    position: absolute;
+    border: none;
+    resize: none;
+    outline: none;
+  }
+
+  .reviewInput::placeholder {
+    color: #908471;
+  }
+
+  .reviewAddButton {
+    width: 76%;
+    height: 40px;
+    margin-left: 85px;
+    bottom: 80px;
+    border: none;
+    border-radius: 2px;
+    position: absolute;
+    background-color: #908471;
+    font-size: 15px;
+    font-family: 'noto sans KR';
+    color: rgba(255, 255, 255, 0.788);
+  }
+}

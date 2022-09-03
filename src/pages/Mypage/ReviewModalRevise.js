@@ -1,14 +1,14 @@
 import React from 'react';
 import reviewModalCss from './ReviewModal.module.scss';
 
-function ReviewModal({ setModalOpen }) {
+function ReviewModalRevise({ setReviewModalReviseOpen }) {
   const closeModal = () => {
-    setModalOpen(false);
+    setReviewModalReviseOpen(false);
   };
 
   return (
     <div className={reviewModalCss.container}>
-      <p className={reviewModalCss.reviewAdd}>리뷰 등록</p>
+      <p className={reviewModalCss.reviewAdd}>리뷰수정</p>
       <button className={reviewModalCss.close} onClick={closeModal}>
         닫기
       </button>
@@ -27,7 +27,7 @@ function ReviewModal({ setModalOpen }) {
             <tfoot>
               <textarea
                 className={reviewModalCss.reviewInput}
-                placeholder="이 메뉴는 어떠셨나요? 후기를 남겨주세요!"
+                placeholder="수정할 내용을 적어주세요!"
               ></textarea>
             </tfoot>
           </tr>
@@ -35,11 +35,11 @@ function ReviewModal({ setModalOpen }) {
       </table>
       <div className={reviewModalCss.test}>
         <button className={reviewModalCss.reviewAddButton}>
-          미식평 등록하기
+          미식평 수정하기
         </button>
       </div>
     </div>
   );
 }
 
-export default ReviewModal;
+export default ReviewModalRevise;

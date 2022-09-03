@@ -3,16 +3,18 @@ import { Navigate } from 'react-router-dom';
 import css from './Mypage.module.scss';
 import myimg from './img/myimg.png';
 import Orderlist from './Orderlist';
-// import Orderdetail from './Orderdetail';
-// import Point from './Point';
-// import Profile from './Profile';
+import Point from './Point';
 import Review from './Review';
 import { useState } from 'react';
+// import Orderdetail from './Orderdetail';
+// import Profile from './Profile';
 
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
 
+
   const mypageChangeTab = e => {
+
     const navTabsList = document.getElementsByClassName(css.navTabsList);
     const tabName = e.target.getAttribute('name');
 
@@ -28,10 +30,10 @@ function Mypage() {
         return setNavigate(<Orderlist />);
       case 'review':
         return setNavigate(<Review />);
-      // case 'point':
-      //   setNavigate(<Point />);
+      case 'point':
+        return setNavigate(<Point />);
       // case 'profile':
-      //   setNavigate(<Profile />);
+      //  return setNavigate(<Profile/>);
     }
   };
 
@@ -71,6 +73,7 @@ function Mypage() {
                 name="orderList"
                 onClick={mypageChangeTab}
                 className={`${css.navTabsList} ${css.bottom}`}
+
               >
                 주문 내역
               </li>
