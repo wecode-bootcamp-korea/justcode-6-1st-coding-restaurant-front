@@ -1,33 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import css from './Category.module.scss';
-import { useParams } from 'react-router-dom';
-import PhotoList from '../../components/PhotoList/PhotoList';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import CardList from '../../components/Category/CardList';
+import Button from '../../components/Category/Button';
+import Title from '../../components/Category/Title';
 
 function Category() {
-  const params = useParams();
   const [data, setData] = useState([]);
+  const location = useLocation();
+  const navigate = useNavigate();
+  // console.log(location);
   useEffect(() => {
-    fetch('/data/categorylist.json')
+    fetch(`http://localhost:8000/products?${location.search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(res => res.json())
-      .then(res => setData(res));
-  }, []);
-  console.log(data.data);
+      .then(res => setData(res.data));
+  }, [location.search]);
 
-  console.log(params.id);
+  const handleBtn = () => {};
+
   return (
     <div className={css.container}>
       <header>
         <div className={css['title-menu']}>
-          <h1>인기 메뉴</h1>
-          <span>미래식당의 인기메뉴</span>
+          <Title />
         </div>
         <div className={css['select-menu']}>
-          <span>주문순</span>
-          <span>조회순</span>
-          <span>가격순</span>
+          <Button />
         </div>
       </header>
-      <PhotoList />
+      <CardList />
     </div>
   );
 }
