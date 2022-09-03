@@ -7,4 +7,4 @@ function App() {
   return <Router />;
 }
 
-export default App;
+noexport default App;

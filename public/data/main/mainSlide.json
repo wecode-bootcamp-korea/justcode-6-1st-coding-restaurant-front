@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "뚝배기불고기",
+      "url": "https://cdn.pixabay.com/photo/2017/07/19/03/13/pot-2517765__340.jpg",
+      "description": "집에서 간단하게 뚝불밀키트",
+      "price": 10000
+    },
+    {
+      "id": 2,
+      "name": "뚱이도넛",
+      "url": "https://cdn.pixabay.com/photo/2012/02/28/00/47/berliner-17811__340.jpg",
+      "description": "기본에 충실한 도톰퐁신촉촉 도넛! 중독적인 도나스",
+      "price": 1000,
+      "salePercent": 10,
+      "finalPrice": 900
+    },
+    {
+      "id": 3,
+      "name": "100%호밀빵",
+      "url": "https://media.istockphoto.com/photos/breakfast-rolls-in-a-bread-basket-on-wooden-plank-from-above-picture-id1306025059?k=20&m=1306025059&s=612x612&w=0&h=0n7N6MWYemCQWXtxZi5kvZ41zt1dbI9oTITARR-VI-0=",
+      "description": "다이어트/ 건강관리 필수품! 100% 호밀빵의 고소한 풍미를 느껴보세요",
+      "price": 10000,
+      "salePercent": 50,
+      "finalPrice": 5000
+    }
+  ]
+}
