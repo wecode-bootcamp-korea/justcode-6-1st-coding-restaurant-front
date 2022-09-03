@@ -30,6 +30,10 @@ function Router() {
       </Routes>
       {/* 마이페이지 관련 라우터 */}
       <Routes>
+        <Route path="/aboutUs" element={<AboutUs />} />
+      </Routes>
+      {/* 마이페이지 관련 라우터 */}
+      <Routes>
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/orderlist" element={<Orderlist />} />
         <Route path="/review" element={<Review />} />
