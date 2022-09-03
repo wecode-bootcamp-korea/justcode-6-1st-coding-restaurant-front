@@ -12,7 +12,7 @@
     }
   ],
   "contentImg": "https://cdn.pixabay.com/photo/2015/06/10/08/42/bibimbap-804611__340.jpg",
-  "review": [
+  "reviews": [
     {
       "id": 1,
       "name": "박예선",
@@ -30,7 +30,7 @@
     }
   ],
   "price": 10000,
-  "bundle": [
+  "bundles": [
     {
       "id": 1,
       "option": "소",

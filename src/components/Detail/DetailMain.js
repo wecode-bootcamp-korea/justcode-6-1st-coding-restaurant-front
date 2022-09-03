@@ -2,26 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import css from './DetailMain.module.scss';
 
-const DetailMain = () => {
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [slideImg, setSlideImg] = useState([]);
-  const [contentImg, setContentImg] = useState('');
-  const [reviews, setReviews] = useState([]);
-
-  useEffect(() => {
-    fetch('/data/detail/detail.json')
-      .then(res => res.json())
-      .then(data => {
-        const { name, description, slideImg, contentImg, review } = data;
-        setName(name);
-        setDescription(description);
-        setSlideImg(slideImg);
-        setContentImg(contentImg);
-        setReviews(review);
-      });
-  }, []);
-
+const DetailMain = ({ name, description, slideImg, contentImg, reviews }) => {
   return (
     <div className={css.main}>
       <div>{name}</div>
