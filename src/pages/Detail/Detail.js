@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
 import DetailMain from '../../components/Detail/DetailMain';
 import DetailSub from '../../components/Detail/DetailSub';
@@ -10,36 +11,46 @@ import css from './Detail.module.scss';
 // 2. 장바구니 담기 API
 
 const Detail = () => {
+  const params = useParams();
+  const [id, setId] = useState(0);
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const [slideImg, setSlideImg] = useState([]);
+  const [slideImgs, setSlideImgs] = useState([]);
   const [contentImg, setContentImg] = useState('');
   const [reviews, setReviews] = useState([]);
   const [price, setPrice] = useState(0);
   const [bundles, setBundles] = useState([]);
 
-  useEffect(() => {
-    fetch('/data/detail/detail.json')
-      .then(res => res.json())
-      .then(data => {
-        const {
-          name,
-          description,
-          slideImg,
-          contentImg,
-          reviews,
-          price,
-          bundles,
-        } = data;
-        setName(name);
-        setDescription(description);
-        setSlideImg(slideImg);
-        setContentImg(contentImg);
-        setReviews(reviews);
-        setPrice(price);
-        setBundles(bundles);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/detail/detail.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       const {
+  //         id,
+  //         name,
+  //         description,
+  //         images,
+  //         contentImg,
+  //         reviews,
+  //         fixedprice,
+  //         bundles,
+  //       } = data.data[0];
+  //       setId(id);
+  //       setName(name);
+  //       setDescription(description);
+  //       setSlideImgs(images);
+  //       setContentImg(contentImg);
+  //       setReviews(reviews);
+  //       setPrice(fixedprice);
+  //       setBundles(bundles);
+  //     });
+  // }, []);
+
+  useEffect('/data/detail/detail.json', {
+    headers: params.id,
+  })
+    .then(res => res.json())
+    .then(data => console.log(data));
 
   return (
     <div className={css.detail}>
@@ -47,7 +58,7 @@ const Detail = () => {
         <DetailMain
           name={name}
           description={description}
-          slideImg={slideImg}
+          slideImgs={slideImgs}
           contentImg={contentImg}
           reviews={reviews}
         />

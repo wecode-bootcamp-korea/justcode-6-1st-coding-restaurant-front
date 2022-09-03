@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+
 import Home from './Home/Home';
 import Login from './Login/Login';
 import Signup from './Signup/Signup';
@@ -36,6 +37,7 @@ function Router() {
         <Route path="/point" element={<Point />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/products" element={<Category />} />
+        <Route path="/product/:id" element={<Detail />} />
         <Route path="/shops" element={<Shop />} />
       </Routes>
     </BrowserRouter>

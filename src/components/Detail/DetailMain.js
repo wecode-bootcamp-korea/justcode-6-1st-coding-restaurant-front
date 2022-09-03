@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import css from './DetailMain.module.scss';
 
-const DetailMain = ({ name, description, slideImg, contentImg, reviews }) => {
+const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
   return (
     <div className={css.main}>
       <div>{name}</div>
@@ -22,7 +22,7 @@ const DetailMain = ({ name, description, slideImg, contentImg, reviews }) => {
                     별점: {review.rating}
                   </div>
                   <div className={css['review-content']}>{review.content}</div>
-                  {review.reviewCommentId.length != 0 && (
+                  {!review.reviewCommentId == null && (
                     <div>
                       {review.reviewCommentId.map(reviewComment => {
                         return <div key={reviewComment}>{reviewComment}</div>;
