@@ -19,7 +19,13 @@ function Mypage() {
   });
 
   useEffect(() => {
-    fetch('/data/mypage.json')
+    fetch('/data/mypage.json', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('token'),
+        'Content-Type': 'application/json',
+      },
+    })
       .then(res => res.json())
       .then(data =>
         setUserInfo({
