@@ -12,7 +12,12 @@ function Category() {
   const navigate = useNavigate();
   /////////////////////목데이터 사용//////////////////////////
   useEffect(() => {
-    fetch('/data/categorylist.json')
+    fetch(`http://localhost:8000/products?${location.search}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
       .then(res => res.json())
       .then(res => {
         setData(res.data);
