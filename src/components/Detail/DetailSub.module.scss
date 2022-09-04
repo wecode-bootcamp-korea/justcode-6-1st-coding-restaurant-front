@@ -2,4 +2,16 @@
   width: 22.9%;
   margin-left: 25px;
   border: 1px solid #bfaf96;
+
+  .option {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  button {
+    &:hover {
+      cursor: pointer;
+    }
+  }
 }

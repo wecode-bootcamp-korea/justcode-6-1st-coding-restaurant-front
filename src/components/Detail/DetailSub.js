@@ -15,7 +15,7 @@ const DetailSub = ({ price, bundles }) => {
         <select>
           {bundles.map(bundle => {
             return (
-              <option key={bundle.id}>
+              <option className={css.option} key={bundle.id}>
                 {bundle.option} - {bundle.price}
               </option>
             );
