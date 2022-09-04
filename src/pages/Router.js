@@ -5,11 +5,12 @@ import Login from './Login/Login';
 import Signup from './Signup/Signup';
 
 import Mypage from './Mypage/Mypage';
-import Orderlist from './Mypage/Orderlist';
-import Review from './Mypage/Review';
-import ReviewModal from './Mypage/ReviewModal';
-import ReviewModalRevise from './Mypage/ReviewModalRevise';
-import Point from './Mypage/Point';
+import Orderlist from '../components/Mypage/Orderlist';
+import Review from '../components/Mypage/Review';
+import ReviewModal from '../components/Mypage/ReviewModal';
+import ReviewModalRevise from '../components/Mypage/ReviewModalRevise';
+import Point from '../components/Mypage/Point';
+import Profile from '../components/Mypage/Profile';
 
 import Cart from './Cart/Cart';
 import Category from './Category/Category';
@@ -33,6 +34,7 @@ function Router() {
         <Route path="/reviewmodal" element={<ReviewModal />} />
         <Route path="/reviewModalRevise" element={<ReviewModalRevise />} />
         <Route path="/point" element={<Point />} />
+        <Route path="/profile" element={<Profile />} />
         <Route path="/products" element={<Category />} />
         <Route path="/shops" element={<Shop />} />
       </Routes>
