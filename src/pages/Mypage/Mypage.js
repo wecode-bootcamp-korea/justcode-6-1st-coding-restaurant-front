@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Navigate } from 'react-router-dom';
 import css from './Mypage.module.scss';
-import myimg from './img/myimg.png';
-import Orderlist from './Orderlist';
-import Point from './Point';
-import Review from './Review';
+import Orderlist from '../../components/Mypage/Orderlist';
+import Point from '../../components/Mypage/Point';
+import Review from '../../components/Mypage/Review';
+import Profile from '../../components/Mypage/Profile';
 import { useState, useEffect } from 'react';
 // import Orderdetail from './Orderdetail';
 // import Profile from './Profile';
@@ -56,8 +56,8 @@ function Mypage() {
         return setNavigate(<Review />);
       case 'point':
         return setNavigate(<Point />);
-      // case 'profile':
-      //  return setNavigate(<Profile/>);
+      case 'profile':
+        return setNavigate(<Profile />);
     }
   };
 
@@ -75,9 +75,7 @@ function Mypage() {
                 src={
                   userInfo.profileImg !== ''
                     ? userInfo.profileImg
-                    : userInfo.profileImg !== ''
-                    ? userInfo.profileImg
-                    : myimg
+                    : `${process.env.PUBLIC_URL}/image/mypage/profile.jpg`
                 }
               ></img>
             </div>

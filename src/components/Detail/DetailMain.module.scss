@@ -1,0 +1,21 @@
+.main {
+  width: 75%;
+  padding: 55px;
+  border: 1px solid #ddd;
+  background-color: white;
+
+  img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .content-tab {
+    display: flex;
+  }
+  .content-box {
+    display: flex;
+  }
+  .review-box {
+    border: 1px solid #ddd;
+  }
+}

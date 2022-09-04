@@ -1,7 +1,7 @@
 .signup {
   padding: 50px 0;
   background-color: #eee;
-  height: 88vh;
+  height: 150vh;
 
   .container {
     display: flex;
@@ -45,6 +45,9 @@
         justify-content: center;
         align-items: center;
         margin-top: 6px;
+        &:hover {
+          cursor: pointer;
+        }
         img {
           width: 50px;
         }
@@ -118,6 +121,7 @@
         color: white;
         &:hover {
           background-color: #7a6951;
+          cursor: pointer;
         }
       }
     }
@@ -175,6 +179,7 @@
           border: none;
           &:hover {
             background-color: #7a6951;
+            cursor: pointer;
           }
         }
       }

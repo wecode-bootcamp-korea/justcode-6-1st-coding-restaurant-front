@@ -1,0 +1,115 @@
+.myProfile {
+  width: 90%;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  border-top: 1px solid #e9e4db;
+  border-bottom: 1px solid #e9e4db;
+  margin-left: 50px;
+}
+
+.formBox {
+  padding-left: 50px;
+
+  input {
+    border: 1px solid lightgray;
+    padding: 10px;
+  }
+  input:focus {
+    outline: none;
+  }
+
+  .inputBox {
+    display: inline-grid;
+
+    input {
+      margin-top: 8px;
+    }
+
+    .addrNum {
+      width: 300px;
+      height: 40px;
+      margin-left: 50px;
+    }
+  }
+
+  .formContent {
+    padding: 15px 0;
+    border-bottom: 1px dashed #eee;
+
+    .birthInput {
+      margin-left: 50px;
+      width: 100px;
+      height: 40px;
+    }
+
+    .spanBorder {
+      width: 37px;
+      height: 40px;
+      padding-top: 3.5px;
+      text-align: center;
+      display: inline-block;
+      border: 1px solid lightgray;
+    }
+
+    .formLabel {
+      display: inline-block;
+      width: 10%;
+    }
+
+    .formInput {
+      width: 400px;
+      height: 40px;
+      margin-left: 50px;
+    }
+
+    .pwBtn {
+      margin-left: 50px;
+      color: #908471;
+      background-color: white;
+      border: 1px solid #908471;
+      border-radius: 2px;
+    }
+
+    .formBtn {
+      width: 100px;
+      height: 40px;
+      padding-bottom: 2.5px;
+      color: #908471;
+      background-color: white;
+      border: 1px solid #908471;
+      border-radius: 2px;
+    }
+
+    .formBtn:hover,
+    .pwBtn:hover {
+      cursor: pointer;
+    }
+
+    .consent {
+      margin-left: 50px;
+      margin-right: 5px;
+    }
+
+    .genderBox {
+      margin-left: 50px;
+      display: inline-block;
+
+      .gender {
+        padding-right: 15px;
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .saveBtn {
+    width: 140px;
+    height: 45px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 3px;
+    font-weight: 900;
+    color: rgb(245, 245, 245);
+    background-color: #908471;
+  }
+}

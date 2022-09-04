@@ -1,6 +1,5 @@
-import orderReviewCss from './Review.module.scss';
-import css from './Mypage.module.scss';
-import foodImg from './img/cake.png';
+import orderReviewCss from '../Mypage/Review.module.scss';
+import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState, useEffect } from 'react';
 import ReviewModal from './ReviewModal';
 import ReviewModalRevise from './ReviewModalRevise';
@@ -32,7 +31,7 @@ function Review() {
         <tbody>
           {myReview.map(myReviewItem => {
             return (
-              <tr>
+              <tr key={myReviewItem.id}>
                 <td>
                   <img
                     className={orderReviewCss.foodImg}
