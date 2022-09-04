@@ -12,35 +12,31 @@ function Category() {
   const navigate = useNavigate();
   /////////////////////목데이터 사용//////////////////////////
   useEffect(() => {
-    fetch(`http://localhost:8000/products?${location.search}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    fetch(`/data/categorylist.json`)
       .then(res => res.json())
       .then(res => {
         setData(res.data);
       });
   }, []);
-
   //////////////////////통신 사용////////////////////////
 
   // useEffect(() => {
-  //   fetch(`http://localhost:8000/products?${location.search}`, {
+  //   fetch(`http://localhost:8000/products${location.search}`, {
   //     method: 'GET',
   //     headers: {
   //       'Content-Type': 'application/json',
   //     },
   //   })
   //     .then(res => res.json())
-  //     .then(res => setData(res.data));
+  //     .then(res => {
+  //       setData(res.data);
+  //       setCategory(res.data[0].category);
+  //     });
   // }, [location.search]);
 
   const handleBtn = page => {
-    const query = `category=${data.category}&orderBy=${page}&page=1&pageSize=6`;
-    // page=1 << 무한스크롤 적용 후 쿼리 변수로 받도록 수정
-    navigate(`/products/?${query}`);
+    const query = `category=${category}&orderBy=${page}&page=1&pageSize=6`;
+    navigate(`/products?${query}`);
   };
   return (
     <div className={css.container}>

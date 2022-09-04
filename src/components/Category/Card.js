@@ -1,15 +1,15 @@
-import css from './PhotoList.module.scss';
+import css from './CardList.module.scss';
 
-function Card() {
+function Card({ props }) {
   return (
     <div className={css.card}>
-      <img src="/image/categoryList/sample.jpg" alt="card" />
+      <img src={props['image_thumbnail']} alt="card" />
       <div className={css.content}>
-        <h2>brand</h2>
-        <span>foodname</span>
-        <span>price</span>
+        <h2>{props.productor}</h2>
+        <span>{props.name}</span>
+        <span>{props.fixedPrice}</span>
         <div className={css.review}>
-          <span>0개 리뷰</span>
+          <span>{props['order_count']}</span>
         </div>
       </div>
     </div>

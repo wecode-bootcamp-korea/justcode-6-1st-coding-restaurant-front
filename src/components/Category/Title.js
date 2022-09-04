@@ -1,10 +1,9 @@
-<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function Title() {
-  const location = useLocation();
   const [title, setTitle] = useState([]);
+  const location = useLocation();
   const [description, setDescription] = useState();
   const url = new URLSearchParams(location.search).get('category');
   useEffect(() => {
@@ -31,13 +30,6 @@ function Title() {
     <>
       <h1>{title}</h1>
       <span>{description}</span>
-=======
-function Title() {
-  return (
-    <>
-      <h1>인기 메뉴</h1>
-      <span>미래식당의 인기메뉴</span>
->>>>>>> 2264a45f26ad45e63bcacf2de947d05a4602d813
     </>
   );
 }
