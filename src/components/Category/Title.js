@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
 function Title() {
-  const location = useLocation();
   const [title, setTitle] = useState([]);
+  const location = useLocation();
   const [description, setDescription] = useState();
   const url = new URLSearchParams(location.search).get('category');
   useEffect(() => {

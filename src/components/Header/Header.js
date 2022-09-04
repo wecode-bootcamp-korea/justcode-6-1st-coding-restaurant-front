@@ -15,7 +15,7 @@ function Header() {
       <div className={css['header-logo-box']}>
         <Search />
         <div className={css.logo} onClick={() => navigate('/')}>
-          <img src="/image/header/logo.png" alt="logo" />
+          <img src="image/header/logo.png" alt="logo" />
         </div>
         <div className={css['login-cart-box']}>
           <Login />
