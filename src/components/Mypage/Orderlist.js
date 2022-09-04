@@ -1,7 +1,6 @@
 import orderlistCss from './Orderlist.module.scss';
-import css from './Mypage.module.scss';
+import css from '../../pages/Mypage/Mypage.module.scss';
 import { useEffect, useState } from 'react';
-import Mypage from './Mypage';
 
 function Orderlist() {
   const [orderList, setOrderListArray] = useState([]);
