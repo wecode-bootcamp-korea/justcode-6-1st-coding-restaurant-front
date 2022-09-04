@@ -37,9 +37,6 @@ function CartItem({
     count >= 2 && setCount(count - 1);
     count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
   };
-  useEffect(() => {
-    setItemPriceArr([...itemPriceArr, price]);
-  }, [itemTotalPrice]);
   return (
     <>
       <div className={css['cart-item']}>

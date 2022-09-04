@@ -19,13 +19,6 @@ function Cart() {
       });
   }, []);
   // cartList.carts
-  useEffect(() => {
-    for (let i = cartList.length - 1; i >= 0; i--) {
-      let sum = cartList[i].price * cartList[i].quantity;
-      setbase(base + sum);
-    }
-    console.log(base);
-  }, []);
 
   return (
     <>
