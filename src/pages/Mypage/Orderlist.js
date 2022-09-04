@@ -1,12 +1,13 @@
 import orderlistCss from './Orderlist.module.scss';
 import css from './Mypage.module.scss';
 import { useEffect, useState } from 'react';
+import Mypage from './Mypage';
 
 function Orderlist() {
   const [orderList, setOrderListArray] = useState([]);
 
   useEffect(() => {
-    fetch('/data/orderlistData.json')
+    fetch('/data/Orderlist.json')
       .then(res => res.json())
       .then(data => setOrderListArray(data));
   }, []);

@@ -2,12 +2,16 @@ import React from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Home/Home';
 import Login from './Login/Login';
-import Mypage from './Mypage/Mypage';
 import Signup from './Signup/Signup';
 
-import Cart from './Cart/Cart';
+import Mypage from './Mypage/Mypage';
 import Orderlist from './Mypage/Orderlist';
 import Review from './Mypage/Review';
+import ReviewModal from './Mypage/ReviewModal';
+import ReviewModalRevise from './Mypage/ReviewModalRevise';
+import Point from './Mypage/Point';
+
+import Cart from './Cart/Cart';
 import Category from './Category/Category';
 import Shop from './Category/Shop';
 import AboutUs from './Category/AboutUs';
@@ -22,11 +26,14 @@ function Router() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/orderlist" element={<Orderlist />} />
         <Route path="/review" element={<Review />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/products/:id" element={<Category />} />
+        <Route path="/reviewmodal" element={<ReviewModal />} />
+        <Route path="/reviewModalRevise" element={<ReviewModalRevise />} />
+        <Route path="/point" element={<Point />} />
+        <Route path="/category/:id" element={<Category />} />
         <Route path="/shops" element={<Shop />} />
       </Routes>
     </BrowserRouter>

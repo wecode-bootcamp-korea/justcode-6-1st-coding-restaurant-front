@@ -1,8 +1,28 @@
 import orderReviewCss from './Review.module.scss';
 import css from './Mypage.module.scss';
 import foodImg from './img/cake.png';
+import { useState, useEffect } from 'react';
+import ReviewModal from './ReviewModal';
+import ReviewModalRevise from './ReviewModalRevise';
 
 function Review() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const [ReviewModalReviseOpen, setReviewModalReviseOpen] = useState(false);
+  const [myReview, setMyReview] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/review.json')
+      .then(res => res.json())
+      .then(data => setMyReview(data.data));
+  }, []);
+
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
+  const reviseModal = () => {
+    setReviewModalReviseOpen(true);
+  };
   return (
     <div>
       <div className={css.sectionTitle}>
@@ -10,22 +30,55 @@ function Review() {
       </div>
       <table className={orderReviewCss.reviewList}>
         <tbody>
-          <tr>
-            <td>
-              <img className={orderReviewCss.foodImg} src={foodImg}></img>
-            </td>
-            <td className={orderReviewCss.tdSize}>
-              <span className={orderReviewCss.order}>
-                [어디야커피] 달콤살벌 벌꿀 롤 케이크
-              </span>
-            </td>
-            <td className={orderReviewCss.buttonId}>
-              <button className={orderReviewCss.button}>등록</button>
-              {/* 특정 조건 시 버튼 나타남 */}
-              <button className={orderReviewCss.button}>수정</button>
-              {/* <button className={orderReviewCss.button}>삭제</button> */}
-            </td>
-          </tr>
+          {myReview.map(myReviewItem => {
+            return (
+              <tr>
+                <td>
+                  <img
+                    className={orderReviewCss.foodImg}
+                    src={myReviewItem.image_thumbnail}
+                  ></img>
+                </td>
+                <td className={orderReviewCss.tdSize}>
+                  <span className={orderReviewCss.order}>
+                    {myReviewItem.name}
+                  </span>
+                </td>
+                <td className={orderReviewCss.buttonId}>
+                  <div>
+                    <input
+                      type="hidden"
+                      value={myReviewItem.product_id}
+                    ></input>
+                    {myReviewItem.isWriting ? (
+                      <>
+                        <button
+                          className={orderReviewCss.button}
+                          onClick={reviseModal}
+                        >
+                          수정
+                        </button>
+                        <button className={orderReviewCss.button}>삭제</button>
+                      </>
+                    ) : (
+                      <button
+                        className={orderReviewCss.button}
+                        onClick={showModal}
+                      >
+                        등록
+                      </button>
+                    )}
+                    {modalOpen && <ReviewModal setModalOpen={setModalOpen} />}
+                    {ReviewModalReviseOpen && (
+                      <ReviewModalRevise
+                        setReviewModalReviseOpen={setReviewModalReviseOpen}
+                      />
+                    )}
+                  </div>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
 

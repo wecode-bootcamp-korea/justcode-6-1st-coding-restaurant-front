@@ -3,14 +3,34 @@ import { Navigate } from 'react-router-dom';
 import css from './Mypage.module.scss';
 import myimg from './img/myimg.png';
 import Orderlist from './Orderlist';
-// import Orderdetail from './Orderdetail';
-// import Point from './Point';
-// import Profile from './Profile';
+import Point from './Point';
 import Review from './Review';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+// import Orderdetail from './Orderdetail';
+// import Profile from './Profile';
 
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
+  const [userInfo, setUserInfo] = useState({
+    name: '',
+    profileImg: '',
+    myOrderCnt: 0,
+    point: 0,
+  });
+
+  useEffect(() => {
+    fetch('/data/mypage.json')
+      .then(res => res.json())
+      .then(data =>
+        setUserInfo({
+          ...userInfo,
+          name: data.data.name,
+          profileImg: data.data.profileImg,
+          myOrderCnt: data.data.myOrderCnt,
+          point: data.data.point,
+        })
+      );
+  }, []);
 
   const mypageChangeTab = e => {
     const navTabsList = document.getElementsByClassName(css.navTabsList);
@@ -28,10 +48,10 @@ function Mypage() {
         return setNavigate(<Orderlist />);
       case 'review':
         return setNavigate(<Review />);
-      // case 'point':
-      //   setNavigate(<Point />);
+      case 'point':
+        return setNavigate(<Point />);
       // case 'profile':
-      //   setNavigate(<Profile />);
+      //  return setNavigate(<Profile/>);
     }
   };
 
@@ -44,27 +64,35 @@ function Mypage() {
           </header>
           <section className={css.mypageHeaderBox}>
             <div className={css.boxLeft}>
-              <img src={myimg}></img>
+              <img
+                className={css.profileimg}
+                src={
+                  userInfo.profileImg !== ''
+                    ? userInfo.profileImg
+                    : userInfo.profileImg !== ''
+                    ? userInfo.profileImg
+                    : myimg
+                }
+              ></img>
             </div>
             <div className={css.boxBody}>
               <div className={css.boxHeading}>
-                <span className={css.nanum}>이은지</span>
+                <span className={css.nanum}>{userInfo.name}</span>
               </div>
               <div>
                 <ul className={css.navBar}>
                   <li className={css.navBarItem}>
                     먹어본 메뉴
-                    <span> 0개</span>
+                    <span> {userInfo.myOrderCnt}개</span>
                   </li>
                   <li className={css.navBarItem}>
                     미식 포인트
-                    <span> 0원</span>
+                    <span> {userInfo.point}원</span>
                   </li>
                 </ul>
               </div>
             </div>
           </section>
-
           <nav className={css.myTabs}>
             <ul className={css.navTabs}>
               <li
