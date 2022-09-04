@@ -65,7 +65,7 @@ function Signup() {
       })
         .then(response => response.json())
         .then(result => {
-          if (result.message === 'userCreated') {
+          if (result.message == 'userCreated') {
             navigate('/login');
           } else {
             alert('회원가입에 실패하였습니다.');
@@ -157,7 +157,7 @@ function Signup() {
                 }}
               >
                 <div className={css['user-email']}>
-                  <label for="userId" className={css.string}>
+                  <label htmlFor="userId" className={css.string}>
                     아이디(이메일)*
                   </label>
                   <input
@@ -166,13 +166,13 @@ function Signup() {
                     name="userId"
                     value={email}
                     placeholder="이메일을 입력해주세요."
-                    required="true"
+                    required={true}
                     className={css['input-text']}
                     onChange={onEmailHandle}
                   />
                 </div>
                 <div className={css['user-password']}>
-                  <label for="userPassword" className={css.string}>
+                  <label htmlFor="userPassword" className={css.string}>
                     비밀번호*
                   </label>
                   <input
@@ -181,13 +181,13 @@ function Signup() {
                     name="userPassword"
                     value={password}
                     placeholder="비밀번호를 입력해주세요.(10자리 이상)"
-                    required="true"
+                    required={true}
                     className={css['input-text']}
                     onChange={onPasswordHandle}
                   />
                 </div>
                 <div className={css['user-repassword']}>
-                  <label for="userRePassword" className={css.string}>
+                  <label htmlFor="userRePassword" className={css.string}>
                     비밀번호 재입력*
                   </label>
                   <input
@@ -196,13 +196,13 @@ function Signup() {
                     name="userRePassword"
                     value={rePassword}
                     placeholder="비밀번호를 다시 한 번 입력해주세요."
-                    required="true"
+                    required={true}
                     className={css['input-text']}
                     onChange={onRePasswordHandle}
                   />
                 </div>
                 <div className={css['user-name']}>
-                  <label for="userName" className={css.string}>
+                  <label htmlFor="userName" className={css.string}>
                     이름*
                   </label>
                   <input
@@ -211,13 +211,13 @@ function Signup() {
                     name="name"
                     value={name}
                     placeholder="이름을 입력해주세요."
-                    required="true"
+                    required={true}
                     className={css['input-text']}
                     onChange={onNameHandle}
                   />
                 </div>
                 <div className={css['user-phonenumber']}>
-                  <label for="userPhone" className={css.string}>
+                  <label htmlFor="userPhone" className={css.string}>
                     휴대폰번호*
                   </label>
                   <input
@@ -226,13 +226,13 @@ function Signup() {
                     name="phone"
                     value={phone}
                     placeholder="예 : 01012345678"
-                    required="true"
+                    required={true}
                     className={css['input-text']}
                     onChange={onPhoneHandle}
                   />
                 </div>
                 <div className={css['user-birthday']}>
-                  <label for="userBirthday" className={css.string}>
+                  <label htmlFor="userBirthday" className={css.string}>
                     생년월일*
                   </label>
                   <input
@@ -241,7 +241,7 @@ function Signup() {
                     name="birthday"
                     value={birthday}
                     placeholder="예 : 19840707"
-                    required="true"
+                    required={true}
                     className={css['input-text']}
                     onChange={onBirthdayHandle}
                   />
