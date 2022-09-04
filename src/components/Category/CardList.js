@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './PhotoList.module.scss';
 import Card from './Card';
-function PhotoList() {
+function CardList({ props }) {
   return (
     <div className={css.container}>
       {props.map(card => (

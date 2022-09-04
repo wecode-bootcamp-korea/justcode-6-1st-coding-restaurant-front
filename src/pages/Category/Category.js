@@ -7,17 +7,11 @@ import Title from '../../components/Category/Title';
 
 function Category() {
   const [data, setData] = useState([]);
-  const [category, setCategory] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
   /////////////////////목데이터 사용//////////////////////////
   useEffect(() => {
-    fetch(`http://localhost:8000/products?${location.search}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    fetch(`/data/categorylist.json`)
       .then(res => res.json())
       .then(res => {
         setData(res.data);
