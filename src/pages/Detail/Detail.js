@@ -12,81 +12,45 @@ import css from './Detail.module.scss';
 
 const Detail = () => {
   const params = useParams();
-  // const [id, setId] = useState(0);
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
-  const [slideImgs, setSlideImgs] = useState([]);
-  const [content, setContent] = useState('');
-  const [reviews, setReviews] = useState([]);
-  const [price, setPrice] = useState(0);
-  const [bundles, setBundles] = useState([]);
-
-  //목데이터 사용해 fetch
-  useEffect(() => {
-    fetch('/data/detail/detail.json')
-      .then(res => res.json())
-      .then(data => {
-        const {
-          name,
-          description,
-          fixedprice,
-          content,
-          bundles,
-          images,
-          reviews,
-        } = data;
-        setName(name);
-        setDescription(description);
-        setSlideImgs(images);
-        setContent(content);
-        setReviews(reviews);
-        setPrice(fixedprice);
-        setBundles(bundles);
-      });
-  }, []);
+  const [data, setData] = useState({});
+  const { name, description, content, bundles, reviews, fixedprice, images } =
+    data;
 
   // <<<<<< 임시 api >>>>>>
-  //
+
   // useEffect(
   //   fetch('백앤드서버', {
   //     headers: params.id,
   //   })
   //     .then(res => res.json())
   //     .then(data => {
-  //       const {
-  //         name,
-  //         description,
-  //         fixedprice,
-  //         content,
-  //         bundles,
-  //         images,
-  //         reviews,
-  //       } = data;
-  //       setName(name);
-  //       setDescription(description);
-  //       setSlideImgs(images);
-  //       setContent(content);
-  //       setReviews(reviews);
-  //       setFixedPrice(fixedprice);
-  //       setBundles(bundles);
-  //     console.log(data.id);
+  //       setData(data);
   //     }),
   //   []
   // );
 
+  //목데이터 사용해 fetch
+  useEffect(() => {
+    fetch('/data/detail/detail.json')
+      .then(res => res.json())
+      .then(data => {
+        setData(data);
+      });
+  }, []);
+
   return (
     <div className={css.detail}>
       <div className={css.container}>
-        {name && description && slideImgs && content && reviews && (
+        {data.id && (
           <DetailMain
             name={name}
             description={description}
-            slideImgs={slideImgs}
             content={content}
+            slideImgs={images}
             reviews={reviews}
           />
         )}
-        {price && bundles && <DetailSub price={price} bundles={bundles} />}
+        {data.id && <DetailSub price={fixedprice} bundles={bundles} />}
       </div>
     </div>
   );
