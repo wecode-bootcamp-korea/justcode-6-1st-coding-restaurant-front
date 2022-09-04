@@ -12,7 +12,7 @@
     div {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #e9e4db;
+
       span {
         margin: 5px;
         font-weight: bold;
@@ -20,10 +20,7 @@
     }
     .title-menu {
       padding-left: 5px;
-      span {
-      }
     }
-
     .select-menu {
       button {
         &:hover {
