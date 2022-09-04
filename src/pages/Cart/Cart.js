@@ -7,19 +7,10 @@ function Cart() {
   const [cartList, setCartList] = useState([]);
   const [itemPrice, setItemPrice] = useState([]); //아이템 한개 총 합계
   const [itemPriceArr, setItemPriceArr] = useState([]); //아이템 한개 총 합계의 배열
-  const [itemTotal, setItemTotal] = useState(0); //전체아이템 총 합계
+  const [itemTotal, setItemTotal] = useState([]); //전체아이템 총 합계
   const [totalDelivery, setTotalDelivery] = useState(0); //총 배달료
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
-
-  // useEffect(() => {
-  //   let newItemPriceArr = [...itemPriceArr];
-  //   cartList.map(item => {
-  //     let newItemPriceArr = [...itemPriceArr, itemPrice];
-  //     setItemPriceArr(newItemPriceArr);
-  //   });
-  //   // setItemPriceArr([...newItemPriceArr]);
-  // }, []);
-
+  const [base, setbase] = useState(0);
   useEffect(() => {
     fetch('/data/cartList.json')
       .then(res => res.json())
@@ -27,16 +18,14 @@ function Cart() {
         setCartList(data.carts);
       });
   }, []);
-
-  // let newItemTotal = 0;
-  // cartList.forEach(item => {
-  //   return (newItemTotal = newItemTotal + item.price);
-  // });
-  // setItemTotal(newItemTotal);
-  // useEffect(() => {
-  //   setItemTotal(itemTotal + itemPrice);
-
-  // }, [itemPrice]);
+  // cartList.carts
+  useEffect(() => {
+    for (let i = cartList.length - 1; i >= 0; i--) {
+      let sum = cartList[i].price * cartList[i].quantity;
+      setbase(base + sum);
+    }
+    console.log(base);
+  }, []);
 
   return (
     <>
@@ -97,7 +86,8 @@ function Cart() {
                     setCartList={setCartList}
                     itemTotal={itemTotal}
                     itemPrice={itemPrice}
-                    setItemPrice={setItemPrice}
+                    setItemPriceArr={setItemPriceArr}
+                    itemPriceArr={itemPriceArr}
                   />
                 );
               })}
@@ -105,7 +95,12 @@ function Cart() {
           <div className={css['price-zone']}>
             <div className={css['price-sum']}>
               <div>상품 합계 </div>
-              <div>{itemTotal.toLocaleString()} 원 </div>
+              <div>
+                {itemPriceArr
+                  .reduce((acc, cur) => acc + cur, 0)
+                  .toLocaleString()}{' '}
+                원{' '}
+              </div>
               <div>+ </div>
               <div>배송비 </div>
               <div>{totalDelivery.toLocaleString()} 원 </div>

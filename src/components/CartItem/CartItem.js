@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({ item, cartList, setCartList }) {
+function CartItem({
+  item,
+  cartList,
+  setCartList,
+  setItemPriceArr,
+  itemPriceArr,
+}) {
   const { id, brandName, itemName, img, option, deliveryFee, deliveryDate } =
     item;
   const [count, setCount] = useState(item.quantity);
@@ -10,30 +16,30 @@ function CartItem({ item, cartList, setCartList }) {
   const [itemTotalPrice, setItemTotalPrice] = useState(
     Number(`${count * price}`)
   );
+
   const freeDelivery =
     itemTotalPrice >= 50000 ? '무료배송' : deliveryFee.toLocaleString() + ' 원';
 
-  // useEffect(() => {
-  //   setItemPrice(Number(itemPrice) + Number(itemTotalPrice));
-  // }, [itemTotalPrice]);
-
   const deleteClick = () => {
-    const newCartList = cartList.filter((item, index) => {
+    const newCartList = cartList.filter(item => {
       return id != item.id;
     });
     setCartList(newCartList);
   };
 
   const countPlus = () => {
+    let newPrice = Number(`${(count + 1) * price}`);
     setCount(count + 1);
-    setItemTotalPrice(Number(`${(count + 1) * price}`));
+    setItemTotalPrice(newPrice);
   };
 
   const countMinus = () => {
     count >= 2 && setCount(count - 1);
     count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
   };
-
+  useEffect(() => {
+    setItemPriceArr([...itemPriceArr, price]);
+  }, [itemTotalPrice]);
   return (
     <>
       <div className={css['cart-item']}>
