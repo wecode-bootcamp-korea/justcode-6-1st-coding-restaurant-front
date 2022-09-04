@@ -12,7 +12,7 @@ function Category() {
   const navigate = useNavigate();
   /////////////////////목데이터 사용//////////////////////////
   useEffect(() => {
-    fetch(`/data/categorylist.json`)
+    fetch(`/data/category/categoryList.json`)
       .then(res => res.json())
       .then(res => {
         setData(res.data);

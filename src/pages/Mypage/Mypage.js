@@ -17,7 +17,7 @@ function Mypage() {
   });
 
   useEffect(() => {
-    fetch('/data/mypage.json', {
+    fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
