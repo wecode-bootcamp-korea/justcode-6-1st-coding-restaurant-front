@@ -1,60 +1,58 @@
 {
-  "data": [
-    {
-      "id": 1,
-      "name": "100%호밀빵",
-      "description": "담백하게 즐기는 건강한 호밀빵",
-      "fixedprice": 10000,
-      "content": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg",
-      "bundle": [
-        {
-          "id": 1,
-          "option": "소",
-          "price": 10000,
-          "quantity": null
-        },
-        {
-          "id": 2,
-          "option": "중",
-          "price": 15000,
-          "quantity": null
-        },
-        {
-          "id": 3,
-          "option": "대",
-          "price": 20000,
-          "quantity": null
-        }
-      ],
-      "image": [
-        {
-          "id": 1,
-          "img": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg"
-        },
-        {
-          "id": 2,
-          "img": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg"
-        }
-      ],
+  "data": {
+    "id": 1,
+    "name": "100%호밀빵",
+    "description": "담백하게 즐기는 건강한 호밀빵",
+    "fixedprice": 10000,
+    "content": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg",
+    "bundles": [
+      {
+        "id": 1,
+        "option": "소",
+        "price": 10000,
+        "quantity": null
+      },
+      {
+        "id": 2,
+        "option": "중",
+        "price": 15000,
+        "quantity": null
+      },
+      {
+        "id": 3,
+        "option": "대",
+        "price": 20000,
+        "quantity": null
+      }
+    ],
+    "images": [
+      {
+        "id": 1,
+        "img": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg"
+      },
+      {
+        "id": 2,
+        "img": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg"
+      }
+    ],
 
-      "review": [
-        {
-          "id": 1,
-          "name": "박예선",
-          "rating": 3,
-          "content": "고소해요",
-          "createdAt": "2022-09-03 16:59:00.000000",
-          "reviewCommentId": [3, 4, 5, 6]
-        },
-        {
-          "id": 2,
-          "name": "김코딩",
-          "rating": 5,
-          "title": "아침에 먹기 좋아요",
-          "content": "재구매임....",
-          "reviewCommentId": null
-        }
-      ]
-    }
-  ]
+    "reviews": [
+      {
+        "id": 1,
+        "name": "박예선",
+        "rating": 3,
+        "content": "고소해요",
+        "createdAt": "2022-09-03 16:59:00.000000",
+        "reviewCommentId": [3, 4, 5, 6]
+      },
+      {
+        "id": 2,
+        "name": "김코딩",
+        "rating": 5,
+        "title": "아침에 먹기 좋아요",
+        "content": "재구매임....",
+        "reviewCommentId": null
+      }
+    ]
+  }
 }

@@ -9,19 +9,27 @@ import css from './Detail.module.scss';
 const Detail = () => {
   const params = useParams();
   const [data, setData] = useState({});
-  const { name, description, content, bundle, review, fixedprice, image } =
+  const { name, description, content, bundles, reviews, fixedprice, images } =
     data;
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/product/${params.id}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(req => {
+  //       setData(req.data);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    fetch(`http://localhost:8000/product/${params.id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
+    fetch('/data/detail/detail.json')
       .then(res => res.json())
       .then(req => {
-        setData(req.data[0]);
+        setData(req.data);
       });
   }, []);
 
@@ -33,11 +41,11 @@ const Detail = () => {
             name={name}
             description={description}
             content={content}
-            slideImgs={image}
-            reviews={review}
+            slideImgs={images}
+            reviews={reviews}
           />
         )}
-        {data.id && <DetailSub price={fixedprice} bundles={bundle} />}
+        {data.id && <DetailSub price={fixedprice} bundles={bundles} />}
       </div>
     </div>
   );
