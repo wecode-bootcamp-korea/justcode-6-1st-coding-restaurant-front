@@ -1,33 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import css from './Category.module.scss';
-import { useParams } from 'react-router-dom';
-import PhotoList from '../../components/PhotoList/PhotoList';
+import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import CardList from '../../components/Category/CardList';
+import Button from '../../components/Category/Button';
+import Title from '../../components/Category/Title';
 
 function Category() {
-  const params = useParams();
   const [data, setData] = useState([]);
+  const [category, setCategory] = useState('');
+  const location = useLocation();
+  const navigate = useNavigate();
+  /////////////////////목데이터 사용//////////////////////////
   useEffect(() => {
-    fetch('/data/categorylist.json')
+    fetch(`/data/categorylist.json`)
       .then(res => res.json())
-      .then(res => setData(res));
+      .then(res => {
+        setData(res.data);
+      });
   }, []);
-  console.log(data.data);
+  //////////////////////통신 사용////////////////////////
 
-  console.log(params.id);
+  // useEffect(() => {
+  //   fetch(`http://localhost:8000/products${location.search}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => {
+  //       setData(res.data);
+  //       setCategory(res.data[0].category);
+  //     });
+  // }, [location.search]);
+
+  const handleBtn = page => {
+    const query = `category=${category}&orderBy=${page}&page=1&pageSize=6`;
+    navigate(`/products?${query}`);
+  };
   return (
     <div className={css.container}>
       <header>
         <div className={css['title-menu']}>
-          <h1>인기 메뉴</h1>
-          <span>미래식당의 인기메뉴</span>
+          <Title />
         </div>
         <div className={css['select-menu']}>
-          <span>주문순</span>
-          <span>조회순</span>
-          <span>가격순</span>
+          <Button handleBtn={handleBtn} />
         </div>
       </header>
-      <PhotoList />
+      <CardList props={data} />
     </div>
   );
 }
