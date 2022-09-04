@@ -4,7 +4,7 @@ import css from './DetailMain.module.scss';
 
 const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
   return (
-    <div className={css.main}>
+    <div className={css['detail-main']}>
       <div>{name}</div>
       <div>{description}</div>
       <div>

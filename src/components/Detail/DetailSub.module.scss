@@ -1,17 +1,21 @@
-.sub {
+.detail-sub {
   width: 22.9%;
   margin-left: 25px;
   border: 1px solid #bfaf96;
 
-  .option {
-    &:hover {
-      cursor: pointer;
+  .price-box {
+    .price {
+      display: flex;
     }
   }
 
-  button {
-    &:hover {
-      cursor: pointer;
+  .option {
+  }
+  .button-box {
+    button {
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
