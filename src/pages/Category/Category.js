@@ -33,7 +33,8 @@ function Category() {
   // }, [location.search]);
 
   const handleBtn = page => {
-    const query = `category=${data.category}&orderBy=${page}`;
+    const query = `category=${data.category}&orderBy=${page}&page=1&pageSize=6`;
+    // page=1 << 무한스크롤 적용 후 쿼리 변수로 받도록 수정
     navigate(`/products/?${query}`);
   };
   return (
