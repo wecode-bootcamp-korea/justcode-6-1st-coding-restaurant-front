@@ -1,4 +1,4 @@
-import css from './PhotoList.module.scss';
+import css from './CardList.module.scss';
 
 function Card({ props }) {
   return (

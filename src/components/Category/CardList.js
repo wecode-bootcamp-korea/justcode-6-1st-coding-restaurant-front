@@ -1,5 +1,5 @@
 import React from 'react';
-import css from './PhotoList.module.scss';
+import css from './CardList.module.scss';
 import Card from './Card';
 function CardList({ props }) {
   return (
