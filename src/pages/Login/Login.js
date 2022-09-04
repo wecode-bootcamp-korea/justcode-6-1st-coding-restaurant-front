@@ -66,7 +66,7 @@ function Login() {
             }}
           >
             <div className={css['form-postbox-id']}>
-              <label for="loginUserEmail" className={css.string}>
+              <label htmlFor="loginUserEmail" className={css.string}>
                 이메일 *
               </label>
               <input
@@ -75,13 +75,13 @@ function Login() {
                 name="email"
                 value={userEmail}
                 placeholder="이메일을 입력해주세요."
-                required="true"
+                required={true}
                 className={css['input-text']}
                 onChange={onUserEmailHandle}
               />
             </div>
             <div className={css['form-postbox-password']}>
-              <label for="loginUserPassword" className={css.string}>
+              <label htmlFor="loginUserPassword" className={css.string}>
                 비밀번호 *
               </label>
               <input
@@ -90,7 +90,7 @@ function Login() {
                 name="password"
                 value={userPassword}
                 placeholder="비밀번호를 입력해주세요."
-                required="true"
+                required={true}
                 className={css['input-text']}
                 onChange={onUserPasswordHandle}
               />
