@@ -1,5 +1,12 @@
 button {
   border: none;
   background-color: white;
-  margin: 5px;
+  padding: 8px;
+  margin: 5px 5px 0 5px;
+  .on {
+    color: #908471;
+  }
+  .off {
+    color: black;
+  }
 }

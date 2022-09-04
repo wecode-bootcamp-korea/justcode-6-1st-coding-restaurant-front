@@ -12,19 +12,18 @@
     div {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #e9e4db;
+
       span {
         margin: 5px;
         font-weight: bold;
       }
     }
     .title-menu {
-      padding-left: 5px;
-      span {
-      }
+      padding: 0 0 10px 5px;
+      border-bottom: 1px solid #e9e4db;
     }
-
     .select-menu {
+      border-bottom: 1px solid #e9e4db;
       button {
         &:hover {
           cursor: pointer;
