@@ -18,18 +18,18 @@ const Detail = () => {
 
   // <<<<<< 임시 api >>>>>>
 
-  useEffect(
-    fetch('http://localhost:8000/product/:id', {
-      headers: params.id,
+  useEffect(() => {
+    fetch(`http://localhost:8000/product/${params.id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
     })
       .then(res => res.json())
       .then(req => {
         setData(req.data[0]);
-
-        console.log(req);
-      }),
-    []
-  );
+      });
+  }, []);
 
   //목데이터 사용해 fetch
   // useEffect(() => {
