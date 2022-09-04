@@ -18,6 +18,20 @@ function Cart() {
         setCartList(data.carts);
       });
   }, []);
+
+  useEffect(() => {
+    fetch('api주소', {
+      method: 'GET',
+      headers: {
+        Authorization: localStorage.getItem('access_token'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCartList(data.carts);
+      });
+  }, []);
+
   // cartList.carts
 
   return (
