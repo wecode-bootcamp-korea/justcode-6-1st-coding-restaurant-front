@@ -7,12 +7,6 @@ function Button(props) {
   const onClick = e => {
     const sortedPage = e.target.value;
     handleBtn(sortedPage);
-    // if (sortedPage === 'viewCount') {
-
-    // } else if (sortedPage === 'orderCount') {
-    //   handleBtn('ss');
-    // } else {
-    // }
   };
   return (
     <>
