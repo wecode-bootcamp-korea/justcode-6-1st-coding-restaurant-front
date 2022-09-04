@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import css from './DetailSub.module.scss';
 
 const DetailSub = ({ price, bundles }) => {
+  const [totalPrice, setTotalPrice] = useState(0);
   const deliveryFee = 3500;
   const deliveryDate = '09월 30일';
 
@@ -28,7 +29,7 @@ const DetailSub = ({ price, bundles }) => {
           </div>
         </div>
 
-        <div className={css['option']}>
+        <div className={css['option-box']}>
           메뉴 선택하기 :{' '}
           <select>
             {bundles.map(bundle => {
@@ -40,14 +41,13 @@ const DetailSub = ({ price, bundles }) => {
             })}
           </select>
         </div>
-
-        <div>수량선택하기</div>
-        <div>총 결제금액</div>
+        <div>총 결제금액 {totalPrice} 원</div>
       </div>
       <div className={css['button-box']}>
         {' '}
         <button>장바구니에 담기</button>
         <button>바로 주문하기</button>
+        <button>네이버로 주문하기</button>
       </div>
     </div>
   );

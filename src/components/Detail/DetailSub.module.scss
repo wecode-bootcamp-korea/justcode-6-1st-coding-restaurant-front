@@ -10,8 +10,16 @@
   }
 
   .option {
+    border: 1px solid #bbb;
+    min-width: 100%;
+    height: 45px;
   }
+
   .button-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+
     button {
       &:hover {
         cursor: pointer;
