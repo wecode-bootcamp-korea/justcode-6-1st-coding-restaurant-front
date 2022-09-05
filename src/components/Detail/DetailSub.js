@@ -10,12 +10,14 @@ const DetailSub = ({ price, bundles }) => {
   return (
     <div className={css['detail-sub']}>
       <div className={css['price-box']}>
-        <div className={css['price']}>
+        <div className={css.price}>
           <span>판매가격</span>
           <div>
-            {' '}
-            <div>{price.toLocaleString()} 원 ~</div>
-            <div>상품 가격의 1% 적립</div>
+            <div>
+              {' '}
+              <div>{price.toLocaleString()} 원 ~</div>
+              <div>상품 가격의 1% 적립</div>
+            </div>
           </div>
         </div>
         <div className={css.delivery}>
@@ -29,7 +31,7 @@ const DetailSub = ({ price, bundles }) => {
           </div>
         </div>
 
-        <div className={css['option-box']}>
+        <div className={`${css['price']} ${css['option-box']}`}>
           메뉴 선택하기 :{' '}
           <select>
             {bundles.map(bundle => {
@@ -41,7 +43,10 @@ const DetailSub = ({ price, bundles }) => {
             })}
           </select>
         </div>
-        <div>총 결제금액 {totalPrice} 원</div>
+        <div className={css.price}>
+          <div> 총 결제금액</div>
+          <div>{totalPrice} 원</div>
+        </div>
       </div>
       <div className={css['button-box']}>
         {' '}

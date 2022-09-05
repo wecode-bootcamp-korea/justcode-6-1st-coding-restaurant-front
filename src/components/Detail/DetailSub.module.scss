@@ -1,11 +1,13 @@
 .detail-sub {
   width: 22.9%;
   margin-left: 25px;
+  padding: 10px;
   border: 1px solid #bfaf96;
 
   .price-box {
     .price {
       display: flex;
+      justify-content: space-between;
     }
   }
 
@@ -18,7 +20,7 @@
   .button-box {
     display: flex;
     flex-direction: column;
-    margin: 0px auto;
+    // margin: 0px auto;
 
     button {
       &:hover {
