@@ -2,19 +2,19 @@
   "data": [
     {
       "product_id": "1",
-      "image_thumbnail": "/img/cake.png",
+      "image_thumbnail": "/image/myPage/cake.png",
       "name": "[어디야커피] 달콤살벌 벌꿀 롤 케이크",
       "isWriting": true
     },
     {
       "product_id": "2",
-      "image_thumbnail": "/img/cake.png",
+      "image_thumbnail": "/image/myPage/cake.png",
       "name": "[어디야커피] 크림가득 롤 케이크",
       "isWriting": false
     },
     {
       "product_id": "3",
-      "image_thumbnail": "/img/cake.png",
+      "image_thumbnail": "/image/myPage/cake.png",
       "name": "[어디야커피] 맛있어요 롤 케이크",
       "isWriting": false
     }

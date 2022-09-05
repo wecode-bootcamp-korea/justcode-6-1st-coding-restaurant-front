@@ -6,8 +6,6 @@ import Point from '../../components/Mypage/Point';
 import Review from '../../components/Mypage/Review';
 import Profile from '../../components/Mypage/Profile';
 import { useState, useEffect } from 'react';
-// import Orderdetail from './Orderdetail';
-// import Profile from './Profile';
 
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
@@ -19,7 +17,7 @@ function Mypage() {
   });
 
   useEffect(() => {
-    fetch('/data/mypage.json', {
+    fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         Authorization: localStorage.getItem('token'),
@@ -75,7 +73,7 @@ function Mypage() {
                 src={
                   userInfo.profileImg !== ''
                     ? userInfo.profileImg
-                    : `${process.env.PUBLIC_URL}/image/mypage/profile.jpg`
+                    : `${process.env.PUBLIC_URL}/image/myPage/profile.jpg`
                 }
               ></img>
             </div>

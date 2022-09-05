@@ -6,7 +6,7 @@ function Point() {
   const [point, setpoint] = useState([]);
 
   useEffect(() => {
-    fetch('/data/point.json')
+    fetch('/data/myPage/point.json')
       .then(res => res.json())
       .then(data => setpoint(data.data));
   }, []);

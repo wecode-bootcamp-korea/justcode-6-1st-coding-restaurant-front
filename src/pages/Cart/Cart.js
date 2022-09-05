@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import css from './Cart.module.scss';
-import CartItem from '../../components/CartItem/CartItem';
+import CartItem from '../../components/Cart/CartItem/CartItem';
 
 function Cart() {
   const [cartList, setCartList] = useState([]);
@@ -12,7 +12,7 @@ function Cart() {
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
   const [base, setbase] = useState(0);
   useEffect(() => {
-    fetch('/data/cartList.json')
+    fetch('/data/cart/cartList.json')
       .then(res => res.json())
       .then(data => {
         setCartList(data.carts);
