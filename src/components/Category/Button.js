@@ -10,22 +10,22 @@ function Button(props) {
   };
   return (
     <>
-      <div>
+      <div className={css['menu-button']}>
         <button onClick={onClick} value="viewCount">
           조회순
         </button>
       </div>
-      <div>
+      <div className={css['menu-button']}>
         <button onClick={onClick} value="orderCount">
           주문순
         </button>
       </div>
-      <div>
+      <div className={css['menu-button']}>
         <button onClick={onClick} value="lowPrice">
           낮은 가격순
         </button>
       </div>
-      <div>
+      <div className={css['menu-button']}>
         <button onClick={onClick} value="highPrice">
           높은 가격순
         </button>
