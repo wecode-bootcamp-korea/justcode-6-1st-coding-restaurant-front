@@ -1,39 +1,28 @@
 {
   "data": [
     {
-      "date": "22.08.25",
-      "status": "적립",
-      "history": "미식 추석 선물 지원금",
-      "point": "2,000P",
-      "remainingPoint": "2000P"
-    },
-    {
-      "date": "19.12.12",
-      "status": "차감",
+      "id": 1,
+      "createdAt": "2022-08-23 01:00:42",
       "history": "소멸",
-      "point": "30P",
-      "remainingPoint": "0P"
+      "point": -30
     },
     {
-      "date": "17.12.13",
-      "status": "적립",
+      "id": 2,
+      "createdAt": "2022-08-23 01:00:42",
       "history": "상품 구매 적립",
-      "point": "30P",
-      "remainingPoint": "30P"
+      "point": 30
     },
     {
-      "date": "17.12.08",
-      "status": "차감",
+      "id": 3,
+      "createdAt": "2022-08-23 01:00:42",
       "history": "사용",
-      "point": "3,000P",
-      "remainingPoint": "0P"
+      "point": -3000
     },
     {
-      "date": "17.12.10",
-      "status": "적립",
+      "id": 4,
+      "createdAt": "2022-08-23 01:00:42",
       "history": "회원가입 신규",
-      "point": "3,000P",
-      "remainingPoint": "3000P"
+      "point": 5000
     }
   ]
 }
