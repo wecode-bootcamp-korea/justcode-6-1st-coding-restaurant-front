@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import orderReviewCss from '../Mypage/Review.module.scss';
 import ReviewModal from './ReviewModal';
 import ReviewModalRevise from './ReviewModalRevise';
-import css from '../../pages/Mypage/Mypage.module.scss';
 
 function ReviewList({ list, removeBtn, setRemoveBtn }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -20,7 +19,7 @@ function ReviewList({ list, removeBtn, setRemoveBtn }) {
   };
 
   return (
-    <div>
+    <div className={orderReviewCss['review-box']}>
       <div>
         <img
           className={orderReviewCss.foodImg}

@@ -14,23 +14,27 @@ function Review() {
 
   return (
     <div>
-      <div className={css.sectionTitle}>
-        <span>미식평</span>
-      </div>
-      <div className={orderReviewCss.reviewList}>
-        {myReview.map(el => (
-          <ReviewList
-            key={el.id}
-            list={el}
-            removeBtn={myReview}
-            setRemoveBtn={setMyReview}
-          />
-        ))}
-      </div>
-
-      <div className={css.rowList}>
-        <p>조회 가능한 미식평이 없습니다.</p>
-      </div>
+      {myReview.length === 0 ? (
+        <div className={css.rowList}>
+          <p>조회 가능한 미식평이 없습니다.</p>
+        </div>
+      ) : (
+        <>
+          <div className={css.sectionTitle}>
+            <span>미식평</span>
+          </div>
+          <div className={orderReviewCss.reviewList}>
+            {myReview.map(el => (
+              <ReviewList
+                key={el.id}
+                list={el}
+                removeBtn={myReview}
+                setRemoveBtn={setMyReview}
+              />
+            ))}
+          </div>
+        </>
+      )}
     </div>
   );
 }

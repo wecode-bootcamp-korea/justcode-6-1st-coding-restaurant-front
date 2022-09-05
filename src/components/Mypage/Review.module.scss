@@ -38,4 +38,11 @@
   .button:hover {
     cursor: pointer;
   }
+  .review-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    margin: 20px 0;
+  }
 }
