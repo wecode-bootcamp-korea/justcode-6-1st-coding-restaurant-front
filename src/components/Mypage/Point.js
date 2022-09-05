@@ -39,7 +39,7 @@ function Point() {
                   {pointHistory.history}
                 </td>
                 <td className={`${pointCss.borderBottom} ${pointCss.tdFont}`}>
-                  {pointHistory.point}
+                  {pointHistory.point.toLocaleString()}P
                 </td>
                 <td className={`${pointCss.borderBottom} ${pointCss.tdFont}`}>
                   <span>{pointHistory.remainingPoint}</span>
