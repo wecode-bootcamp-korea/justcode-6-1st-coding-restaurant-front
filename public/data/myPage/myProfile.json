@@ -1,13 +1,25 @@
 {
   "data": {
-    "email": "zmzmzm@gmail.com",
-    "name": "이은지",
-    "phoneNumber": "010-0110-0110",
-    "postalCode": "41123",
-    "address": "서울시 강남구 테헤란로 23",
-    "address1": "스타필드 코엑스몰",
-    "gender": "여성",
-    "birthday": "19991209",
-    "isConsent": true
+    "userId": 1,
+    "email": "test11@test.co.kr",
+    "name": "test",
+    "phoneNumber": "01012341234",
+    "birth": 20220901,
+    "gender": "female",
+    "isConsent": 0,
+    "address": [
+      {
+        "addressId": 1,
+        "postalCode": "123123",
+        "address": "서울",
+        "address1": "종로"
+      },
+      {
+        "addressId": 2,
+        "postalCode": "121212",
+        "address": "서울2",
+        "address1": "종로2"
+      }
+    ]
   }
 }

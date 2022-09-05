@@ -11,26 +11,54 @@ function Profile() {
     address: '',
     address1: '',
     gender: '',
-    birthday: '',
-    isConsent: false,
+    birth: '',
+    isConsent: 0,
   });
 
+  // const [femaleInValid, setFemaleInValid] = useState('true')
+  // const [maleInValid, setMaleInValid] = useState('true')
+
+  // const femaleInValid = () => {
+  //   if (myProfile.gender == 'female') {
+  //     return "true";
+  //   } else {
+  //     return "false";
+  //   }
+  // };
+  // console.log('마이프로필', myProfile);
+  // const maleInValid = () => {
+  //   if (myProfile.gender == 'male') {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
+
   useEffect(() => {
-    fetch('/data/myPage/myProfile.json')
+    fetch('/data/myPage/myProfile.json', {
+      // fetch('http://localhost:8000/my', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ` + localStorage.getItem('token'),
+      },
+    })
       .then(res => res.json())
-      .then(data =>
-        setMyProfile({
-          ...myProfile,
-          email: data.data.email,
-          name: data.data.name,
-          phoneNumber: data.data.phoneNumber,
-          postalCode: data.data.postalCode,
-          address: data.data.address,
-          address1: data.data.address1,
-          gender: data.data.gender,
-          birthday: data.data.birthday,
-          isConsent: data.data.isConsent,
-        })
+      .then(
+        data =>
+          setMyProfile({
+            ...myProfile,
+            email: data.data.email,
+            name: data.data.name,
+            phoneNumber: data.data.phoneNumber,
+            birth: data.data.birth.toString(),
+            gender: data.data.gender,
+            isConsent: data.data.isConsent,
+            postalCode: data.data.address[0].postalCode,
+            address: data.data.address[0].address,
+            address1: data.data.address[0].address1,
+          })
+        // setFemaleInValid(data.data.gender)
       );
   }, []);
 
@@ -47,6 +75,7 @@ function Profile() {
               <input
                 className={profileCss.formInput}
                 defaultValue={myProfile.email}
+                disabled
               ></input>
             </div>
             <div className={profileCss.formContent}>
@@ -64,7 +93,10 @@ function Profile() {
             </div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>휴대폰 번호</label>
-              <input className={profileCss.formInput}></input>
+              <input
+                className={profileCss.formInput}
+                defaultValue={myProfile.phoneNumber}
+              ></input>
             </div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>기본 배송지</label>
@@ -98,16 +130,12 @@ function Profile() {
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>성별</label>
               <div className={profileCss.genderBox}>
-                <input
-                  type="radio"
-                  name="gender"
-                  checked={myProfile.gender === '여성'}
-                ></input>
+                <input type="radio" name="gender" defaultChecked={true}></input>
                 <span className={profileCss.gender}>여성</span>
                 <input
                   type="radio"
                   name="gender"
-                  checked={myProfile.gender === '남성'}
+                  defaultChecked={false}
                 ></input>
                 <span className={profileCss.gender}>남성</span>
               </div>
@@ -116,13 +144,22 @@ function Profile() {
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>생년월일</label>
 
-              <input className={profileCss.birthInput}></input>
+              <input
+                className={profileCss.birthInput}
+                defaultValue={myProfile.birth.substring(0, 4)}
+              ></input>
               <span className={profileCss.spanBorder}>년</span>
 
-              <input className={profileCss.birthInput}></input>
+              <input
+                className={profileCss.birthInput}
+                defaultValue={myProfile.birth.substring(4, 6)}
+              ></input>
               <span className={profileCss.spanBorder}>월</span>
 
-              <input className={profileCss.birthInput}></input>
+              <input
+                className={profileCss.birthInput}
+                defaultValue={myProfile.birth.substring(6, 8)}
+              ></input>
               <span className={profileCss.spanBorder}>일</span>
             </div>
 
@@ -131,7 +168,7 @@ function Profile() {
               <input
                 className={profileCss.consent}
                 type="checkbox"
-                checked={myProfile.isConsent}
+                defaultChecked={myProfile.isConsent ? true : false}
               ></input>
               <span>미래식당의 이벤트, 프로모션 수신 동의(선택)</span>
             </div>
