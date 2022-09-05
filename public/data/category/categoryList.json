@@ -1,69 +1,3 @@
-<<<<<<< HEAD:public/data/categorylist.json
-{
-  "data": [
-    {
-      "product_id": 1,
-      "category": "간편요리",
-      "name": "간편요리1",
-      "description": "간편요리1",
-      "productor": "간편요리1",
-      "image_thumbnail": "/image/categoryList/sample.jpg",
-      "price": 10000,
-      "created_at": "2022-08-30T07:53:04.000Z"
-    },
-    {
-      "product_id": 2,
-      "category": "간편요리",
-      "name": "간편요리1",
-      "description": "간편요리1",
-      "productor": "간편요리1",
-      "image_thumbnail": "/image/categoryList/sample.jpg",
-      "price": 10000,
-      "created_at": "2022-08-30T07:53:04.000Z"
-    },
-    {
-      "product_id": 3,
-      "category": "간편요리",
-      "name": "간편요리1",
-      "description": "간편요리1",
-      "productor": "간편요리1",
-      "image_thumbnail": "/image/categoryList/sample.jpg",
-      "price": 10000,
-      "created_at": "2022-08-30T07:53:04.000Z"
-    },
-    {
-      "product_id": 4,
-      "category": "간편요리",
-      "name": "간편요리1",
-      "description": "간편요리1",
-      "productor": "간편요리1",
-      "image_thumbnail": "/image/categoryList/sample.jpg",
-      "price": 10000,
-      "created_at": "2022-08-30T07:53:04.000Z"
-    },
-    {
-      "product_id": 5,
-      "category": "간편요리",
-      "name": "간편요리1",
-      "description": "간편요리1",
-      "productor": "간편요리1",
-      "image_thumbnail": "/image/categoryList/sample.jpg",
-      "price": 10000,
-      "created_at": "2022-08-30T07:53:04.000Z"
-    },
-    {
-      "product_id": 6,
-      "category": "간편요리",
-      "name": "간편요리1",
-      "description": "간편요리1",
-      "productor": "간편요리1",
-      "image_thumbnail": "/image/categoryList/sample.jpg",
-      "price": 10000,
-      "created_at": "2022-08-30T07:53:04.000Z"
-    }
-  ]
-}
-=======
 {
   "data": [
     {
@@ -104,4 +38,3 @@
     }
   ]
 }
->>>>>>> 9a77effe268fdf73747b876ca934879eb7dfa2e5:public/data/category/categoryList.json
