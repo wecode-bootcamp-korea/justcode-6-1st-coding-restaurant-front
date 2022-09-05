@@ -12,7 +12,6 @@ function Mypage() {
   const [userInfo, setUserInfo] = useState({
     name: '',
     profileImg: '',
-    myOrderCnt: 0,
     point: 0,
   });
 
@@ -30,7 +29,6 @@ function Mypage() {
           ...userInfo,
           name: data.data.name,
           profileImg: data.data.profileImg,
-          myOrderCnt: data.data.myOrderCnt,
           point: data.data.point,
         })
       );
@@ -83,10 +81,6 @@ function Mypage() {
               </div>
               <div>
                 <ul className={css.navBar}>
-                  <li className={css.navBarItem}>
-                    먹어본 메뉴
-                    <span> {userInfo.myOrderCnt}개</span>
-                  </li>
                   <li className={css.navBarItem}>
                     미식 포인트
                     <span> {userInfo.point}원</span>
