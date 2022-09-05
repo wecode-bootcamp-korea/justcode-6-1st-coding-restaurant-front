@@ -10,7 +10,7 @@ function Review() {
   const [myReview, setMyReview] = useState([]);
 
   useEffect(() => {
-    fetch('/data/review.json')
+    fetch('/data/myPage/review.json')
       .then(res => res.json())
       .then(data => setMyReview(data.data));
   }, []);

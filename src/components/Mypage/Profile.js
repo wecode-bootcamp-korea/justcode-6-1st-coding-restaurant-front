@@ -16,7 +16,7 @@ function Profile() {
   });
 
   useEffect(() => {
-    fetch('/data/myprofile.json')
+    fetch('/data/myPage/myProfile.json')
       .then(res => res.json())
       .then(data =>
         setMyProfile({

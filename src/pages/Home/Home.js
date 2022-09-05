@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 import css from './Home.module.scss';
 
-import MainSlide from '../../components/MainSlide/MainSlide';
+import MainSlide from '../../components/Main/MainSlide/MainSlide';
 
 function Home() {
   return (
