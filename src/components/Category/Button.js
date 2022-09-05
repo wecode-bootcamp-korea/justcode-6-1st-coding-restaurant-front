@@ -6,12 +6,23 @@ function Button(props) {
   const [check, setCheck] = useState([true, false, false, false, false]);
   const onClick = e => {
     const sortedPage = e.target.value;
+    const check = document.getElementsByClassName(css['text-color']);
+    for (let i = 0; i < check.length; i++) {
+      if (check[i].classList.contains(css['text-color'])) {
+        check[i].classList.remove(css['text-color']);
+      }
+    }
+    e.target.classList.add(css['text-color']);
     handleBtn(sortedPage);
   };
   return (
     <>
       <div className={css['menu-button']}>
-        <button onClick={onClick} value="viewCount">
+        <button
+          className={css['text-color']}
+          onClick={onClick}
+          value="viewCount"
+        >
           조회순
         </button>
       </div>
