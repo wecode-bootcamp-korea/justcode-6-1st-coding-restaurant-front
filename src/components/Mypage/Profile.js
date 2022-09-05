@@ -1,6 +1,7 @@
 import profileCss from './Profile.module.scss';
 import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState, useEffect } from 'react';
+import { check } from 'prettier';
 
 function Profile() {
   const [myProfile, setMyProfile] = useState({
@@ -15,7 +16,6 @@ function Profile() {
     isConsent: 0,
   });
 
-  // const [femaleInValid, setFemaleInValid] = useState('true')
   // const [maleInValid, setMaleInValid] = useState('true')
 
   // const femaleInValid = () => {
@@ -44,21 +44,19 @@ function Profile() {
       },
     })
       .then(res => res.json())
-      .then(
-        data =>
-          setMyProfile({
-            ...myProfile,
-            email: data.data.email,
-            name: data.data.name,
-            phoneNumber: data.data.phoneNumber,
-            birth: data.data.birth.toString(),
-            gender: data.data.gender,
-            isConsent: data.data.isConsent,
-            postalCode: data.data.address[0].postalCode,
-            address: data.data.address[0].address,
-            address1: data.data.address[0].address1,
-          })
-        // setFemaleInValid(data.data.gender)
+      .then(data =>
+        setMyProfile({
+          ...myProfile,
+          email: data.data.email,
+          name: data.data.name,
+          phoneNumber: data.data.phoneNumber,
+          birth: data.data.birth.toString(),
+          gender: data.data.gender,
+          isConsent: data.data.isConsent,
+          postalCode: data.data.address[0].postalCode,
+          address: data.data.address[0].address,
+          address1: data.data.address[0].address1,
+        })
       );
   }, []);
 
@@ -130,12 +128,24 @@ function Profile() {
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>성별</label>
               <div className={profileCss.genderBox}>
-                <input type="radio" name="gender" defaultChecked={true}></input>
-                <span className={profileCss.gender}>여성</span>
                 <input
+                  id="female"
                   type="radio"
                   name="gender"
-                  defaultChecked={false}
+                  checked={myProfile.gender == 'female' ? true : false}
+                  // onChange={e => {
+                  //   changeHandler(e.currentTarget.checked, 'female');
+                  // }}
+                ></input>
+                <span className={profileCss.gender}>여성</span>
+                <input
+                  id="male"
+                  type="radio"
+                  name="gender"
+                  checked={myProfile.gender == 'male' ? true : false}
+                  // onChange={e => {
+                  //   changeHandler(e.currentTarget.checked, 'male');
+                  // }}
                 ></input>
                 <span className={profileCss.gender}>남성</span>
               </div>
@@ -168,7 +178,7 @@ function Profile() {
               <input
                 className={profileCss.consent}
                 type="checkbox"
-                defaultChecked={myProfile.isConsent ? true : false}
+                checked={myProfile.isConsent ? true : false}
               ></input>
               <span>미래식당의 이벤트, 프로모션 수신 동의(선택)</span>
             </div>
