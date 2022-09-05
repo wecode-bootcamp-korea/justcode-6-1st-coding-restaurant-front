@@ -18,6 +18,7 @@ import Category from './Category/Category';
 import Shop from './Category/Shop';
 import AboutUs from './Category/AboutUs';
 import Header from '../components/Header/Header';
+import Footer from '../components/Footer/Footer';
 
 function Router() {
   return (
@@ -40,6 +41,7 @@ function Router() {
         <Route path="/product/:id" element={<Detail />} />
         <Route path="/shops" element={<Shop />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
