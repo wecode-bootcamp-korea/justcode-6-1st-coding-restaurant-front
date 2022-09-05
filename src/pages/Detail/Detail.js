@@ -36,16 +36,20 @@ const Detail = () => {
   return (
     <div className={css.detail}>
       <div className={css.container}>
-        {data.id && (
-          <DetailMain
-            name={name}
-            description={description}
-            content={content}
-            slideImgs={images}
-            reviews={reviews}
-          />
-        )}
-        {data.id && <DetailSub price={fixedprice} bundles={bundles} />}
+        <div className={css['main-container']}>
+          {data.id && (
+            <DetailMain
+              name={name}
+              description={description}
+              content={content}
+              slideImgs={images}
+              reviews={reviews}
+            />
+          )}
+        </div>
+        <div className={css['sub-container']}>
+          {data.id && <DetailSub price={fixedprice} bundles={bundles} />}
+        </div>
       </div>
     </div>
   );
