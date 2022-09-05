@@ -20,7 +20,7 @@ function ReviewList({ list, removeBtn, setRemoveBtn }) {
 
   return (
     <div className={orderReviewCss['review-box']}>
-      <div>
+      <div className={orderReviewCss.case}>
         <img
           className={orderReviewCss.foodImg}
           src={list.image_thumbnail}
