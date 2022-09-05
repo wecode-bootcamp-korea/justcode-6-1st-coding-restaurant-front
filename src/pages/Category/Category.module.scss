@@ -19,9 +19,13 @@
       }
     }
     .title-menu {
+      border-bottom: 1px solid #e9e4db;
       padding-left: 5px;
+      padding-bottom: 10px;
     }
     .select-menu {
+      padding: 5px 0;
+      border-bottom: 1px solid #e9e4db;
       button {
         &:hover {
           cursor: pointer;
