@@ -1,8 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import css from './CardList.module.scss';
 
 function Card({ props }) {
+  const navigate = useNavigate();
+  const moveToDetail = () => {
+    navigate(`/product/${props.id}`);
+  };
   return (
-    <div className={css.card}>
+    <div onClick={moveToDetail} className={css.card}>
       <img src={props['image_thumbnail']} alt="card" />
       <div className={css.content}>
         <h2>{props.productor}</h2>
