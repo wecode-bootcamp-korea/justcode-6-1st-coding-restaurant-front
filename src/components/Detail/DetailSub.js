@@ -3,9 +3,8 @@ import React, { useState } from 'react';
 import css from './DetailSub.module.scss';
 import Option from '../../components/Detail/Option';
 
-// 메뉴 선택 - 한번 선택하면 다시 선택 못하게
-// 수량 변경 - 총합계 변경, 5만원 이상이면 배송비 0원
-// 장바구니 담기
+// 옵션 선택하면 옵션마다 Option component 나오게 하려다가 실패..
+// 어차피 장바구니 추가api에서 bundleId 한가지만 보내기 때문에 보류함
 
 const DetailSub = ({ price, bundles }) => {
   const navigate = useNavigate();
@@ -25,18 +24,6 @@ const DetailSub = ({ price, bundles }) => {
 
     setOption(
       e.target.options[e.target.options.selectedIndex].getAttribute('option')
-    );
-  };
-
-  const optionBox = () => {
-    return (
-      <Option
-        option={option}
-        quantity={quantity}
-        setQuantity={setQuantity}
-        setTotalPrice={setTotalPrice}
-        productPrice={productPrice}
-      />
     );
   };
 
@@ -79,7 +66,11 @@ const DetailSub = ({ price, bundles }) => {
         <div className={css.delivery}>
           <div className={`${css['price']} ${css['delivery-fee']}`}>
             <span className={css['sub-title']}>배송비</span>
-            <div> {deliveryFee.toLocaleString()} 원</div>
+            <div>
+              {totalPrice >= 50000
+                ? '무료배송'
+                : deliveryFee.toLocaleString() + ' 원'}
+            </div>
           </div>
           <div className={`${css['price']} ${css['delivery-fee']}`}>
             <span className={css['sub-title']}>배송 도착일</span>
@@ -114,13 +105,25 @@ const DetailSub = ({ price, bundles }) => {
             {/* {bundles.map(() => {
              return( )
             })} */}
-            {optionBox()}
+            {
+              <Option
+                option={option}
+                quantity={quantity}
+                setQuantity={setQuantity}
+                setTotalPrice={setTotalPrice}
+                productPrice={productPrice}
+              />
+            }
           </div>
         )}
         <div className={css.price}>
           <div className={css['sub-title']}> 총 결제금액</div>
           <div className={css['title-price']}>
-            {totalPrice && (totalPrice + 3500).toLocaleString()} 원
+            {totalPrice &&
+              (totalPrice >= 50000
+                ? totalPrice.toLocaleString()
+                : (totalPrice + 3500).toLocaleString())}{' '}
+            원
           </div>
         </div>
       </div>
