@@ -4,7 +4,7 @@ import css from './DetailMain.module.scss';
 
 const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
   return (
-    <div className={css.main}>
+    <div className={css['detail-main']}>
       <div>{name}</div>
       <div>{description}</div>
       <div>
@@ -16,7 +16,6 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
           <div>제품 상세</div>
           <div> /미식평</div>
           <div> /배송정보</div>
-          <div> /질문과답변(임시)</div>
         </div>
         <div className={css['content-box']}>
           <div>

@@ -1,5 +1,86 @@
-.sub {
+.detail-sub {
   width: 22.9%;
   margin-left: 25px;
+  padding: 10px;
   border: 1px solid #bfaf96;
+
+  div {
+    border: 1px solid #bfaf96;
+  }
+
+  .price-box {
+    padding: 12px;
+
+    .price {
+      display: flex;
+      justify-content: space-between;
+      text-align: right;
+
+      .fixed-price {
+        font-size: 21px;
+        font-weight: 700;
+      }
+    }
+
+    .sub-title {
+      font-size: 13px;
+      color: #928470;
+      font-weight: 600;
+    }
+  }
+
+  .option {
+    min-width: 100%;
+    height: 45px;
+    padding-left: 10px;
+    border: 1px solid #bbb;
+    font-size: 15px;
+    color: rgb(87, 87, 87);
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .button-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0px auto;
+
+    button {
+      height: 53px;
+      font-size: 16px;
+      &:hover {
+        cursor: pointer;
+        background-color: rgb(226, 226, 226);
+      }
+    }
+
+    .add-to-cart {
+      border: 1px solid rgb(194, 194, 194);
+    }
+
+    .order-now {
+      background-color: #928066;
+      color: white;
+      &:hover {
+        background-color: #665844;
+      }
+    }
+
+    .order-naver {
+      background-color: #00c63b;
+      color: white;
+      .naver {
+        font-size: 21px;
+        font-weight: 800;
+      }
+      .pay {
+        font-size: 18px;
+      }
+      &:hover {
+        background-color: #00a130;
+      }
+    }
+  }
 }
