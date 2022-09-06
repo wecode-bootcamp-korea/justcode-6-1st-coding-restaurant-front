@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import css from './CartItem.module.scss';
 
 function CartItem({ item, cartList, setCartList }) {
-  const { id, brandName, itemName, img, option } = item;
+  const { id, brandName, itemName, img, options } = item;
   const [count, setCount] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
   const [itemTotalPrice, setItemTotalPrice] = useState(
@@ -94,7 +94,7 @@ function CartItem({ item, cartList, setCartList }) {
             <div className={css['item-detail-list']}>
               <div className={css['item-select']}>
                 <input type="checkbox"></input>
-                <div className={css['item-option']}>{option}</div>
+                <div className={css['item-option']}>{options}</div>
               </div>
 
               <div>
