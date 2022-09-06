@@ -37,18 +37,17 @@ function Cart() {
   }, []);
 
   // 장바구니 삭제 api
-  // useEffect(() => {
-  //   fetch('http://localhost:8000/carts', {
-  //     method: 'DELETE',
-  //     headers: {
-  //       Authorization: localStorage.removeItem('access_token'),
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       console.log(data);
-  //     });
-  // });
+  useEffect(() => {
+    fetch('http://localhost:8000/carts', {
+      method: 'DELETE',
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+        setCartList(data.data.cartList);
+      })
+      .error(err => console.log(err));
+  });
 
   return (
     <>
