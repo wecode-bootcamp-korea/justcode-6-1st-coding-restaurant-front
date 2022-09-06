@@ -5,19 +5,39 @@ import css from './DetailSub.module.scss';
 
 const DetailSub = ({ price, bundles }) => {
   const navigate = useNavigate();
-
   const deliveryFee = 3500;
   const [totalPrice, setTotalPrice] = useState(price + deliveryFee);
   const deliveryDate = '09월 30일';
+  const [quantity, setQuantity] = useState(1);
+  let bundleId = 1;
 
   const selectOption = e => {
+    bundleId =
+      e.target.options[e.target.options.selectedIndex].getAttribute('data-key');
+
     setTotalPrice(Number(e.target.value) + deliveryFee);
   };
 
   const moveToCart = () => {
-    alert('상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!');
     //모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
     //장바구니에 담기 버튼 클릭하면 장바구니에 상품 추가하는 api 작성해야함
+    fetch('http://localhost:8000/carts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Auothorization: `Bearer ` + localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        bundleId: bundleId,
+        quantity: quantity,
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(
+            '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
+          );
+        }),
+    });
   };
 
   return (
@@ -50,7 +70,11 @@ const DetailSub = ({ price, bundles }) => {
           <select className={css.option} onChange={selectOption}>
             {bundles.map(bundle => {
               return (
-                <option key={bundle.id} value={bundle.price}>
+                <option
+                  key={bundle.id}
+                  value={bundle.price}
+                  data-key={bundle.id}
+                >
                   {bundle.option} - {bundle.price.toLocaleString()}
                 </option>
               );
