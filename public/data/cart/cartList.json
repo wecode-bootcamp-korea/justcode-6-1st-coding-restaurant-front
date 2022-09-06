@@ -1,37 +1,30 @@
 {
   "data": {
-    "cart_list": [
+    "cartList": [
       {
-        "id": 1,
-        "brandName": "부산족발",
-        "itemName": "냉채족발",
-        "img": "https://cdn.pixabay.com/photo/2015/03/05/18/30/spaghetti-660748__340.jpg",
-        "option": "3인분",
-        "price": 10000,
-        "quantity": 2
+        "id": 8,
+        "brandName": "평창 한우",
+        "itemName": "한우국거리",
+        "img": "https://cdn.pixabay.com/photo/2019/07/25/01/23/beef-4361462__340.jpg",
+        "options": "800g",
+        "price": 40500,
+        "quantity": 1,
+        "priceByCart": "40500"
       },
       {
-        "id": 2,
-        "brandName": "이태리파스타집",
-        "itemName": "쉬림프파스타 밀키트",
-        "img": "https://cdn.pixabay.com/photo/2015/03/05/18/30/spaghetti-660748__340.jpg",
-        "option": "2인분",
-        "price": 1000,
-        "quantity": 1
-      },
-      {
-        "id": 3,
-        "brandName": "부산개미집",
-        "itemName": "낙곱새",
-        "img": "https://cdn.pixabay.com/photo/2015/03/05/18/30/spaghetti-660748__340.jpg",
-        "option": "중",
-        "price": 5000,
-        "quantity": 1
+        "id": 9,
+        "brandName": "갈비천왕",
+        "itemName": "수원왕갈비",
+        "img": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg",
+        "options": "왕갈비 400g",
+        "price": 43200,
+        "quantity": 1,
+        "priceByCart": "43200"
       }
     ],
-    "total_price": 1201500,
-    "total_qantity": 32,
-    "delevery_fee": 0,
-    "order_price": 1201500
+    "totalPrice": 83700,
+    "totalQantity": 2,
+    "deliveryFee": 0,
+    "orderPrice": 83700
   }
 }
