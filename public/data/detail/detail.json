@@ -1,7 +1,7 @@
 {
   "data": {
     "id": 1,
-    "name": "100%호밀빵",
+    "name": "100% 호밀빵",
     "description": "담백하게 즐기는 건강한 호밀빵",
     "fixedprice": 10000,
     "content": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg",
@@ -43,14 +43,30 @@
         "rating": 3,
         "content": "고소해요",
         "createdAt": "2022-09-03 16:59:00.000000",
-        "reviewCommentId": [3, 4, 5, 6]
+        "reviewCommentId": [3, 4]
       },
       {
         "id": 2,
         "name": "김코딩",
         "rating": 5,
-        "title": "아침에 먹기 좋아요",
         "content": "재구매임....",
+        "createdAt": "2022-09-03 16:59:00.000000",
+        "reviewCommentId": null
+      },
+      {
+        "id": 3,
+        "name": "꿀호떡",
+        "rating": 2,
+        "content": "그냥그냥",
+        "createdAt": "2022-09-03 16:59:00.000000",
+        "reviewCommentId": null
+      },
+      {
+        "id": 4,
+        "name": "미식가",
+        "rating": 5,
+        "content": "미슐랭 5점 합격",
+        "createdAt": "2022-09-03 16:59:00.000000",
         "reviewCommentId": null
       }
     ]

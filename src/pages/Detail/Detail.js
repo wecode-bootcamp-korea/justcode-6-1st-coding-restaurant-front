@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import DetailMain from '../../components/Detail/DetailMain';
+import DetailMain from '../../components/Detail/DetailMain/DetailMain';
 import DetailSub from '../../components/Detail/DetailSub';
 
 import css from './Detail.module.scss';

@@ -65,7 +65,11 @@ const DetailSub = ({ price, bundles }) => {
         </div>
         <div className={css.delivery}>
           <div className={`${css['price']} ${css['delivery-fee']}`}>
-            <span className={css['sub-title']}>배송비</span>
+            <span className={css['sub-title']}>
+              배송비
+              <br />
+              (50,000원 이상 무료배송)
+            </span>
             <div>
               {totalPrice >= 50000
                 ? '무료배송'
@@ -79,7 +83,11 @@ const DetailSub = ({ price, bundles }) => {
         </div>
 
         <div className={`${css['sub-title']} ${css['option-box']} `}>
-          <div className={css['select-option']}>메뉴 선택하기</div>
+          <div className={css['select-option']}>
+            메뉴 선택하기
+            <br />
+            (옵션은 한 가지만 선택해주세요)
+          </div>
           <select className={css.option} onChange={selectOption}>
             <option value={''}>메뉴 선택하기</option>
             {bundles.map(bundle => {
@@ -102,9 +110,7 @@ const DetailSub = ({ price, bundles }) => {
                 <span className={css['sub-title']}>수량 선택하기</span>
               </div>
             </div>
-            {/* {bundles.map(() => {
-             return( )
-            })} */}
+
             {
               <Option
                 option={option}
@@ -112,6 +118,7 @@ const DetailSub = ({ price, bundles }) => {
                 setQuantity={setQuantity}
                 setTotalPrice={setTotalPrice}
                 productPrice={productPrice}
+                setproductPrice={setProductPrice}
               />
             }
           </div>

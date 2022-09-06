@@ -8,6 +8,7 @@ const Option = ({
   quantity,
   setQuantity,
   setTotalPrice,
+  setProductPrice,
 }) => {
   const countMinus = () => {
     quantity >= 2 && setQuantity(quantity - 1);
@@ -19,10 +20,16 @@ const Option = ({
     setTotalPrice(Number(`${(quantity + 1) * productPrice}`));
   };
 
+  const optionDelete = () => {
+    setProductPrice('');
+  };
+
   return (
     <div className={css['quantity-box']}>
       <div>
-        <button className={`${css.small} ${css.delete}`}>x</button>
+        <button className={`${css.small} ${css.delete}`} onClick={optionDelete}>
+          x
+        </button>
         <span className={css.option}>{option}</span>
       </div>
 
