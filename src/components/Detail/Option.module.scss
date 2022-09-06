@@ -1,0 +1,43 @@
+.quantity-box {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+
+  .option {
+    margin-left: 11px;
+    margin-bottom: 13px;
+    padding: 0px;
+    border: none;
+    font-size: 13px;
+  }
+
+  .price {
+    padding-top: 10px;
+    padding-bottom: 7px;
+    border-top: 1px solid #bfaf9662;
+    border-bottom: none;
+  }
+
+  .button {
+    height: 14px;
+    margin: 0px 10px;
+    background-color: inherit;
+    opacity: 50%;
+  }
+
+  .delete {
+    height: 17px;
+    width: 17px;
+    margin-left: 5px;
+    border: 1px solid #ddd;
+    background-color: inherit;
+    color: #bfaf96;
+  }
+
+  .sub-title {
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #928470;
+    font-weight: 600;
+  }
+}
