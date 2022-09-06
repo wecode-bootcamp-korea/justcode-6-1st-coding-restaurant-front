@@ -3,12 +3,19 @@ import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState, useEffect } from 'react';
 
 function Point() {
-  const [point, setpoint] = useState([]);
+  const [point, setPoint] = useState([]);
 
   useEffect(() => {
-    fetch('/data/myPage/point.json')
+    // fetch('http://localhost:8000/mypage', {
+    fetch('/data/myPage/myPage.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ` + localStorage.getItem('token'),
+      },
+    })
       .then(res => res.json())
-      .then(data => setpoint(data.data));
+      .then(data => setPoint(data.data.point));
   }, []);
 
   return (
@@ -20,17 +27,18 @@ function Point() {
         <thead>
           <tr className={pointCss.borderBottom}>
             <th className={pointCss.order}>날짜</th>
-            <th className={pointCss.order}>내역</th>
+            <th className={pointCss.order}>사용내역</th>
             <th className={`${pointCss.order} ${pointCss.thCss}`}>포인트</th>
-            <th className={pointCss.order}>남은 포인트</th>
           </tr>
         </thead>
         <tbody className={pointCss.tdBox}>
           {point.map(pointHistory => {
             return (
-              <tr key={pointHistory.date}>
+              <tr key={pointHistory.pointId}>
                 <td className={`${pointCss.borderBottom} ${pointCss.tdFont}`}>
-                  <span className={pointCss.orderNum}>{pointHistory.date}</span>
+                  <span className={pointCss.orderNum}>
+                    {pointHistory.createdAt}
+                  </span>
                   <div>
                     <span className={pointCss.orderDate}></span>
                   </div>
@@ -40,9 +48,6 @@ function Point() {
                 </td>
                 <td className={`${pointCss.borderBottom} ${pointCss.tdFont}`}>
                   {pointHistory.point.toLocaleString()}P
-                </td>
-                <td className={`${pointCss.borderBottom} ${pointCss.tdFont}`}>
-                  <span>{pointHistory.remainingPoint}</span>
                 </td>
               </tr>
             );
