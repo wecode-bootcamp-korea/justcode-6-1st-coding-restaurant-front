@@ -1,7 +1,13 @@
 import React from 'react';
 import reviewModalCss from '../Mypage/ReviewModal.module.scss';
 
-function ReviewModalRevise({ setReviewModalReviseOpen }) {
+function ReviewModalRevise({
+  productName,
+  productId,
+  reviewId,
+  reviewContent,
+  setReviewModalReviseOpen,
+}) {
   const closeModal = () => {
     setReviewModalReviseOpen(false);
   };
@@ -16,22 +22,25 @@ function ReviewModalRevise({ setReviewModalReviseOpen }) {
         <tbody>
           <tr className={reviewModalCss.tdCss}>
             <td className={reviewModalCss.orderTdSize}>
-              <span className={reviewModalCss.order}>
-                [어디야커피] 달콤살벌 벌꿀 롤 케이크
-              </span>
+              <span className={reviewModalCss.order}>{productName}</span>
             </td>
             <td>
               <span className={reviewModalCss.order}>미식 만족도</span>
               <span className={reviewModalCss.order}>★★★☆☆</span>
             </td>
-            <tfoot>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>
               <textarea
                 className={reviewModalCss.reviewInput}
                 placeholder="수정할 내용을 적어주세요!"
+                defaultValue={reviewContent}
               ></textarea>
-            </tfoot>
+            </td>
           </tr>
-        </tbody>
+        </tfoot>
       </table>
       <div className={reviewModalCss.test}>
         <button className={reviewModalCss.reviewAddButton}>

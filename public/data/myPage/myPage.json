@@ -49,6 +49,22 @@
         "createdAt": "2022-09-06",
         "productId": 2,
         "fixedPrice": 36000,
+        "orderNumber": 126780,
+        "productName": "수원왕갈비",
+        "imageThumbnail": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg"
+      },
+      {
+        "createdAt": "2022-09-06",
+        "productId": 3,
+        "fixedPrice": 27000,
+        "orderNumber": 123780,
+        "productName": "영양갈비탕",
+        "imageThumbnail": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg"
+      },
+      {
+        "createdAt": "2022-09-06",
+        "productId": 4,
+        "fixedPrice": 36000,
         "orderNumber": 124780,
         "productName": "수원왕갈비",
         "imageThumbnail": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg"

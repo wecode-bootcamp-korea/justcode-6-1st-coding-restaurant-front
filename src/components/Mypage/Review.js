@@ -5,12 +5,29 @@ import ReviewList from './ReviewList';
 
 function Review() {
   const [myReview, setMyReview] = useState([]);
+  const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/myPage/review.json')
+    // fetch('http://localhost:8000/mypage', {
+    fetch('/data/myPage/myPage.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ` + localStorage.getItem('token'),
+      },
+    })
       .then(res => res.json())
-      .then(data => setMyReview(data.data));
+      .then(data => {
+        setOrderList(data.data.orderList);
+        setMyReview(data.data.reviews);
+      });
   }, []);
+
+  // useEffect(() => {
+  //   fetch('/data/myPage/review.json')
+  //     .then(res => res.json())
+  //     .then(data => setMyReview(data.data));
+  // }, []);
 
   return (
     <div>
@@ -24,12 +41,15 @@ function Review() {
             <span>미식평</span>
           </div>
           <div className={orderReviewCss.reviewList}>
-            {myReview.map(el => (
+            {orderList.map(el => (
               <ReviewList
-                key={el.id}
-                list={el}
-                removeBtn={myReview}
-                setRemoveBtn={setMyReview}
+                key={el.productId}
+                orderList={el}
+                reviewList={myReview}
+                removeBtn={orderList}
+                setRemoveBtn={setOrderList}
+                addBtn={myReview}
+                setAddBtn={setMyReview}
               />
             ))}
           </div>

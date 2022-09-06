@@ -3,9 +3,24 @@ import orderReviewCss from '../Mypage/Review.module.scss';
 import ReviewModal from './ReviewModal';
 import ReviewModalRevise from './ReviewModalRevise';
 
-function ReviewList({ list, removeBtn, setRemoveBtn }) {
+function ReviewList({
+  orderList,
+  reviewList,
+  removeBtn,
+  setRemoveBtn,
+  addBtn,
+  setAddBtn,
+}) {
   const [modalOpen, setModalOpen] = useState(false);
   const [ReviewModalReviseOpen, setReviewModalReviseOpen] = useState(false);
+  const [isWriting, setIsWriting] = useState(false);
+  let reviewItem = [];
+  let reviewCheck = false;
+
+  const isWritingHandler = () => {
+    setIsWriting(true);
+  };
+
   const showModal = () => {
     setModalOpen(true);
   };
@@ -14,25 +29,31 @@ function ReviewList({ list, removeBtn, setRemoveBtn }) {
     setReviewModalReviseOpen(true);
   };
   const deleteBtn = () => {
-    const newList = removeBtn.filter(el => list.id != el.id);
+    const newList = removeBtn.filter(el => orderList.productId != el.productId);
     setRemoveBtn(newList);
   };
+
+  for (let i = 0; i < reviewList.length; i++) {
+    if (orderList.productId == reviewList[i].productId) {
+      reviewCheck = true;
+    }
+  }
+  reviewItem = reviewList.filter(el => orderList.productId == el.productId)[0];
 
   return (
     <div className={orderReviewCss['review-box']}>
       <div className={orderReviewCss.case}>
         <img
           className={orderReviewCss.foodImg}
-          src={list.image_thumbnail}
+          src={orderList.imageThumbnail}
         ></img>
       </div>
       <div className={orderReviewCss.tdSize}>
-        <span className={orderReviewCss.order}>{list.name}</span>
+        <span className={orderReviewCss.order}>{orderList.productName}</span>
       </div>
       <div className={orderReviewCss.buttonId}>
         <div>
-          <input type="hidden"></input>
-          {list.isWriting ? (
+          {isWriting || reviewCheck ? (
             <>
               <button className={orderReviewCss.button} onClick={reviseModal}>
                 수정
@@ -46,9 +67,21 @@ function ReviewList({ list, removeBtn, setRemoveBtn }) {
               등록
             </button>
           )}
-          {modalOpen && <ReviewModal setModalOpen={setModalOpen} />}
+          {modalOpen && (
+            <ReviewModal
+              productName={orderList.productName}
+              productId={orderList.productId}
+              setModalOpen={setModalOpen}
+              setAddBtn={setAddBtn}
+              isWritingHandler={isWritingHandler}
+            />
+          )}
           {ReviewModalReviseOpen && (
             <ReviewModalRevise
+              productName={orderList.productName}
+              productId={orderList.productId}
+              reviewId={reviewItem.reviewId}
+              reviewContent={reviewItem.review}
               setReviewModalReviseOpen={setReviewModalReviseOpen}
             />
           )}
