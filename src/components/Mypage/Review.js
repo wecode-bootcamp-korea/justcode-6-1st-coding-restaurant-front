@@ -8,8 +8,8 @@ function Review() {
   const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    // fetch('http://localhost:8000/mypage', {
-    fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
+      // fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -23,23 +23,17 @@ function Review() {
       });
   }, []);
 
-  // useEffect(() => {
-  //   fetch('/data/myPage/review.json')
-  //     .then(res => res.json())
-  //     .then(data => setMyReview(data.data));
-  // }, []);
-
   return (
     <div>
+      <div className={css.sectionTitle}>
+        <span>미식평</span>
+      </div>
       {myReview.length === 0 ? (
         <div className={css.rowList}>
           <p>조회 가능한 미식평이 없습니다.</p>
         </div>
       ) : (
         <>
-          <div className={css.sectionTitle}>
-            <span>미식평</span>
-          </div>
           <div className={orderReviewCss.reviewList}>
             {orderList.map(el => (
               <ReviewList
