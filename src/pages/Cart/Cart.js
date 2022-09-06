@@ -26,28 +26,17 @@ function Cart() {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: localStorage.getItem('access_token'),
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setCartList(data.data.cartList);
+        setItemTotal(data.data.totalPrice);
+        setTotalDelivery(data.data.deliveryFee);
+        setTotalPrice(data.data.orderPrice);
       });
   }, []);
-
-  // 장바구니 삭제 api
-  useEffect(() => {
-    fetch('http://localhost:8000/carts', {
-      method: 'DELETE',
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setCartList(data.data.cartList);
-      })
-      .error(err => console.log(err));
-  });
 
   return (
     <>

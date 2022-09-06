@@ -21,18 +21,63 @@ function CartItem({ item, cartList, setCartList }) {
       return id != item.id;
     });
     setCartList(newCartList);
+    fetch('http://localhost:8000/carts', {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        cartsId: 13,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
   };
 
   const countPlus = () => {
     let newPrice = Number(`${(count + 1) * price}`);
     setCount(count + 1);
     setItemTotalPrice(newPrice);
+    fetch('http://localhost:8000/carts', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        cartsId: 13,
+        quantity: 1,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
   };
 
   const countMinus = () => {
     count >= 2 && setCount(count - 1);
     count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
+    fetch('http://localhost:8000/carts', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        cartsId: 13,
+        quantity: -1,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
+      });
   };
+
   return (
     <>
       <div className={css['cart-item']}>
