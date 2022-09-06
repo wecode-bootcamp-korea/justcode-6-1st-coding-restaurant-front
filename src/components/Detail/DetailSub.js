@@ -44,22 +44,24 @@ const DetailSub = ({ price, bundles }) => {
   const moveToCart = () => {
     //모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
     //장바구니에 담기 버튼 클릭하면 장바구니에 상품 추가하는 api 작성해야함
-    // fetch('http://localhost:8000/carts', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Auothorization: `Bearer ` + localStorage.getItem('token'),
-    //   },
-    //   body: JSON.stringify({
-    //     bundleId: bundleId,
-    //     quantity: quantity,
-    //   })
-    //     .then(res => res.json())
-    //     .then(data => {
-    //       console.log(data.message); //통신확인 후 삭제
-    alert('상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!');
-    //     }),
-    // });
+    fetch('http://localhost:8000/carts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        // Auothorization: `Bearer ` + localStorage.getItem('token'),
+      },
+      body: JSON.stringify({
+        // userId: 3, (테스트용)
+        bundleId: bundleId,
+        quantity: quantity,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert(
+          '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
+        );
+      });
   };
 
   return (
