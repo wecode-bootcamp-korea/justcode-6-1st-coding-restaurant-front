@@ -11,14 +11,45 @@ function Cart() {
   const [totalDelivery, setTotalDelivery] = useState(0); //총 배달료
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
   const [base, setbase] = useState(0);
+  // useEffect(() => {
+  //   fetch('/data/cart/cartList.json')
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setCartList(data.data.cart_list);
+  //     });
+  // }, []);
+
+  // 장바구니 조회 api
   useEffect(() => {
-    fetch('/data/cart/cartList.json')
+    fetch('http://localhost:8000/carts', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: localStorage.getItem('access_token'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
-        setCartList(data.carts);
+        console.log(data);
+        setCartList(data.data.cart_list);
       });
   }, []);
+
   // cartList.carts
+
+  // 장바구니 삭제 api
+  // useEffect(() => {
+  //   fetch('http://localhost:8000/carts', {
+  //     method: 'DELETE',
+  //     headers: {
+  //       Authorization: localStorage.removeItem('access_token'),
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       console.log(data);
+  //     });
+  // });
 
   return (
     <>
@@ -71,6 +102,7 @@ function Cart() {
             </div>
             {cartList.length &&
               cartList.map(item => {
+                console.log(item);
                 return (
                   <CartItem
                     key={item.id}
