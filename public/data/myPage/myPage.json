@@ -21,24 +21,24 @@
         "pointId": 1,
         "point": 5000,
         "history": "가입 축하 기념",
-        "createdAt": "2022-09-06"
+        "createdAt": "2022-09-06 00:19:06"
       },
       {
         "pointId": 2,
         "point": 5000,
         "history": "충전",
-        "createdAt": "2022-09-06"
+        "createdAt": "2022-09-06 00:19:06"
       },
       {
         "pointId": 3,
         "point": -6000,
         "history": "사용",
-        "createdAt": "2022-09-06"
+        "createdAt": "2022-09-06 00:19:06"
       }
     ],
     "orderList": [
       {
-        "createdAt": "2022-09-06",
+        "createdAt": "2022-09-06 07:29:10.000000",
         "productId": 1,
         "fixedPrice": 27000,
         "orderNumber": 123680,
@@ -46,7 +46,7 @@
         "imageThumbnail": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg"
       },
       {
-        "createdAt": "2022-09-06",
+        "createdAt": "2022-09-06 07:29:10.000000",
         "productId": 2,
         "fixedPrice": 36000,
         "orderNumber": 124780,
@@ -59,7 +59,7 @@
         "rating": 5,
         "review": "너무 맛있어요",
         "reviewId": 1,
-        "createdAt": "2022-09-06",
+        "createdAt": "2022-09-06 16:17:57.000000",
         "productId": 1,
         "productName": "갈비탕",
         "imageThumbnail": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg"
@@ -68,7 +68,7 @@
         "rating": 4,
         "review": "구성도 좋고 배송도 빠르고 맛있게 잘먹었어요!",
         "reviewId": 2,
-        "createdAt": "2022-09-06",
+        "createdAt": "2022-09-06 16:17:57.000000",
         "productId": 2,
         "productName": "수원왕갈비",
         "imageThumbnail": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg"
