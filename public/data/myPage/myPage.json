@@ -1,7 +1,78 @@
 {
   "data": {
-    "name": "이은지",
-    "profileImg": "/image/mypage/cake.png",
-    "point": 2500
+    "userId": 1,
+    "email": "aaaaa1@coding.co.kr",
+    "name": "김보리",
+    "phoneNumber": "01012341234",
+    "birth": 20220901,
+    "gender": "female",
+    "isConsent": 0,
+    "profilePicture": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "address": [
+      {
+        "addressId": 1,
+        "postalCode": "43745",
+        "address": "중구 한강대로",
+        "address1": "서울스퀘어"
+      }
+    ],
+    "point": [
+      {
+        "pointId": 1,
+        "point": 5000,
+        "history": "가입 축하 기념",
+        "createdAt": "2022-09-06"
+      },
+      {
+        "pointId": 2,
+        "point": 5000,
+        "history": "충전",
+        "createdAt": "2022-09-06"
+      },
+      {
+        "pointId": 3,
+        "point": -6000,
+        "history": "사용",
+        "createdAt": "2022-09-06"
+      }
+    ],
+    "orderList": [
+      {
+        "createdAt": "2022-09-06",
+        "productId": 1,
+        "fixedPrice": 27000,
+        "orderNumber": 123680,
+        "productName": "갈비탕",
+        "imageThumbnail": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg"
+      },
+      {
+        "createdAt": "2022-09-06",
+        "productId": 2,
+        "fixedPrice": 36000,
+        "orderNumber": 124780,
+        "productName": "수원왕갈비",
+        "imageThumbnail": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg"
+      }
+    ],
+    "reviews": [
+      {
+        "rating": 5,
+        "review": "너무 맛있어요",
+        "reviewId": 1,
+        "createdAt": "2022-09-06",
+        "productId": 1,
+        "productName": "갈비탕",
+        "imageThumbnail": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg"
+      },
+      {
+        "rating": 4,
+        "review": "구성도 좋고 배송도 빠르고 맛있게 잘먹었어요!",
+        "reviewId": 2,
+        "createdAt": "2022-09-06",
+        "productId": 2,
+        "productName": "수원왕갈비",
+        "imageThumbnail": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg"
+      }
+    ]
   }
 }
