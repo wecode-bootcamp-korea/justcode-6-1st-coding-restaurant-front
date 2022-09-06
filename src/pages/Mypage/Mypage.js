@@ -15,6 +15,7 @@ function Mypage() {
     point: 0,
   });
 
+  ////최종 목데이터로 마이미식 데이터 get api
   useEffect(() => {
     fetch('/data/myPage/myPage.json', {
       method: 'GET',
@@ -24,15 +25,50 @@ function Mypage() {
       },
     })
       .then(res => res.json())
-      .then(data =>
-        setUserInfo({
-          ...userInfo,
-          name: data.data.name,
-          profileImg: data.data.profileImg,
-          point: data.data.point,
-        })
-      );
+      .then(req => {
+        {
+          let pointArr = req.data.point;
+          let totalPoint = 0;
+          pointArr.forEach(point => {
+            totalPoint = totalPoint + point.point;
+          }); //통합데이터에서 point값만 더해서 totalPoint를 구한 후 보여줌
+          setUserInfo({
+            ...userInfo,
+            name: req.data.name,
+            profileImg: req.data.profilePicture,
+            point: totalPoint,
+          });
+        }
+      });
   }, []);
+
+  ////////////마이메이지 마이미식 get api/////////
+  // useEffect(() => {
+  //   fetch('http://localhost:8000/mypage', {
+  //     method: 'GET',
+  //     headers: {
+  //       Authorization: `Bearer ${localStorage.getItem('token')}`,
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(req => {
+  //       {
+  //         let pointArr = req.data.point;
+  //         let totalPoint = 0;
+  //         pointArr.forEach(point => {
+  //           totalPoint = totalPoint + point.point;
+  //         }); //통합데이터에서 point값만 더해서 totalPoint를 구한 후 보여줌
+  //         setUserInfo({
+  //           ...userInfo,
+  //           name: req.data.name,
+  //           profileImg: req.data.profilePicture,
+  //           point: totalPoint,
+  //         });
+  //       }
+  //     });
+  // }, []);
+  //////////////////
 
   const mypageChangeTab = e => {
     const navTabsList = document.getElementsByClassName(css.navTabsList);
