@@ -3,12 +3,11 @@ import React, { useState } from 'react';
 import css from './DetailSub.module.scss';
 import Option from '../../components/Detail/Option';
 
-// 옵션 선택하면 옵션마다 Option component 나오게 하려다가 실패..
-// 어차피 장바구니 추가api에서 bundleId 한가지만 보내기 때문에 보류함
+// 메뉴 선택 - 한번 선택하면 다시 선택 못하게
+// 수량 변경 - 총합계 변경, 5만원 이상이면 배송비 0원
+// 장바구니 담기
 
 const DetailSub = ({ price, bundles }) => {
-  const navigate = useNavigate();
-
   const [option, setOption] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [deliveryFee, setDeliveryFee] = useState(3500);
@@ -16,17 +15,29 @@ const DetailSub = ({ price, bundles }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [bundleId, setBundleId] = useState('');
   const deliveryDate = '09월 30일';
-  const [quantity, setQuantity] = useState(1);
-  let bundleId = 1;
 
   const selectOption = e => {
     setProductPrice(Number(e.target.value));
     setTotalPrice(Number(e.target.value));
+
     setOption(
       e.target.options[e.target.options.selectedIndex].getAttribute('option')
     );
+
     setBundleId(
       e.target.options[e.target.options.selectedIndex].getAttribute('bundleid')
+    );
+  };
+
+  const optionBox = () => {
+    return (
+      <Option
+        option={option}
+        quantity={quantity}
+        setQuantity={setQuantity}
+        setTotalPrice={setTotalPrice}
+        productPrice={productPrice}
+      />
     );
   };
 
@@ -113,17 +124,7 @@ const DetailSub = ({ price, bundles }) => {
                 <span className={css['sub-title']}>수량 선택하기</span>
               </div>
             </div>
-
-            {
-              <Option
-                option={option}
-                quantity={quantity}
-                setQuantity={setQuantity}
-                setTotalPrice={setTotalPrice}
-                productPrice={productPrice}
-                setproductPrice={setProductPrice}
-              />
-            }
+            {optionBox()}
           </div>
         )}
         <div className={css.price}>
