@@ -2,13 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({
-  item,
-  cartList,
-  setCartList,
-  setItemPriceArr,
-  itemPriceArr,
-}) {
+function CartItem({ item, cartList, setCartList }) {
   const { id, brandName, itemName, img, option } = item;
   const [count, setCount] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
