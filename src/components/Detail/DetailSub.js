@@ -14,6 +14,7 @@ const DetailSub = ({ price, bundles }) => {
   const [deliveryFee, setDeliveryFee] = useState(3500);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [bundleId, setBundleId] = useState('');
   const deliveryDate = '09월 30일';
   const [quantity, setQuantity] = useState(1);
   let bundleId = 1;
@@ -21,9 +22,11 @@ const DetailSub = ({ price, bundles }) => {
   const selectOption = e => {
     setProductPrice(Number(e.target.value));
     setTotalPrice(Number(e.target.value));
-
     setOption(
       e.target.options[e.target.options.selectedIndex].getAttribute('option')
+    );
+    setBundleId(
+      e.target.options[e.target.options.selectedIndex].getAttribute('bundleid')
     );
   };
 
@@ -96,6 +99,7 @@ const DetailSub = ({ price, bundles }) => {
                   key={bundle.id}
                   value={bundle.price}
                   option={bundle.option}
+                  bundleid={bundle.id}
                 >
                   {bundle.option} - {bundle.price.toLocaleString()}
                 </option>

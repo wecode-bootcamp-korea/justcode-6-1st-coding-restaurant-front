@@ -13,7 +13,6 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
   const clickTab = e => {
     switch (e.target.value) {
       case '메뉴 소개':
-        console.log('e.target :', e.target.style);
         return setComponent(<Content content={content} />);
 
       case '미식평':
