@@ -2,34 +2,31 @@
   "data": {
     "cart_list": [
       {
-        "user_id": 1,
-        "cart_id": 4,
-        "bundle_id": 1,
-        "name": "갈비탕",
-        "bundle_option": "갈비탕 3팩",
-        "bundle_price": 27000,
-        "quantity": 17,
-        "cart_price": "459000"
+        "id": 1,
+        "brandName": "부산족발",
+        "itemName": "냉채족발",
+        "img": "https://cdn.pixabay.com/photo/2015/03/05/18/30/spaghetti-660748__340.jpg",
+        "option": "3인분",
+        "price": 10000,
+        "quantity": 2
       },
       {
-        "user_id": 1,
-        "cart_id": 5,
-        "bundle_id": 3,
-        "name": "갈비탕",
-        "bundle_option": "갈비탕 6팩",
-        "bundle_price": 40500,
-        "quantity": 5,
-        "cart_price": "202500"
+        "id": 2,
+        "brandName": "이태리파스타집",
+        "itemName": "쉬림프파스타 밀키트",
+        "img": "https://cdn.pixabay.com/photo/2015/03/05/18/30/spaghetti-660748__340.jpg",
+        "option": "2인분",
+        "price": 1000,
+        "quantity": 1
       },
       {
-        "user_id": 1,
-        "cart_id": 6,
-        "bundle_id": 30,
-        "name": "LA갈비",
-        "bundle_option": "800g",
-        "bundle_price": 54000,
-        "quantity": 10,
-        "cart_price": "540000"
+        "id": 3,
+        "brandName": "부산개미집",
+        "itemName": "낙곱새",
+        "img": "https://cdn.pixabay.com/photo/2015/03/05/18/30/spaghetti-660748__340.jpg",
+        "option": "중",
+        "price": 5000,
+        "quantity": 1
       }
     ],
     "total_price": 1201500,
