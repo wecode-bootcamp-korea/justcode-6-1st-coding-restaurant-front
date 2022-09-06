@@ -1,23 +1,29 @@
 import React, { useState, useEffect, Children } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import css from './SubSlide.module.scss';
-function SubSlide(props, type) {
-  console.log(type);
+function SubSlide(props) {
   const [imgData, setImgData] = useState([]);
   const [imgLocation, setImgLocation] = useState(0);
 
   /////////////목데이터////////////
 
   useEffect(() => {
-    fetch('/data/main/subSlide.json')
+    fetch(`/data/main/${props.query}.json`)
       .then(res => res.json())
       .then(res => setImgData(res.data));
   }, []);
 
   ///////서버통신///////////
   // useEffect(() => {
-  //   fetch();
-  // });
+  //   fetch(`http://localhost:8000/products?${props.query}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
+  //     .then(res => res.json())
+  //     .then(res => setImgData(res.data));
+  // }, [imgData]);
 
   const leftBtn = () => {
     if (imgLocation > 0) {
