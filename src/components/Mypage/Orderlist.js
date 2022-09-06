@@ -6,9 +6,16 @@ function Orderlist() {
   const [orderList, setOrderListArray] = useState([]);
 
   useEffect(() => {
-    fetch('/data/myPage/orderList.json')
+    // fetch('http://localhost:8000/mypage', {
+    fetch('/data/myPage/myPage.json', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ` + localStorage.getItem('token'),
+      },
+    })
       .then(res => res.json())
-      .then(data => setOrderListArray(data));
+      .then(data => setOrderListArray(data.data.orderList));
   }, []);
 
   return (
@@ -16,59 +23,65 @@ function Orderlist() {
       <div className={css.sectionTitle}>
         <span>주문 내역</span>
       </div>
-      <table className={orderlistCss.orderList}>
-        <thead>
-          <tr className={orderlistCss.borderBottom}>
-            <th className={orderlistCss.order}>주문번호</th>
-            <th className={orderlistCss.order}>주문명</th>
-            <th className={orderlistCss.order}>상품상태</th>
-            <th className={orderlistCss.order}>결제금액</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderList.map(orderItem => {
-            return (
-              <tr
-                className={orderlistCss.orderListItem}
-                key={orderItem.orderNum}
-              >
-                <td
-                  className={`${orderlistCss.orderListCol} ${orderlistCss.borderBottom} `}
+      {orderList.length === 0 ? (
+        <div className={css.rowList}>
+          <p>조회 가능한 주문 내역이 없습니다.</p>
+        </div>
+      ) : (
+        <table className={orderlistCss.orderList}>
+          <thead>
+            <tr className={orderlistCss.borderBottom}>
+              <th className={orderlistCss.order}>상품정보</th>
+              <th className={orderlistCss.order}>주문번호</th>
+              <th className={orderlistCss.order}>주문명</th>
+              <th className={orderlistCss.order}>결제금액</th>
+            </tr>
+          </thead>
+          <tbody>
+            {orderList.map(orderItem => {
+              return (
+                <tr
+                  className={orderlistCss.orderListItem}
+                  key={orderItem.orderNumber}
                 >
-                  <span className={orderlistCss.orderNum}>
-                    {orderItem.orderNum}
-                  </span>
-                  <div>
-                    <span className={orderlistCss.orderDate}>
-                      {orderItem.orderDate}
+                  <td
+                    className={`${orderlistCss.orderListCol} ${orderlistCss.imgBox} ${orderlistCss.borderBottom}`}
+                  >
+                    <img
+                      className={orderlistCss.thumbnail}
+                      src={orderItem.imageThumbnail}
+                    ></img>
+                  </td>
+                  <td className={orderlistCss.orderListCol}>
+                    <span className={orderlistCss.orderNum}>
+                      {orderItem.orderNumber}
                     </span>
-                  </div>
-                </td>
-                <td
-                  className={`${orderlistCss.borderBottom} ${orderlistCss.nameColor}`}
-                >
-                  {orderItem.orderName}
-                </td>
-                <td
-                  className={`${orderlistCss.orderListCol} ${orderlistCss.borderBottom}`}
-                >
-                  {orderItem.orderDelivery}
-                </td>
-                <td
-                  className={`${orderlistCss.orderListCol} ${orderlistCss.borderBottom}`}
-                >
-                  <span className={orderlistCss.orderPrice}>
-                    {orderItem.orderPrice}
-                  </span>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      <div className={css.rowList}>
-        <p>조회 가능한 주문 내역이 없습니다.</p>
-      </div>
+                    <div>
+                      <span className={orderlistCss.orderDate}>
+                        {orderItem.createdAt}
+                      </span>
+                    </div>
+                  </td>
+                  <td
+                    className={`${orderlistCss.productName} ${orderlistCss.borderBottom}}`}
+                  >
+                    {orderItem.productName}
+                  </td>
+
+                  <td className={orderlistCss.orderListCol}>
+                    <span className={orderlistCss.orderPrice}>
+                      {orderItem.fixedPrice
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                      원
+                    </span>
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }

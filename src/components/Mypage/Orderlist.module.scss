@@ -27,8 +27,14 @@
     border-bottom: 0.5px solid #e9e4db;
   }
 
-  .nameColor {
+  .productName {
+    width: 40%;
+    padding-left: 50px;
     color: #908471;
+  }
+
+  .imgBox {
+    width: 15%;
   }
 
   .orderNum {
@@ -42,5 +48,11 @@
   .orderDate {
     color: rgb(158, 158, 158);
     font-size: 14.5px;
+  }
+  .thumbnail {
+    width: 130px;
+    height: 160px;
+    margin-top: 20px;
+    border-radius: 10px;
   }
 }
