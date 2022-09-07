@@ -34,6 +34,42 @@
       background-color: rgba(102, 88, 68, 0.1);
     }
 
+    .divideror {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px;
+      vertical-align: middle;
+      .divideror-line {
+        width: 169px;
+        height: 1px;
+        background-color: rgba(102, 88, 68, 0.1);
+        margin-top: 10px;
+      }
+      span {
+        display: flex;
+        width: 32px;
+        margin: 0 15px;
+        color: #928470;
+        text-align: center;
+        font-size: 11px;
+      }
+    }
+
+    .account-type-box {
+      display: flex;
+      .btn {
+        width: 350px;
+        text-align: center;
+        padding: 10px 30px;
+        background-color: #928470;
+        color: white;
+        &:hover {
+          background-color: #7a6951;
+          cursor: pointer;
+        }
+      }
+    }
+
     .member-by-email {
       display: flex;
       margin-top: 10px;
