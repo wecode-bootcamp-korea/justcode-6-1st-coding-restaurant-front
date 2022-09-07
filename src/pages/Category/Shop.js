@@ -1,5 +1,7 @@
+import css from './Shop.module.scss';
+
 function Shop() {
-  return <div>this is Shop</div>;
+  return <div className={css.shop}></div>;
 }
 
 export default Shop;
