@@ -11,8 +11,8 @@ function Card({ props }) {
       <img src={props['image_thumbnail']} alt="card" />
       <div className={css.content}>
         <h2>{props.productor}</h2>
-        <span>{props.name}</span>
-        <span>{props.fixedPrice}</span>
+        <h2>{props.name}</h2>
+        <span>{`${props.fixedPrice.toLocaleString()} 원`}</span>
         <div className={css.review}>
           <span>{`주문수 : ${props['order_count'].toLocaleString()}`}</span>
         </div>
