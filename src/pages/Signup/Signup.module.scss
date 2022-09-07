@@ -54,7 +54,6 @@
           align-items: center;
           text-align: center;
           margin-left: 5px;
-          color: white;
         }
       }
       .social-account-facebook {
@@ -65,12 +64,18 @@
       }
       .social-account-naver {
         background-color: #3bb400;
+        img {
+          margin-right: 15px;
+        }
         &:hover {
           background-color: #308e02;
         }
       }
       .social-account-kakao {
         background-color: #fbde00;
+        img {
+          margin-right: 15px;
+        }
         span {
           color: black;
         }
@@ -81,29 +86,11 @@
       .social-account-apple {
         background-color: #000000;
         img {
-          object-fit: cover;
+          margin-right: 50px;
         }
-      }
-    }
-
-    .divideror {
-      display: flex;
-      justify-content: space-between;
-      margin: 10px;
-      vertical-align: middle;
-      .divideror-line {
-        width: 169px;
-        height: 1px;
-        background-color: rgba(102, 88, 68, 0.1);
-        margin-top: 10px;
-      }
-      span {
-        display: flex;
-        width: 32px;
-        margin: 0 15px;
-        color: #928470;
-        text-align: center;
-        font-size: 11px;
+        span {
+          margin: 0 30px;
+        }
       }
     }
 

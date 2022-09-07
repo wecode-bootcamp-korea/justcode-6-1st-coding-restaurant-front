@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './Login.module.scss';
-import LogoBox from './Logobox';
+import LogoBox from './LogoBox';
 
 function Login() {
   const navigate = useNavigate();

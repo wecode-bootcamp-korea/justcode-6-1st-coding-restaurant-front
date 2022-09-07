@@ -1,6 +1,7 @@
 import css from './Login.module.scss';
 
 function LogoBox() {
+  // console.log(props);
   return (
     <>
       <div className={css['social-account-facebook']}>

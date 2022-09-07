@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LogoBox from '../Login/Logobox';
+import LogoBox from '../Login/LogoBox';
 import css from './Signup.module.scss';
 
 function Signup() {
