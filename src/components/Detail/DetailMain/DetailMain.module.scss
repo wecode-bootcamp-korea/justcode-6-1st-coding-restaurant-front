@@ -1,5 +1,5 @@
 .detail-main {
-  padding: 55px 0px;
+  padding-top: 55px;
   border: 1px solid #ddd;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
@@ -7,6 +7,7 @@
 
   .title {
     color: rgb(27, 27, 27);
+
     .name {
       font-family: 'Gowun Batang', serif;
       font-size: 40px;
@@ -21,6 +22,8 @@
 
     .rating {
       display: flex;
+      justify-content: center;
+      align-items: center;
       width: inherit;
 
       .star {
@@ -60,12 +63,13 @@
 
       &:hover {
         cursor: pointer;
+        border-bottom: 3px solid #908471;
         color: #908471;
       }
       &:focus {
+        border-bottom: 3px solid #908471;
         color: #908471;
         outline: none;
-        border-bottom: 3px solid #908471;
       }
     }
   }

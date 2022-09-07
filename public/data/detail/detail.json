@@ -1,73 +1,79 @@
 {
   "data": {
     "id": 1,
-    "name": "100% 호밀빵",
-    "description": "담백하게 즐기는 건강한 호밀빵",
-    "fixedprice": 10000,
-    "content": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg",
+    "name": "갈비탕",
+    "description": "진한 국물이 일품인 갈비탕",
+    "fixedprice": 27000,
+    "content": "https://framerusercontent.com/images/xOLG3XZI3g8xOqrMTkBqnsf2M0.png",
     "bundles": [
       {
         "id": 1,
-        "option": "소",
-        "price": 10000,
-        "quantity": null
+        "price": 27000,
+        "option": "엄청엄청 맛있는 갈비탕 3팩",
+        "quantity": 10
       },
       {
         "id": 2,
-        "option": "중",
-        "price": 15000,
-        "quantity": null
+        "price": 32400,
+        "option": "갈비탕 5팩",
+        "quantity": 10
       },
       {
         "id": 3,
-        "option": "대",
-        "price": 20000,
-        "quantity": null
+        "price": 40500,
+        "option": "갈비탕 6팩",
+        "quantity": 10
       }
     ],
     "images": [
       {
         "id": 1,
-        "img": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg"
+        "image": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg"
       },
       {
         "id": 2,
-        "img": "https://cdn.pixabay.com/photo/2022/08/28/18/03/dog-7417233__340.jpg"
-      }
-    ],
-
-    "reviews": [
-      {
-        "id": 1,
-        "name": "박예선",
-        "rating": 3,
-        "content": "고소해요",
-        "createdAt": "2022-09-03 16:59:00.000000",
-        "reviewCommentId": [3, 4]
-      },
-      {
-        "id": 2,
-        "name": "김코딩",
-        "rating": 5,
-        "content": "재구매임....",
-        "createdAt": "2022-09-03 16:59:00.000000",
-        "reviewCommentId": null
+        "image": "https://cdn.pixabay.com/photo/2012/05/04/10/18/two-47085_960_720.png"
       },
       {
         "id": 3,
-        "name": "꿀호떡",
-        "rating": 2,
-        "content": "그냥그냥",
-        "createdAt": "2022-09-03 16:59:00.000000",
-        "reviewCommentId": null
+        "image": "https://cdn.pixabay.com/photo/2012/04/23/17/07/three-39116_960_720.png"
+      }
+    ],
+    "reviews": [
+      {
+        "id": 1,
+        "name": "김보리",
+        "rating": 5,
+        "content": "너무 맛있어요",
+        "created_at": "2022-09-06 22:20:43.000000"
       },
       {
-        "id": 4,
-        "name": "미식가",
+        "id": 6,
+        "name": "이두부",
         "rating": 5,
-        "content": "미슐랭 5점 합격",
-        "createdAt": "2022-09-03 16:59:00.000000",
-        "reviewCommentId": null
+        "content": "처음먹어보는데 너무 맛있어요.",
+        "created_at": "2022-09-06 22:20:43.000000"
+      },
+      {
+        "id": 11,
+        "name": "이코코",
+        "rating": 4,
+        "content": "맛있어요",
+        "created_at": "2022-09-06 22:20:43.000000"
+      },
+      {
+        "id": 16,
+        "name": "김호두",
+        "rating": 5,
+        "content": "최고에요",
+        "created_at": "2022-09-06 22:20:43.000000"
+      },
+      {
+        "id": 21,
+        "name": "차콩이",
+        "rating": 5,
+        "content": "완전 강추!",
+        "created_at": "2022-09-06 22:20:43.000000"
       }
     ]
   }

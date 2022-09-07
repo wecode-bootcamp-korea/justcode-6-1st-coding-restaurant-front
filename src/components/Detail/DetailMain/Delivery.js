@@ -6,7 +6,6 @@ const Delivery = () => {
   return (
     <div className={css.delivery}>
       <div className={css.content}>
-        안녕하세요 미래식당입니다 :D <br />
         <br />
         식품 특성상 배송예정일보다 1~2일 지연될 수 있는 부분 양해부탁드립니다.
         <br />

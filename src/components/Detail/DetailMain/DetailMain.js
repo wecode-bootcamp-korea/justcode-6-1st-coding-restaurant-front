@@ -7,7 +7,7 @@ import ReviewList from './ReviewList';
 import Delivery from './Delivery';
 import Ask from './Ask';
 
-const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
+const DetailMain = ({ name, description, images, content, reviews }) => {
   const [component, setComponent] = useState(<Content />);
 
   const clickTab = e => {
@@ -31,6 +31,7 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
       <div className={css.title}>
         <h1 className={css.name}>[{name}]</h1>
         <div className={css.description}>{description}</div>
+        {/* <Rating /> */}
         <div className={css.rating}>
           <img
             className={css.star}
@@ -61,7 +62,7 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
       </div>
 
       <div className={css['img-container']}>
-        <img className={css['main-img']} src={slideImgs[0].image} />
+        <img className={css['main-img']} src={images[0].image} />
       </div>
       <div>
         <div className={css['content-tab']}>
