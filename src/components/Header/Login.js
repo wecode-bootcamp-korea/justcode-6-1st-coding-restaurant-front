@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import css from './Login.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 function Login() {
+  const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.length);
+
   const logout = () => {
     localStorage.removeItem('token');
     token ? setToken(false) : setToken(true);
+    navigate('/');
+    alert('로그아웃 되었습니다.');
   };
+
   return (
     <div className={css['login-box']}>
       <span>고객센터</span>
