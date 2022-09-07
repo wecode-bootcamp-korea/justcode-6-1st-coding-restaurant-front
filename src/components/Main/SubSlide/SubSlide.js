@@ -22,8 +22,11 @@ function SubSlide(props) {
       },
     })
       .then(res => res.json())
-      .then(res => setImgData(res.data));
-  }, [imgData]);
+      .then(res => {
+        setImgData(res.data);
+        // console.log('민우님 호출');
+      });
+  }, []);
 
   const leftBtn = () => {
     if (imgLocation > 0) {
@@ -62,7 +65,7 @@ function SubSlide(props) {
                 <div className={css.content}>
                   <h2>{data.productor}</h2>
                   <span>{data.name}</span>
-                  <span>{data.fixedPrice}</span>
+                  <span>{`${data.fixedPrice.toLocaleString()} 원`}</span>
                   <div className={css.review}>
                     <span>
                       {`주문수 : ${data['order_count'].toLocaleString()}`}
