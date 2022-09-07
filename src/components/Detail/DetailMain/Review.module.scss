@@ -1,5 +1,44 @@
-.review {
-  border: 1px solid lightblue;
+.review-box {
+  padding: 10px;
+  margin-bottom: 20px;
+  // border-top: 1px solid #bfaf96;
+  border-bottom: 1px solid #e7e2db;
+  text-align: left;
 
-  margin-top: 20px;
+  .review-head {
+    width: 100%;
+    display: flex;
+
+    .title-box {
+      width: 200%;
+      display: flex;
+      font-size: 13px;
+
+      .author {
+        margin-right: 10px;
+        font-size: 18px;
+        color: #908471;
+      }
+      .create {
+        height: 20px;
+        margin-top: 10px;
+      }
+    }
+
+    .rating {
+      // display: flex;
+      justify-content: center;
+
+      .star {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+
+  .content {
+    margin-top: 10px;
+    padding-left: 20px;
+    // font-size: 21px;
+  }
 }

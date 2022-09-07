@@ -3,12 +3,16 @@
   justify-content: space-between;
   margin-bottom: 15px;
 
-  .option {
-    margin-left: 11px;
-    margin-bottom: 13px;
-    padding: 0px;
-    border: none;
-    font-size: 13px;
+  .option-box {
+    display: flex;
+    width: 130px;
+    .option {
+      margin-left: 11px;
+      margin-bottom: 13px;
+      padding: 0px;
+      border: none;
+      font-size: 14px;
+    }
   }
 
   .price {
@@ -39,5 +43,9 @@
     font-size: 12px;
     color: #928470;
     font-weight: 600;
+  }
+
+  .quantity {
+    width: 77px;
   }
 }

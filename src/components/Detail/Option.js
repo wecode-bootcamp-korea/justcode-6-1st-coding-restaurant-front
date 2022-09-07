@@ -26,14 +26,14 @@ const Option = ({
 
   return (
     <div className={css['quantity-box']}>
-      <div>
+      <div className={css['option-box']}>
         <button className={`${css.small} ${css.delete}`} onClick={optionDelete}>
           x
         </button>
-        <span className={css.option}>{option}</span>
+        <div className={css.option}>{option}</div>
       </div>
 
-      <div>
+      <div className={css['quantity']}>
         <img
           onClick={countMinus}
           src=" https://cdn-icons-png.flaticon.com/128/992/992683.png"

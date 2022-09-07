@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  min-height: 900px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 17px;
+
+  .content-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 40px;
+    margin: auto;
+  }
+}

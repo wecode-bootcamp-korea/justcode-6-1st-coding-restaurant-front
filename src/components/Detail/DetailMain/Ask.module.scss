@@ -1,0 +1,13 @@
+.ask {
+  min-height: 300px;
+  padding: auto;
+  font-family: 'Noto Sans KR', sans-serif;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 40px;
+  }
+}

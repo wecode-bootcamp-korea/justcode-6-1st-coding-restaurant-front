@@ -1,0 +1,13 @@
+.delivery {
+  min-height: 300px;
+  font-family: 'Gowun Batang', serif;
+  font-size: 16px;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 40px;
+  }
+}
