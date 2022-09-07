@@ -35,12 +35,12 @@ function Profile() {
   // };
 
   useEffect(() => {
-    fetch('/data/myPage/myProfile.json', {
+    fetch('/data/myPage/myPage.json', {
       // fetch('http://localhost:8000/my', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ` + localStorage.getItem('token'),
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then(res => res.json())
@@ -62,7 +62,7 @@ function Profile() {
 
   return (
     <div>
-      <div className={profileCss.myProfile}>
+      <div className={`${css.sectionTitle} ${profileCss.myProfile}`}>
         <span>내 정보</span>
       </div>
       <div className={profileCss.formBox}>
