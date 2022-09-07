@@ -4,7 +4,9 @@ import css from './Cart.module.scss';
 import CartItem from '../../components/Cart/CartItem/CartItem';
 
 function Cart() {
+  const [userName, setUserName] = useState('샘플');
   const [cartList, setCartList] = useState([]);
+  const [itemState, setItemState] = useState(false);
   const [itemTotal, setItemTotal] = useState(''); //전체아이템 총 합계
   const [totalDelivery, setTotalDelivery] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
@@ -12,11 +14,13 @@ function Cart() {
   // useEffect(() => {
   //   fetch('/data/cart/cartList.json')
   //     .then(res => res.json())
-  //     .then(data => {
-  //       setCartList(data.data.cartList);
-  //       setItemTotal(data.data.totalPrice);
-  //       setTotalDelivery(data.data.deliveryFee);
-  //       setTotalPrice(data.data.orderPrice);
+  //     .then(req => {
+  //       console.log(req.data);
+  //       setUserName(req.data.name);
+  //       setCartList(req.data.cartList);
+  //       setItemTotal(req.data.totalPrice);
+  //       setTotalDelivery(req.data.deliveryFee);
+  //       setTotalPrice(req.data.orderPrice);
   //     });
   // }, []);
 
@@ -30,13 +34,14 @@ function Cart() {
       },
     })
       .then(res => res.json())
-      .then(data => {
-        setCartList(data.data.cartList);
-        setItemTotal(data.data.totalPrice);
-        setTotalDelivery(data.data.deliveryFee);
-        setTotalPrice(data.data.orderPrice);
+      .then(req => {
+        setUserName(req.data.name);
+        setCartList(req.data.cartList);
+        setItemTotal(req.data.totalPrice);
+        setTotalDelivery(req.data.deliveryFee);
+        setTotalPrice(req.data.orderPrice);
       });
-  }, []);
+  }, [itemState]);
 
   return (
     <>
@@ -44,7 +49,7 @@ function Cart() {
         <div className={css.cart}>
           <div className={css.container}>
             <div className={css['content-header']}>
-              <h1>박예선 님의 장바구니</h1>
+              <h1>{userName} 님의 장바구니</h1>
               <small>주문 예정인 상품을 확인할 수 있습니다.</small>
             </div>
             <ul className={css['order-process']}>
@@ -96,6 +101,8 @@ function Cart() {
                     item={item}
                     cartList={cartList}
                     setCartList={setCartList}
+                    itemState={itemState}
+                    setItemState={setItemState}
                   />
                 );
               })}

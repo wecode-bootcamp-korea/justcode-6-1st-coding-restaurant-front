@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({ item, cartList, setCartList }) {
+function CartItem({ item, cartList, setCartList, itemState, setItemState }) {
   const { id, brandName, itemName, img, options } = item;
   const [count, setCount] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
   const [itemTotalPrice, setItemTotalPrice] = useState(
     Number(`${count * price}`)
   );
+
+  useEffect(() => {}, [count]);
 
   const deliveryFee = 3500;
   const deliveryDate = '2022-09-06';
@@ -35,6 +37,9 @@ function CartItem({ item, cartList, setCartList }) {
       .then(data => {
         console.log(data);
       });
+
+    itemState == true && setItemState(false);
+    itemState == false && setItemState(true);
   };
 
   const countPlus = () => {
@@ -56,26 +61,31 @@ function CartItem({ item, cartList, setCartList }) {
       .then(data => {
         console.log(data);
       });
+    itemState == true && setItemState(false);
+    itemState == false && setItemState(true);
   };
 
   const countMinus = () => {
     count >= 2 && setCount(count - 1);
     count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
-    fetch('http://localhost:8000/carts', {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        cartsId: item.id,
-        quantity: -1,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+    count >= 2 &&
+      fetch('http://localhost:8000/carts', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+          cartsId: item.id,
+          quantity: -1,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        });
+    itemState == true && setItemState(false);
+    itemState == false && setItemState(true);
   };
 
   return (
