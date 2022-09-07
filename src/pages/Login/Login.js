@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './Login.module.scss';
-import LogoBox from './LogoBox';
+import LogoBox from '../../components/Login/LogoBox';
 
 function Login() {
   const navigate = useNavigate();
@@ -109,9 +109,8 @@ function Login() {
           <span className={css.text}>또는</span>
           <div className={css['divideror-line']}></div>
         </div>
-        <div className={css['social-account']}>
-          <LogoBox />
-        </div>
+        <LogoBox>로그인하기</LogoBox>
+
         <div className={css['account-smallbox']}>
           아직 미래식당 회원이 아니세요?
           <a

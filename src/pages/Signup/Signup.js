@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import LogoBox from '../Login/LogoBox';
+import LogoBox from '../../components/Login/LogoBox';
 import css from './Signup.module.scss';
 
 function Signup() {
@@ -120,9 +120,7 @@ function Signup() {
             </p>
           </div>
           <div className={css.divider}></div>
-          <div className={css['social-account']}>
-            <LogoBox />
-          </div>
+          <LogoBox> 가입하기</LogoBox>
           <div className={css.divideror}>
             <div className={css['divideror-line']}></div>
             <span className={css.text}>또는</span>
