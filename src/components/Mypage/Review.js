@@ -8,12 +8,12 @@ function Review() {
   const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    // fetch('http://localhost:8000/my', {
-    fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
+      // fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ` + localStorage.getItem('token'),
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
     })
       .then(res => res.json())

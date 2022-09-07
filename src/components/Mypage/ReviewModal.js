@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import reviewModalCss from '../Mypage/ReviewModal.module.scss';
 
 function ReviewModal({
@@ -34,7 +34,26 @@ function ReviewModal({
     setAddBtn(oldArray => [...oldArray, review]);
     isWritingHandler();
     closeModal();
-    alert('리뷰 등록 완료!');
+    fetchReview();
+  };
+
+  const fetchReview = () => {
+    fetch('http://localhost:8000/reviews', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        productId: productId,
+        content: reviewContent,
+        rating: '3',
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        alert('리뷰 등록 완료!');
+      });
   };
 
   return (
