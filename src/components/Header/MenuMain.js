@@ -6,6 +6,7 @@ function MenuMain() {
 
   return (
     <div>
+      {/* 카드갯수 나누는 페이지네이션 안 하기로 했기 때문에 한 번에 이미지 들어오는 거 확인하면 page 쿼리 지울 것 */}
       <Link to="/products?category=mealKit&orderBy=viewCount&page=1&pageSize=6">
         간편 요리
       </Link>

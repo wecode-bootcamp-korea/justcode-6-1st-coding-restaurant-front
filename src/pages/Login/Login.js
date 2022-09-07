@@ -43,7 +43,8 @@ function Login() {
           if (result.token) {
             localStorage.setItem('token', result.token);
             alert('로그인에 성공하였습니다.');
-            navigate('/');
+            window.location.replace('/');
+            // navigate('/') 46line 새로고침 오류 발생시 원상복귀
           } else {
             alert('이메일과 비밀번호를 찾을 수 없습니다.');
           }

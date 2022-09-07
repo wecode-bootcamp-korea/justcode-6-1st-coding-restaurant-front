@@ -12,16 +12,15 @@
     div {
       display: flex;
       align-items: center;
-
       span {
         margin: 5px;
         font-weight: bold;
       }
     }
     .title-menu {
-      border-bottom: 1px solid #e9e4db;
       padding-left: 5px;
       padding-bottom: 10px;
+      border-bottom: 1px solid #e9e4db;
     }
     .select-menu {
       padding: 5px 0;
