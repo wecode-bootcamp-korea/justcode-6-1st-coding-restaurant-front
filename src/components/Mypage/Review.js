@@ -28,7 +28,7 @@ function Review() {
       <div className={css.sectionTitle}>
         <span>미식평</span>
       </div>
-      {myReview.length === 0 ? (
+      {myReview == null ? (
         <div className={css.rowList}>
           <p>조회 가능한 미식평이 없습니다.</p>
         </div>

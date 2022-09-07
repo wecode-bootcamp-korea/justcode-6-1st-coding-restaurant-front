@@ -6,8 +6,8 @@ function Orderlist() {
   const [orderList, setOrderListArray] = useState([]);
 
   useEffect(() => {
-    // fetch('http://localhost:8000/my', {
-    fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
+      // fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -16,6 +16,7 @@ function Orderlist() {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
         setOrderListArray(data.data.orderList);
       });
   }, []);
@@ -25,7 +26,7 @@ function Orderlist() {
       <div className={css.sectionTitle}>
         <span>주문 내역</span>
       </div>
-      {orderList.length === 0 ? (
+      {orderList == null ? (
         <div className={css.rowList}>
           <p>조회 가능한 주문 내역이 없습니다.</p>
         </div>
