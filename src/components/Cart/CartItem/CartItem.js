@@ -82,8 +82,8 @@ function CartItem({ item, cartList, setCartList }) {
     <>
       <div className={css['cart-item']}>
         <div className={css['item-brand']}>
-          {brandName} (도착일이 같다면 50,000 원 이상 무료 배송 / 현재{' '}
-          {itemTotalPrice.toLocaleString()} 원)
+          {brandName} ( 50,000 원 이상 무료 배송 / 현재{' '}
+          {itemTotalPrice.toLocaleString()} 원 )
         </div>
         <div className={css['item-body']}>
           <img className={css['item-img']} alt={itemName} src={img} />

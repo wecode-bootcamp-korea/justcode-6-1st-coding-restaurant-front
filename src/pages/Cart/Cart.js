@@ -88,7 +88,7 @@ function Cart() {
                 <div className={css['caption-option']}>도착예정일</div>
                 <div className={css['caption-delete']}>삭제</div>
               </div>
-              {/* {cartList.length &&
+              {cartList.length &&
                 cartList.map(item => {
                   return (
                     <CartItem
@@ -98,7 +98,7 @@ function Cart() {
                       setCartList={setCartList}
                     />
                   );
-                })} */}
+                })}
             </div>
             <div className={css['price-zone']}>
               <div className={css['price-sum']}>
