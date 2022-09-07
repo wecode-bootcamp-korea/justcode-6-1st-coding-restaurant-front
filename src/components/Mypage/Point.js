@@ -23,13 +23,13 @@ function Point() {
   return (
     <div>
       <div className={css.sectionTitle}>
-        <span>포인트 사용 내역</span>
+        <span>포인트 내역</span>
       </div>
       <table className={pointCss.orderList}>
         <thead>
           <tr className={pointCss.borderBottom}>
             <th className={pointCss.order}>날짜</th>
-            <th className={pointCss.order}>사용내역</th>
+            <th className={pointCss.order}>내역</th>
             <th className={`${pointCss.order} ${pointCss.thCss}`}>포인트</th>
           </tr>
         </thead>
@@ -39,7 +39,7 @@ function Point() {
               <tr key={pointHistory.pointId}>
                 <td className={`${pointCss.borderBottom} ${pointCss.tdFont}`}>
                   <span className={pointCss.orderNum}>
-                    {pointHistory.createdAt}
+                    {pointHistory.createdAt.substr(0, 10)}
                   </span>
                   <div>
                     <span className={pointCss.orderDate}></span>

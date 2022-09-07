@@ -29,8 +29,6 @@ function ReviewModalRevise({
               <span className={reviewModalCss.order}>★★★☆☆</span>
             </td>
           </tr>
-        </tbody>
-        <tfoot>
           <tr>
             <td>
               <textarea
@@ -40,13 +38,15 @@ function ReviewModalRevise({
               ></textarea>
             </td>
           </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <button className={reviewModalCss.reviewAddButton}>
+              미식평 수정하기
+            </button>
+          </tr>
         </tfoot>
       </table>
-      <div className={reviewModalCss.test}>
-        <button className={reviewModalCss.reviewAddButton}>
-          미식평 수정하기
-        </button>
-      </div>
     </div>
   );
 }

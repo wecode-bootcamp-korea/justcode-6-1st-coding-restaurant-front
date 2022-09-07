@@ -60,7 +60,7 @@ function Orderlist() {
                     </span>
                     <div>
                       <span className={orderlistCss.orderDate}>
-                        {orderItem.createdAt}
+                        {orderItem.createdAt.substr(0, 10)}
                       </span>
                     </div>
                   </td>
