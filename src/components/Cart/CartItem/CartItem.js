@@ -2,13 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({ item, cartList, setCartList }) {
-  const { id, brandName, itemName, img, option } = item;
+function CartItem({ item, cartList, setCartList, itemState, setItemState }) {
+  const { id, brandName, itemName, img, options } = item;
   const [count, setCount] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
   const [itemTotalPrice, setItemTotalPrice] = useState(
     Number(`${count * price}`)
   );
+
+  useEffect(() => {}, [count]);
 
   const deliveryFee = 3500;
   const deliveryDate = '2022-09-06';
@@ -28,13 +30,16 @@ function CartItem({ item, cartList, setCartList }) {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
-        cartsId: 13,
+        cartsId: item.id,
       }),
     })
       .then(res => res.json())
       .then(data => {
         console.log(data);
       });
+
+    itemState == true && setItemState(false);
+    itemState == false && setItemState(true);
   };
 
   const countPlus = () => {
@@ -48,7 +53,7 @@ function CartItem({ item, cartList, setCartList }) {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
-        cartsId: 13,
+        cartsId: item.id,
         quantity: 1,
       }),
     })
@@ -56,34 +61,39 @@ function CartItem({ item, cartList, setCartList }) {
       .then(data => {
         console.log(data);
       });
+    itemState == true && setItemState(false);
+    itemState == false && setItemState(true);
   };
 
   const countMinus = () => {
     count >= 2 && setCount(count - 1);
     count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
-    fetch('http://localhost:8000/carts', {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        cartsId: 13,
-        quantity: -1,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+    count >= 2 &&
+      fetch('http://localhost:8000/carts', {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+          cartsId: item.id,
+          quantity: -1,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        });
+    itemState == true && setItemState(false);
+    itemState == false && setItemState(true);
   };
 
   return (
     <>
       <div className={css['cart-item']}>
         <div className={css['item-brand']}>
-          {brandName} (도착일이 같다면 50,000 원 이상 무료 배송 / 현재{' '}
-          {itemTotalPrice.toLocaleString()} 원)
+          {brandName} ( 50,000 원 이상 무료 배송 / 현재{' '}
+          {itemTotalPrice.toLocaleString()} 원 )
         </div>
         <div className={css['item-body']}>
           <img className={css['item-img']} alt={itemName} src={img} />
@@ -94,7 +104,7 @@ function CartItem({ item, cartList, setCartList }) {
             <div className={css['item-detail-list']}>
               <div className={css['item-select']}>
                 <input type="checkbox"></input>
-                <div className={css['item-option']}>{option}</div>
+                <div className={css['item-option']}>{options}</div>
               </div>
 
               <div>

@@ -34,7 +34,7 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
       </div>
 
       <div className={css['img-container']}>
-        <img className={css['main-img']} src={slideImgs[0].img} />
+        <img className={css['main-img']} src={slideImgs[0].image} />
       </div>
       <div>
         <div className={css['content-tab']}>

@@ -4,39 +4,44 @@ import css from './Cart.module.scss';
 import CartItem from '../../components/Cart/CartItem/CartItem';
 
 function Cart() {
+  const [userName, setUserName] = useState('샘플');
   const [cartList, setCartList] = useState([]);
+  const [itemState, setItemState] = useState(false);
   const [itemTotal, setItemTotal] = useState(''); //전체아이템 총 합계
   const [totalDelivery, setTotalDelivery] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
 
-  useEffect(() => {
-    fetch('/data/cart/cartList.json')
-      .then(res => res.json())
-      .then(data => {
-        setCartList(data.data.cartList);
-        setItemTotal(data.data.totalPrice);
-        setTotalDelivery(data.data.deliveryFee);
-        setTotalPrice(data.data.orderPrice);
-      });
-  }, []);
-
-  // 장바구니 조회 api
   // useEffect(() => {
-  //   fetch('http://localhost:8000/carts', {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${localStorage.getItem('token')}`,
-  //     },
-  //   })
+  //   fetch('/data/cart/cartList.json')
   //     .then(res => res.json())
-  //     .then(data => {
-  //       setCartList(data.data.cartList);
-  //       setItemTotal(data.data.totalPrice);
-  //       setTotalDelivery(data.data.deliveryFee);
-  //       setTotalPrice(data.data.orderPrice);
+  //     .then(req => {
+  //       console.log(req.data);
+  //       setUserName(req.data.name);
+  //       setCartList(req.data.cartList);
+  //       setItemTotal(req.data.totalPrice);
+  //       setTotalDelivery(req.data.deliveryFee);
+  //       setTotalPrice(req.data.orderPrice);
   //     });
   // }, []);
+
+  // 장바구니 조회 api
+  useEffect(() => {
+    fetch('http://localhost:8000/carts', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then(res => res.json())
+      .then(req => {
+        setUserName(req.data.name);
+        setCartList(req.data.cartList);
+        setItemTotal(req.data.totalPrice);
+        setTotalDelivery(req.data.deliveryFee);
+        setTotalPrice(req.data.orderPrice);
+      });
+  }, [itemState]);
 
   return (
     <>
@@ -44,7 +49,7 @@ function Cart() {
         <div className={css.cart}>
           <div className={css.container}>
             <div className={css['content-header']}>
-              <h1>박예선 님의 장바구니</h1>
+              <h1>{userName} 님의 장바구니</h1>
               <small>주문 예정인 상품을 확인할 수 있습니다.</small>
             </div>
             <ul className={css['order-process']}>
@@ -88,17 +93,19 @@ function Cart() {
                 <div className={css['caption-option']}>도착예정일</div>
                 <div className={css['caption-delete']}>삭제</div>
               </div>
-              {cartList.length &&
-                cartList.map(item => {
-                  return (
-                    <CartItem
-                      key={item.id}
-                      item={item}
-                      cartList={cartList}
-                      setCartList={setCartList}
-                    />
-                  );
-                })}
+
+              {cartList.map(item => {
+                return (
+                  <CartItem
+                    key={item.id}
+                    item={item}
+                    cartList={cartList}
+                    setCartList={setCartList}
+                    itemState={itemState}
+                    setItemState={setItemState}
+                  />
+                );
+              })}
             </div>
             <div className={css['price-zone']}>
               <div className={css['price-sum']}>
