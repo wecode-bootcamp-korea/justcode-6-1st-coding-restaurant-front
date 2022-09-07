@@ -89,68 +89,6 @@
         font-size: 11px;
       }
     }
-
-    .social-account {
-      display: flex;
-      flex-direction: column;
-      width: 85%;
-      margin: 10px;
-      div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 6px;
-        &:hover {
-          cursor: pointer;
-        }
-        img {
-          width: 50px;
-        }
-        span {
-          align-items: center;
-          text-align: center;
-          margin-left: 5px;
-          color: white;
-        }
-      }
-      .social-account-facebook {
-        background-color: #2c589e;
-        &:hover {
-          background-color: #1359cb;
-        }
-      }
-      .social-account-naver {
-        background-color: #3bb400;
-        img {
-          margin-right: 15px;
-        }
-        &:hover {
-          background-color: #308e02;
-        }
-      }
-      .social-account-kakao {
-        background-color: #fbde00;
-        img {
-          margin-right: 15px;
-        }
-        span {
-          color: black;
-        }
-        &:hover {
-          background-color: #dcc40d;
-        }
-      }
-      .social-account-apple {
-        background-color: #000000;
-        img {
-          margin-right: 50px;
-        }
-        span {
-          margin: 0 30px;
-        }
-      }
-    }
-
     .account-smallbox {
       display: flex;
       flex-direction: column;
