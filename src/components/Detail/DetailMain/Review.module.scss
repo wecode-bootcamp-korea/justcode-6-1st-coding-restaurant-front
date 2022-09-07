@@ -1,5 +1,9 @@
-.review {
-  border: 1px solid lightblue;
+.review-box {
+  div {
+    border: 1px solid lightblue;
+  }
 
-  margin-top: 20px;
+  .title {
+    display: flex;
+  }
 }

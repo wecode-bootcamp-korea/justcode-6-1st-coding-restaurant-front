@@ -1,5 +1,5 @@
 .detail-main {
-  padding: 55px;
+  padding: 55px 0px;
   border: 1px solid #ddd;
   background-color: white;
   font-family: 'Noto Sans KR', sans-serif;
@@ -14,9 +14,21 @@
     }
 
     .description {
-      padding: 10px 0px 30px;
+      padding: 10px 0px 10px;
       font-family: 'Gowun Batang', serif;
       font-size: 20px;
+    }
+
+    .rating {
+      display: flex;
+      width: inherit;
+
+      .star {
+        width: 30px;
+        height: 30px;
+        margin-bottom: 30px;
+        margin-right: 2px;
+      }
     }
   }
 

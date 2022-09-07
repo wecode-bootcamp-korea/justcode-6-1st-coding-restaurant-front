@@ -29,8 +29,35 @@ const DetailMain = ({ name, description, slideImgs, content, reviews }) => {
   return (
     <div className={css['detail-main']}>
       <div className={css.title}>
-        <h1 className={css.name}>{name}</h1>
+        <h1 className={css.name}>[{name}]</h1>
         <div className={css.description}>{description}</div>
+        <div className={css.rating}>
+          <img
+            className={css.star}
+            alt="rating"
+            src="https://cdn-icons-png.flaticon.com/128/956/956100.png"
+          />
+          <img
+            className={css.star}
+            alt="rating"
+            src="https://cdn-icons-png.flaticon.com/128/956/956100.png"
+          />
+          <img
+            className={css.star}
+            alt="rating"
+            src="https://cdn-icons-png.flaticon.com/128/956/956100.png"
+          />
+          <img
+            className={css.star}
+            alt="rating"
+            src="https://cdn-icons-png.flaticon.com/128/956/956100.png"
+          />
+          <img
+            className={css.star}
+            alt="rating"
+            src="https://cdn-icons-png.flaticon.com/128/956/956100.png"
+          />
+        </div>
       </div>
 
       <div className={css['img-container']}>

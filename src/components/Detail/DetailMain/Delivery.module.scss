@@ -1,0 +1,12 @@
+.delivery {
+  min-height: 300px;
+  padding: auto;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 300px;
+    padding: 40px;
+  }
+}
