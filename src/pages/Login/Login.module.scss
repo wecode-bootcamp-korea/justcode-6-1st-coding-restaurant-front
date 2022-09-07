@@ -121,12 +121,18 @@
       }
       .social-account-naver {
         background-color: #3bb400;
+        img {
+          margin-right: 15px;
+        }
         &:hover {
           background-color: #308e02;
         }
       }
       .social-account-kakao {
         background-color: #fbde00;
+        img {
+          margin-right: 15px;
+        }
         span {
           color: black;
         }
@@ -137,10 +143,10 @@
       .social-account-apple {
         background-color: #000000;
         img {
-          background-color: white;
-          border: 0px;
-          border-radius: 50%;
-          object-fit: cover;
+          margin-right: 50px;
+        }
+        span {
+          margin: 0 30px;
         }
       }
     }
