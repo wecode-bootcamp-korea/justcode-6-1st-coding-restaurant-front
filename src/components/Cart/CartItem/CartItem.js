@@ -28,7 +28,7 @@ function CartItem({ item, cartList, setCartList }) {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
-        cartsId: 13,
+        cartsId: item.id,
       }),
     })
       .then(res => res.json())
@@ -48,7 +48,7 @@ function CartItem({ item, cartList, setCartList }) {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
-        cartsId: 13,
+        cartsId: item.id,
         quantity: 1,
       }),
     })
@@ -68,7 +68,7 @@ function CartItem({ item, cartList, setCartList }) {
         Authorization: `Bearer ${localStorage.getItem('token')}`,
       },
       body: JSON.stringify({
-        cartsId: 13,
+        cartsId: item.id,
         quantity: -1,
       }),
     })

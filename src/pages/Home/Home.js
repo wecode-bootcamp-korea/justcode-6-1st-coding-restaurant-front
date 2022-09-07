@@ -11,16 +11,16 @@ function Home() {
       <MainSlide />
 
       {/* //////////목데이터////////// */}
-      <SubSlide query="subSlide">
+      {/* <SubSlide query="subSlide">
         <h2>간편 요리</h2>
         <span>전국 맛집 메뉴를 간단히 요리해보세요</span>
       </SubSlide>
       <SubSlide query="subSlide">
         <h2>주문 많은 순</h2>
-      </SubSlide>
+      </SubSlide> */}
 
       {/* /////////////통신 사용//////////// */}
-      {/* <SubSlide query="category=mealKit">
+      <SubSlide query="category=mealKit">
         <h2>간편 요리</h2>
         <span>전국 맛집 메뉴를 간단히 요리해보세요</span>
       </SubSlide>
@@ -29,7 +29,7 @@ function Home() {
       </SubSlide>
       <SubSlide query="orderBy=viewCount">
         <h2>조회 많은 순</h2>
-      </SubSlide> */}
+      </SubSlide>
     </div>
   );
 }

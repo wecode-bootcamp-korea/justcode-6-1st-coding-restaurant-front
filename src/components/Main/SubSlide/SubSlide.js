@@ -7,23 +7,23 @@ function SubSlide(props) {
 
   /////////////목데이터////////////
 
-  useEffect(() => {
-    fetch(`/data/main/${props.query}.json`)
-      .then(res => res.json())
-      .then(res => setImgData(res.data));
-  }, []);
-
-  ///////서버통신///////////
   // useEffect(() => {
-  //   fetch(`http://localhost:8000/products?${props.query}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
+  //   fetch(`/data/main/${props.query}.json`)
   //     .then(res => res.json())
   //     .then(res => setImgData(res.data));
-  // }, [imgData]);
+  // }, []);
+
+  ///////서버통신///////////
+  useEffect(() => {
+    fetch(`http://localhost:8000/products?${props.query}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(res => setImgData(res.data));
+  }, [imgData]);
 
   const leftBtn = () => {
     if (imgLocation > 0) {
