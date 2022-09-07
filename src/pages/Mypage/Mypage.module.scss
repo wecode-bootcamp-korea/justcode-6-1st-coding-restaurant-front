@@ -1,123 +1,118 @@
 .mypageBackground {
-  width: 100vw;
-  height: 100vh;
-  position: relative;
+  padding: 100px 0px;
   background: #eee;
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 17px;
-}
 
-.navBarItem {
-  list-style: none;
-  float: left;
-  padding-left: 10px;
-  padding-right: 25px;
-  margin-right: 20px;
-}
+  .navBarItem {
+    list-style: none;
+    float: left;
+    padding-left: 10px;
+    padding-right: 25px;
+    margin-right: 20px;
+  }
 
-.profileimg {
-  width: 144px;
-  height: 144px;
-  border-radius: 50%;
-}
+  .profileimg {
+    width: 144px;
+    height: 144px;
+    border-radius: 50%;
+  }
 
-.container {
-  position: absolute;
-  left: 50%;
-  margin-left: calc(1140px / -2);
-  width: 1140px;
-  height: auto;
-  margin-top: 100px;
-  border: 1px solid #dddb;
-  background: #fff none repeat scroll 0 0;
-
-  .mypageContent {
+  .container {
     width: 1140px;
+    margin: 0px auto;
     border: 1px solid #dddb;
     background: #fff none repeat scroll 0 0;
 
-    .headerSection {
-      width: 90%;
-      padding-bottom: 0.7rem;
-      margin-top: 20px;
-      margin-left: 50px;
-      border-bottom: 0.5px solid #e9e4db;
+    .mypageContent {
+      margin: 0 auto;
+      width: 1140px;
+      border: 1px solid #dddb;
+      background: #fff none repeat scroll 0 0;
 
-      .mypageFont {
-        font-size: 35px;
-        font-weight: 600;
-      }
-    }
+      .headerSection {
+        width: 90%;
+        padding-bottom: 0.7rem;
+        margin-top: 20px;
+        margin-left: 50px;
+        border-bottom: 0.5px solid #e9e4db;
 
-    .mypageHeaderBox {
-      margin-top: 20px;
-      margin-left: 50px;
-
-      .boxLeft {
-        display: table-cell;
-        max-width: 148px;
-        max-height: 148px;
-        vertical-align: top;
-      }
-      .boxBody {
-        display: table-cell;
-        vertical-align: top;
-
-        .boxHeading {
-          margin-bottom: 22px;
-        }
-
-        .nanum {
-          padding-left: 8px;
-          padding-bottom: 25px;
-          font-size: 30px;
+        .mypageFont {
+          font-size: 35px;
+          font-weight: 600;
         }
       }
-    }
 
-    .myTabs {
-      display: table;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 15px;
+      .mypageHeaderBox {
+        margin-top: 20px;
+        margin-left: 50px;
 
-      .navTabs {
-        display: table-cell;
-
-        .navTabsList {
-          list-style: none;
-          float: left;
-          padding-left: 0px;
-          margin-right: 25px;
+        .boxLeft {
+          display: table-cell;
+          max-width: 148px;
+          max-height: 148px;
+          vertical-align: top;
         }
+        .boxBody {
+          display: table-cell;
+          vertical-align: top;
 
-        .navTabsList:hover {
-          cursor: pointer;
-          color: #908471;
-        }
+          .boxHeading {
+            margin-bottom: 22px;
+          }
 
-        .bottom {
-          padding-bottom: 7px;
-          border-bottom: 5px solid #908471;
+          .nanum {
+            padding-left: 8px;
+            padding-bottom: 25px;
+            font-size: 30px;
+          }
         }
       }
-    }
-    .sectionTitle {
-      width: 90%;
-      padding-top: 30px;
-      padding-bottom: 20px;
-      border-top: 1px solid #e9e4db;
-      margin-left: 50px;
-      color: #908471;
-      font-size: 28px;
-    }
 
-    .rowList {
-      width: 90%;
-      height: 50px;
-      margin-left: 50px;
-      margin-top: 30px;
-      text-align: center;
+      .myTabs {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 15px;
+
+        .navTabs {
+          display: table-cell;
+
+          .navTabsList {
+            list-style: none;
+            float: left;
+            padding-left: 0px;
+            margin-right: 25px;
+          }
+
+          .navTabsList:hover {
+            cursor: pointer;
+            color: #908471;
+          }
+
+          .bottom {
+            padding-bottom: 7px;
+            border-bottom: 5px solid #908471;
+          }
+        }
+      }
+      .sectionTitle {
+        width: 90%;
+        padding-top: 30px;
+        padding-bottom: 20px;
+        border-top: 1px solid #e9e4db;
+        margin-left: 50px;
+        color: #908471;
+        font-size: 28px;
+      }
+
+      .rowList {
+        width: 90%;
+        height: 50px;
+        margin-left: 50px;
+        margin-top: 30px;
+        text-align: center;
+      }
     }
   }
 }
