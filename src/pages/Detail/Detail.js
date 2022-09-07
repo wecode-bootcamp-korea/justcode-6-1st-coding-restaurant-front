@@ -12,26 +12,26 @@ const Detail = () => {
   const { name, description, content, bundles, reviews, fixedprice, images } =
     data;
 
-  useEffect(() => {
-    fetch(`http://localhost:8000/product/${params.id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then(res => res.json())
-      .then(req => {
-        setData(req.data);
-      });
-  }, []);
-
   // useEffect(() => {
-  //   fetch('/data/detail/detail.json')
+  //   fetch(`http://localhost:8000/product/${params.id}`, {
+  //     method: 'GET',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //   })
   //     .then(res => res.json())
   //     .then(req => {
   //       setData(req.data);
   //     });
   // }, []);
+
+  useEffect(() => {
+    fetch('/data/detail/detail.json')
+      .then(res => res.json())
+      .then(req => {
+        setData(req.data);
+      });
+  }, []);
 
   return (
     <div className={css.detail}>
