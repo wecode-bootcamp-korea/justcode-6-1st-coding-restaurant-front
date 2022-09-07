@@ -16,7 +16,6 @@ function Orderlist() {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
         setOrderListArray(data.data.orderList);
       });
   }, []);
