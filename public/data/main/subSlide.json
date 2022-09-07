@@ -1,0 +1,100 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "category": "mealKit",
+      "name": "갈비탕",
+      "description": "진한 국물이 일품인 갈비탕",
+      "productor": "갈비천왕",
+      "fixedPrice": 27000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2017/02/01/16/37/chicken-2030706__340.jpg",
+      "view_count": 402,
+      "order_count": 589,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 2,
+      "category": "mealKit",
+      "name": "수원왕갈비",
+      "description": "수원왕갈비를 우리집 식탁에서..",
+      "productor": "갈비천왕",
+      "fixedPrice": 36000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2016/03/05/20/07/abstract-1238657__340.jpg",
+      "view_count": 830,
+      "order_count": 721,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 3,
+      "category": "mealKit",
+      "name": "허브족발",
+      "description": "족발과 허브의 만남",
+      "productor": "당산허브족발",
+      "fixedPrice": 45000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2020/02/02/15/07/meat-4813261__340.jpg",
+      "view_count": 651,
+      "order_count": 539,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 4,
+      "category": "mealKit",
+      "name": "평양냉면",
+      "description": "평양냉면의 원조",
+      "productor": "을지면옥",
+      "fixedPrice": 15000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2015/01/12/15/08/water-noodle-597366__340.jpg",
+      "view_count": 410,
+      "order_count": 609,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 5,
+      "category": "mealKit",
+      "name": "이탈리안 파스타",
+      "description": "파마산 치즈가 잔뜩 뿌려진",
+      "productor": "조선양식",
+      "fixedPrice": 24000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2021/05/18/15/15/pasta-6263653_1280.jpg",
+      "view_count": 511,
+      "order_count": 867,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 6,
+      "category": "meat",
+      "name": "이베리코",
+      "description": "최고급 이베리코 베요타 특수부위",
+      "productor": "스페인",
+      "fixedPrice": 30000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2019/11/23/15/25/korea-food-4647402__340.jpg",
+      "view_count": 205,
+      "order_count": 83,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 7,
+      "category": "meat",
+      "name": "이베리코",
+      "description": "최고급 이베리코 베요타 특수부위",
+      "productor": "스페인",
+      "fixedPrice": 30000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2019/11/23/15/25/korea-food-4647402__340.jpg",
+      "view_count": 205,
+      "order_count": 83,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    },
+    {
+      "id": 8,
+      "category": "meat",
+      "name": "이베리코",
+      "description": "최고급 이베리코 베요타 특수부위",
+      "productor": "스페인",
+      "fixedPrice": 30000,
+      "image_thumbnail": "https://cdn.pixabay.com/photo/2019/11/23/15/25/korea-food-4647402__340.jpg",
+      "view_count": 205,
+      "order_count": 83,
+      "created_at": "2022-09-03T13:57:18.000Z"
+    }
+  ]
+}

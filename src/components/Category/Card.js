@@ -14,7 +14,7 @@ function Card({ props }) {
         <span>{props.name}</span>
         <span>{props.fixedPrice}</span>
         <div className={css.review}>
-          <span>{props['order_count']}</span>
+          <span>{`주문수 : ${props['order_count'].toLocaleString()}`}</span>
         </div>
       </div>
     </div>

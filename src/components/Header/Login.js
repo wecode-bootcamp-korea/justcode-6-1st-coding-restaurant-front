@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import css from './Login.module.scss';
 import { Link } from 'react-router-dom';
 function Login() {
-  const [token, setToken] = useState(false);
+  const [token, setToken] = useState(localStorage.length);
   const logout = () => {
     localStorage.removeItem('token');
     token ? setToken(false) : setToken(true);
