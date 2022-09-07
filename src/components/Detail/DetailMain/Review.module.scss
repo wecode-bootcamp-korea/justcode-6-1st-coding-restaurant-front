@@ -1,6 +1,13 @@
 .review-box {
+  margin-bottom: 30px;
+  text-align: left;
+
   div {
     border: 1px solid lightblue;
+
+    .review-head {
+      display: flex;
+    }
   }
 
   .title {
