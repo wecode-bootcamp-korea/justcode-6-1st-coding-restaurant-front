@@ -8,7 +8,7 @@ import Login from './Login';
 import MenuSub from './MenuSub';
 import MenuMain from './MenuMain';
 
-function Header() {
+function Header({ cartCount }) {
   const navigate = useNavigate();
   return (
     <div className={css.container}>
@@ -20,7 +20,7 @@ function Header() {
         <div className={css['login-cart-box']}>
           <Login />
           <div className={css.line} />
-          <Cart />
+          <Cart cartCount={cartCount} />
         </div>
       </div>
 
