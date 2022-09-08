@@ -1,7 +1,6 @@
 import profileCss from './Profile.module.scss';
 import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState, useEffect } from 'react';
-import { check } from 'prettier';
 
 function Profile() {
   const [myProfile, setMyProfile] = useState({
