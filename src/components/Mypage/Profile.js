@@ -35,8 +35,8 @@ function Profile() {
   // };
 
   useEffect(() => {
-    fetch('/data/myPage/myPage.json', {
-      // fetch('http://localhost:8000/my', {
+    // fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
