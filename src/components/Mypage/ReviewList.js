@@ -33,11 +33,14 @@ function ReviewList({
     setRemoveBtn(newList);
   };
 
-  for (let i = 0; i < reviewList.length; i++) {
-    if (orderList.productId == reviewList[i].productId) {
-      reviewCheck = true;
+  if (reviewList != null) {
+    for (let i = 0; i < reviewList.length; i++) {
+      if (orderList.productId == reviewList[i].productId) {
+        reviewCheck = true;
+      }
     }
   }
+
   reviewItem = reviewList.filter(el => orderList.productId == el.productId)[0];
 
   return (

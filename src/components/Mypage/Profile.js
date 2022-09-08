@@ -1,12 +1,12 @@
 import profileCss from './Profile.module.scss';
 import css from '../../pages/Mypage/Mypage.module.scss';
 import { useState, useEffect } from 'react';
-import { check } from 'prettier';
 
 function Profile() {
   const [myProfile, setMyProfile] = useState({
     email: '',
     name: '',
+    profilePicture: '',
     phoneNumber: '',
     postalCode: '',
     address: '',
@@ -16,6 +16,17 @@ function Profile() {
     isConsent: 0,
   });
 
+  const [birthYear, setBirthYear] = useState(
+    String(myProfile.birth).substring(0, 4)
+  );
+  const [birthMonth, setBirthMonth] = useState(
+    String(myProfile.birth).substring(4, 6)
+  );
+  const [birthDate, setBirthDate] = useState(
+    String(myProfile.birth).substring(6, 8)
+  );
+
+  // 성별체크기능 아직 구현못함..
   // const [maleInValid, setMaleInValid] = useState('true')
 
   // const femaleInValid = () => {
@@ -49,6 +60,7 @@ function Profile() {
           ...myProfile,
           email: data.data.email,
           name: data.data.name,
+          profilePicture: data.data.profilePicture,
           phoneNumber: data.data.phoneNumber,
           birth: data.data.birth.toString(),
           gender: data.data.gender,
@@ -59,6 +71,65 @@ function Profile() {
         })
       );
   }, []);
+
+  const disabledBtnClick = () => {
+    alert('지원하지 않는 기능입니다');
+  };
+
+  const changeName = e => {
+    setMyProfile({
+      ...myProfile,
+      name: e.target.value,
+    });
+  };
+
+  const changePhoneNumber = e => {
+    setMyProfile({
+      ...myProfile,
+      phoneNumber: e.target.value,
+    });
+  };
+
+  const changeBirthYear = e => {
+    setBirthYear(e.target.value);
+  };
+
+  const changeBirthMonth = e => {
+    setBirthMonth(e.target.value);
+  };
+
+  const changeBirthDate = e => {
+    setBirthDate(e.target.value);
+  };
+
+  const saveBtnClick = () => {
+    setMyProfile({
+      ...myProfile,
+      birth: Number(birthYear + birthMonth + birthDate),
+    });
+
+    fetch('http://localhost:8000/my', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        name: myProfile.name,
+        phoneNumber: myProfile.phoneNumber,
+        birth: Number(birthYear + birthMonth + birthDate),
+        gender: myProfile.gender,
+        isConsent: 0,
+        profileImage: myProfile.profilePicture,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.message);
+
+        alert('변경사항이 저장되었습니다');
+      });
+  };
 
   return (
     <div>
@@ -78,7 +149,11 @@ function Profile() {
             </div>
             <div className={profileCss.formContent}>
               <label className={profileCss.formLabel}>비밀번호</label>
-              <button className={`${profileCss.formBtn} ${profileCss.pwBtn}`}>
+              <button
+                type="button"
+                className={`${profileCss.formBtn} ${profileCss.pwBtn}`}
+                onClick={disabledBtnClick}
+              >
                 비밀번호 변경
               </button>
             </div>
@@ -87,6 +162,7 @@ function Profile() {
               <input
                 className={profileCss.formInput}
                 defaultValue={myProfile.name}
+                onChange={changeName}
               ></input>
             </div>
             <div className={profileCss.formContent}>
@@ -94,6 +170,7 @@ function Profile() {
               <input
                 className={profileCss.formInput}
                 defaultValue={myProfile.phoneNumber}
+                onChange={changePhoneNumber}
               ></input>
             </div>
             <div className={profileCss.formContent}>
@@ -104,9 +181,14 @@ function Profile() {
                     className={profileCss.addrNum}
                     placeholder="우편번호"
                     defaultValue={myProfile.postalCode}
+                    disabled
                   ></input>
                   <span>
-                    <button className={profileCss.formBtn}>
+                    <button
+                      type="button"
+                      className={profileCss.formBtn}
+                      onClick={disabledBtnClick}
+                    >
                       우편번호 검색
                     </button>
                   </span>
@@ -115,11 +197,13 @@ function Profile() {
                   className={profileCss.formInput}
                   placeholder="기본 주소"
                   defaultValue={myProfile.address}
+                  disabled
                 ></input>
                 <input
                   className={profileCss.formInput}
                   placeholder="상세 주소"
                   defaultValue={myProfile.address1}
+                  disabled
                 ></input>
               </div>
             </div>
@@ -132,7 +216,8 @@ function Profile() {
                   id="female"
                   type="radio"
                   name="gender"
-                  checked={myProfile.gender == 'female' ? true : false}
+                  defaultChecked={myProfile.gender == 'female' ? true : false}
+                  disabled
                   // onChange={e => {
                   //   changeHandler(e.currentTarget.checked, 'female');
                   // }}
@@ -142,7 +227,8 @@ function Profile() {
                   id="male"
                   type="radio"
                   name="gender"
-                  checked={myProfile.gender == 'male' ? true : false}
+                  defaultChecked={myProfile.gender == 'male' ? true : false}
+                  disabled
                   // onChange={e => {
                   //   changeHandler(e.currentTarget.checked, 'male');
                   // }}
@@ -156,19 +242,22 @@ function Profile() {
 
               <input
                 className={profileCss.birthInput}
-                defaultValue={myProfile.birth.substring(0, 4)}
+                defaultValue={String(myProfile.birth).substring(0, 4)}
+                onChange={changeBirthYear}
               ></input>
               <span className={profileCss.spanBorder}>년</span>
 
               <input
                 className={profileCss.birthInput}
-                defaultValue={myProfile.birth.substring(4, 6)}
+                defaultValue={String(myProfile.birth).substring(4, 6)}
+                onChange={changeBirthMonth}
               ></input>
               <span className={profileCss.spanBorder}>월</span>
 
               <input
                 className={profileCss.birthInput}
-                defaultValue={myProfile.birth.substring(6, 8)}
+                defaultValue={String(myProfile.birth).substring(6, 8)}
+                onChange={changeBirthDate}
               ></input>
               <span className={profileCss.spanBorder}>일</span>
             </div>
@@ -178,14 +267,17 @@ function Profile() {
               <input
                 className={profileCss.consent}
                 type="checkbox"
-                checked={myProfile.isConsent ? true : false}
+                defaultChecked={myProfile.isConsent ? true : false}
+                disabled
               ></input>
               <span>미래식당의 이벤트, 프로모션 수신 동의(선택)</span>
             </div>
           </div>
         </form>
         <div>
-          <button className={profileCss.saveBtn}>변경사항 저장</button>
+          <button className={profileCss.saveBtn} onClick={saveBtnClick}>
+            변경사항 저장
+          </button>
         </div>
       </div>
     </div>
