@@ -3,7 +3,7 @@ import css from './AboutUs.module.scss';
 function AboutUs() {
   return (
     <div className={css.container}>
-      <img src="image/aboutUs/aboutUs.jpg" />
+      {/* <img src="image/aboutUs/aboutUs.jpg" /> */}
     </div>
   );
 }
