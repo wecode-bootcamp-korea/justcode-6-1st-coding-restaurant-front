@@ -8,8 +8,8 @@ function Review() {
   const [orderList, setOrderList] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/my', {
-      // fetch('/data/myPage/myPage.json', {
+    // fetch('http://localhost:8000/my', {
+    fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -24,24 +24,29 @@ function Review() {
   }, []);
 
   return (
-    <div>
+    <div className={orderReviewCss.container}>
       <div className={css.sectionTitle}>
         <span>미식평</span>
       </div>
-
-      <div className={orderReviewCss.reviewList}>
-        {orderList.map(el => (
-          <ReviewList
-            key={el.productId}
-            orderList={el}
-            reviewList={myReview}
-            removeBtn={orderList}
-            setRemoveBtn={setOrderList}
-            addBtn={myReview}
-            setAddBtn={setMyReview}
-          />
-        ))}
-      </div>
+      {orderList == null || orderList.length == 0 ? (
+        <div className={css.rowList}>
+          <p>조회 가능한 내역이 없습니다.</p>
+        </div>
+      ) : (
+        <div className={orderReviewCss.reviewList}>
+          {orderList.map(el => (
+            <ReviewList
+              key={el.productId}
+              orderList={el}
+              reviewList={myReview}
+              removeBtn={orderList}
+              setRemoveBtn={setOrderList}
+              addBtn={myReview}
+              setAddBtn={setMyReview}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

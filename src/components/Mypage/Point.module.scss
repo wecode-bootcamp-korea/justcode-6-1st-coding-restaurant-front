@@ -1,34 +1,38 @@
-.orderList {
-  width: 90%;
-  margin-left: 50px;
-  margin-bottom: 40px;
-  border-top: 0.5px solid #e9e4db;
-  border-collapse: collapse;
-  font-size: 18px;
+.container {
+  min-height: 350px;
 
-  .order {
-    height: 50px;
-    margin-left: 30px;
-    border-bottom: 0.5px solid #e9e4db;
-    text-align: center;
-    color: #908471;
-    font-weight: 500;
-  }
+  .orderList {
+    width: 90%;
+    margin-left: 50px;
+    margin-bottom: 40px;
+    border-top: 0.5px solid #e9e4db;
+    border-collapse: collapse;
+    font-size: 18px;
 
-  .borderBottom {
-    padding: 10px;
-    border-bottom: 0.5px solid #e9e4db;
-
-    .thCss {
-      width: 35%;
+    .order {
+      height: 50px;
+      margin-left: 30px;
+      border-bottom: 0.5px solid #e9e4db;
+      text-align: center;
+      color: #908471;
+      font-weight: 500;
     }
-  }
 
-  .tdBox {
-    text-align: center;
+    .borderBottom {
+      padding: 10px;
+      border-bottom: 0.5px solid #e9e4db;
 
-    .tdFont {
-      font-size: 17px;
+      .thCss {
+        width: 35%;
+      }
+    }
+
+    .tdBox {
+      text-align: center;
+
+      .tdFont {
+        font-size: 17px;
+      }
     }
   }
 }
