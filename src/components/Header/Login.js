@@ -9,6 +9,7 @@ function Login({ setCartCount }) {
     localStorage.removeItem('token');
     token ? setToken(false) : setToken(true);
     navigate('/');
+    window.location.replace('/');
     alert('로그아웃 되었습니다.');
     setCartCount(0);
   };
