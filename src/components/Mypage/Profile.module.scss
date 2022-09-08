@@ -111,5 +111,9 @@
     font-weight: 900;
     color: rgb(245, 245, 245);
     background-color: #908471;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
