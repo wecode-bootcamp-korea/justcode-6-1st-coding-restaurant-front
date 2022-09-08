@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import css from './Login.module.scss';
 import { Link, useNavigate } from 'react-router-dom';
-function Login() {
+function Login({ setCartCount }) {
   const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.length);
 
-  const logout = () => {
+  const logout = ({ setCartCount }) => {
     localStorage.removeItem('token');
     token ? setToken(false) : setToken(true);
     navigate('/');
     alert('로그아웃 되었습니다.');
+    setCartCount(0);
   };
 
   return (

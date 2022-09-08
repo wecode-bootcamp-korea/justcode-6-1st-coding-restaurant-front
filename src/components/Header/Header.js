@@ -8,7 +8,7 @@ import Login from './Login';
 import MenuSub from './MenuSub';
 import MenuMain from './MenuMain';
 
-function Header({ cartCount }) {
+function Header({ cartCount, setCartCount }) {
   const navigate = useNavigate();
   return (
     <div className={css.container}>
@@ -18,7 +18,7 @@ function Header({ cartCount }) {
           <img src="/image/header/logo.png" alt="logo" />
         </div>
         <div className={css['login-cart-box']}>
-          <Login />
+          <Login setCartCount={setCartCount} />
           <div className={css.line} />
           <Cart cartCount={cartCount} />
         </div>

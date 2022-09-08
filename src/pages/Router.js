@@ -21,7 +21,7 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 function Router() {
-  const [cartCount, setCartCount] = useState('');
+  const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
     fetch('http://localhost:8000/carts', {
@@ -39,7 +39,7 @@ function Router() {
 
   return (
     <BrowserRouter>
-      <Header cartCount={cartCount} />
+      <Header cartCount={cartCount} setCartCount={setCartCount} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
