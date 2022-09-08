@@ -19,13 +19,12 @@ function Orderlist() {
         setOrderListArray(data.data.orderList);
       });
   }, []);
-
   return (
-    <div>
+    <div className={orderlistCss.container}>
       <div className={css.sectionTitle}>
         <span>주문 내역</span>
       </div>
-      {orderList == null ? (
+      {orderList == null || orderList.length == 0 ? (
         <div className={css.rowList}>
           <p>조회 가능한 주문 내역이 없습니다.</p>
         </div>

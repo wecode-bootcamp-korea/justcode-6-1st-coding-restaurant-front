@@ -21,11 +21,11 @@ function Point() {
   }, []);
 
   return (
-    <div>
+    <div className={pointCss.container}>
       <div className={css.sectionTitle}>
         <span>포인트 내역</span>
       </div>
-      {point == null ? (
+      {point == null || point.length == 0 ? (
         <div className={css.rowList}>
           <p>조회 가능한 포인트 내역이 없습니다.</p>
         </div>

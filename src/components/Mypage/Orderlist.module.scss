@@ -1,58 +1,62 @@
-.orderList {
-  width: 90%;
-  margin-left: 50px;
-  border-top: 0.5px solid #e9e4db;
-  border-collapse: collapse;
-  font-size: 18px;
+.container {
+  min-height: 350px;
 
-  .order {
-    height: 50px;
-    margin-left: 30px;
-    border-bottom: 0.5px solid #e9e4db;
-    text-align: center;
-    color: #908471;
-    font-weight: 500;
-  }
+  .orderList {
+    width: 90%;
+    margin-left: 50px;
+    border-top: 0.5px solid #e9e4db;
+    border-collapse: collapse;
+    font-size: 18px;
 
-  .orderListCol {
-    text-align: center;
-  }
+    .order {
+      height: 50px;
+      margin-left: 30px;
+      border-bottom: 0.5px solid #e9e4db;
+      text-align: center;
+      color: #908471;
+      font-weight: 500;
+    }
 
-  .orderListItem {
-    height: 150px;
-  }
+    .orderListCol {
+      text-align: center;
+    }
 
-  .borderBottom {
-    padding: 10px;
-    border-bottom: 0.5px solid #e9e4db;
-  }
+    .orderListItem {
+      height: 150px;
+    }
 
-  .productName {
-    width: 40%;
-    padding-left: 50px;
-    color: #908471;
-  }
+    .borderBottom {
+      padding: 10px;
+      border-bottom: 0.5px solid #e9e4db;
+    }
 
-  .imgBox {
-    width: 15%;
-  }
+    .productName {
+      width: 40%;
+      padding-left: 50px;
+      color: #908471;
+    }
 
-  .orderNum {
-    border-bottom: 0.5px solid rgba(0, 0, 0, 0.479);
-    font-weight: 500;
-  }
-  .orderPrice {
-    font-weight: 500;
-  }
+    .imgBox {
+      width: 15%;
+    }
 
-  .orderDate {
-    color: rgb(158, 158, 158);
-    font-size: 14.5px;
-  }
-  .thumbnail {
-    width: 130px;
-    height: 160px;
-    margin-top: 20px;
-    border-radius: 10px;
+    .orderNum {
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.479);
+      font-weight: 500;
+    }
+    .orderPrice {
+      font-weight: 500;
+    }
+
+    .orderDate {
+      color: rgb(158, 158, 158);
+      font-size: 14.5px;
+    }
+    .thumbnail {
+      width: 130px;
+      height: 160px;
+      margin-top: 20px;
+      border-radius: 10px;
+    }
   }
 }
