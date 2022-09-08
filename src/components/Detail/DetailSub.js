@@ -3,11 +3,7 @@ import React, { useState } from 'react';
 import css from './DetailSub.module.scss';
 import Option from '../../components/Detail/Option';
 
-// 메뉴 선택 - 한번 선택하면 다시 선택 못하게
-// 수량 변경 - 총합계 변경, 5만원 이상이면 배송비 0원
-// 장바구니 담기
-
-const DetailSub = ({ price, bundles }) => {
+const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   const [option, setOption] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [deliveryFee, setDeliveryFee] = useState(3500);
@@ -43,7 +39,6 @@ const DetailSub = ({ price, bundles }) => {
 
   const moveToCart = () => {
     //모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
-    //장바구니에 담기 버튼 클릭하면 장바구니에 상품 추가하는 api 작성해야함
     fetch('http://localhost:8000/carts', {
       method: 'POST',
       headers: {
@@ -57,9 +52,12 @@ const DetailSub = ({ price, bundles }) => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log(data);
+
         alert(
           '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
         );
+        setCartCount(cartCount + 1);
       });
   };
 

@@ -2,7 +2,15 @@ import React, { useState, useEffect } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({ item, cartList, setCartList, itemState, setItemState }) {
+function CartItem({
+  item,
+  cartList,
+  setCartList,
+  itemState,
+  setItemState,
+  cartCount,
+  setCartCount,
+}) {
   const { id, brandName, itemName, img, options } = item;
   const [count, setCount] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
@@ -40,6 +48,7 @@ function CartItem({ item, cartList, setCartList, itemState, setItemState }) {
 
     itemState == true && setItemState(false);
     itemState == false && setItemState(true);
+    setCartCount(cartCount - 1);
   };
 
   const countPlus = () => {

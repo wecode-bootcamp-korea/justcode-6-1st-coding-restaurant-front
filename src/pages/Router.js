@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import Home from './Home/Home';
@@ -21,14 +21,33 @@ import Header from '../components/Header/Header';
 import Footer from '../components/Footer/Footer';
 
 function Router() {
+  const [cartCount, setCartCount] = useState('');
+
+  useEffect(() => {
+    fetch('http://localhost:8000/carts', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCartCount(data.data.cartList.length);
+      });
+  }, [cartCount]);
+
   return (
     <BrowserRouter>
-      <Header />
+      <Header cartCount={cartCount} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/cart"
+          element={<Cart cartCount={cartCount} setCartCount={setCartCount} />}
+        />
         <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/orderlist" element={<Orderlist />} />
@@ -38,7 +57,10 @@ function Router() {
         <Route path="/point" element={<Point />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/products" element={<Category />} />
-        <Route path="/product/:id" element={<Detail />} />
+        <Route
+          path="/product/:id"
+          element={<Detail cartCount={cartCount} setCartCount={setCartCount} />}
+        />
         <Route path="/shops" element={<Shop />} />
       </Routes>
       <Footer />

@@ -3,10 +3,11 @@ import { useParams } from 'react-router-dom';
 
 import DetailMain from '../../components/Detail/DetailMain/DetailMain';
 import DetailSub from '../../components/Detail/DetailSub';
+import Header from '../../components/Header/Header';
 
 import css from './Detail.module.scss';
 
-const Detail = () => {
+const Detail = ({ cartCount, setCartCount }) => {
   const params = useParams();
   const [data, setData] = useState({});
   const { name, description, content, bundles, reviews, fixedprice, images } =
@@ -25,6 +26,8 @@ const Detail = () => {
       });
   }, []);
 
+  // [cartCount]
+
   // useEffect(() => {
   //   fetch('/data/detail/detail.json')
   //     .then(res => res.json())
@@ -34,24 +37,34 @@ const Detail = () => {
   // }, []);
 
   return (
-    <div className={css.detail}>
-      <div className={css.container}>
-        <div className={css['main-container']}>
-          {data.id && (
-            <DetailMain
-              name={name}
-              description={description}
-              content={content}
-              images={images}
-              reviews={reviews}
-            />
-          )}
-        </div>
-        <div className={css['sub-container']}>
-          {data.id && <DetailSub price={fixedprice} bundles={bundles} />}
+    <>
+      {/* <Header cartCount={cartCount} /> */}
+      <div className={css.detail}>
+        <div className={css.container}>
+          <div className={css['main-container']}>
+            {data.id && (
+              <DetailMain
+                name={name}
+                description={description}
+                content={content}
+                images={images}
+                reviews={reviews}
+              />
+            )}
+          </div>
+          <div className={css['sub-container']}>
+            {data.id && (
+              <DetailSub
+                price={fixedprice}
+                bundles={bundles}
+                setCartCount={setCartCount}
+                cartCount={cartCount}
+              />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

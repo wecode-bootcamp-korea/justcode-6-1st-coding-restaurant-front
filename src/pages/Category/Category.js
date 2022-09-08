@@ -39,17 +39,19 @@ function Category() {
     navigate(`/products?${query}`);
   };
   return (
-    <div className={css.container}>
-      <header>
-        <div className={css['title-menu']}>
-          <Title />
-        </div>
-        <div className={css['select-menu']}>
-          <Button handleBtn={handleBtn} />
-        </div>
-      </header>
-      <CardList props={data} />
-    </div>
+    <>
+      <div className={css.container}>
+        <header>
+          <div className={css['title-menu']}>
+            <Title />
+          </div>
+          <div className={css['select-menu']}>
+            <Button handleBtn={handleBtn} />
+          </div>
+        </header>
+        <CardList props={data} />
+      </div>
+    </>
   );
 }
 export default Category;
