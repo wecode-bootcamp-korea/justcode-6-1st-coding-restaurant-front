@@ -49,28 +49,31 @@ function Signup() {
     } else if (!gender) {
       alert('성별을 확인해주세요.');
     } else {
-      fetch('http://localhost:8000/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          name: name,
-          phoneNumber: phone,
-          birth: birthday,
-          gender: gender,
-        }),
-      })
-        .then(response => response.json())
-        .then(result => {
-          if (result.message == 'userCreated') {
-            navigate('/login');
-          } else {
-            alert('회원가입에 실패하였습니다.');
-          }
-        });
+      // fetch('http://localhost:8000/signup', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     email: email,
+      //     password: password,
+      //     name: name,
+      //     phoneNumber: phone,
+      //     birth: birthday,
+      //     gender: gender,
+      //   }),
+      // })
+      //   .then(response => response.json())
+      //   .then(result => {
+      //     if (result.message == 'userCreated') {
+      alert(
+        '미래식당의 회원이 되어주셔서 감사합니다:) \n로그인 페이지로 이동합니다.'
+      );
+      navigate('/login');
+      //   } else {
+      //     alert('회원가입에 실패하였습니다.');
+      //   }
+      // });
     }
   };
 
@@ -292,6 +295,9 @@ function Signup() {
             <a
               className={css['text-link']}
               onClick={() => {
+                alert(
+                  '이미 미래식당 회원이신가요? \n로그인 페이지로 이동합니다.'
+                );
                 navigate('/login');
               }}
             >

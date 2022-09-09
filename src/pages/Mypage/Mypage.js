@@ -10,42 +10,16 @@ import { useState, useEffect } from 'react';
 function Mypage() {
   const [navigate, setNavigate] = useState(<Orderlist />);
   const [userInfo, setUserInfo] = useState({
-    name: '',
-    profileImg: '',
-    point: 1000000,
+    name: '샘플',
+    profileImg: 'https://cdn-icons-png.flaticon.com/128/847/847969.png',
+    point: 0,
   });
 
   const [name, setName] = useState('');
 
-  ////최종 목데이터로 마이미식 데이터 get api
-  // useEffect(() => {
-  //   fetch('/data/myPage/myPage.json', {
-  //     method: 'GET',
-  //     headers: {
-  //       Authorization: localStorage.getItem('token'),
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(req => {
-  //       {
-  //         let pointArr = req.data.point;
-  //         let totalPoint = 0;
-  //         pointArr.forEach(point => {
-  //           totalPoint = totalPoint + point.point;
-  //         }); //통합데이터에서 point값만 더해서 totalPoint를 구한 후 보여줌
-  //         setUserInfo({
-  //           ...userInfo,
-  //           name: req.data.name,
-  //           profileImg: req.data.profilePicture,
-  //           point: totalPoint,
-  //         });
-  //       }
-  //     });
-  // }, []);
-
   ////////////마이메이지 마이미식 get api/////////
   useEffect(() => {
+    // fetch('/data/myPage/myPage.json', {
     fetch('http://localhost:8000/my', {
       method: 'GET',
       headers: {
