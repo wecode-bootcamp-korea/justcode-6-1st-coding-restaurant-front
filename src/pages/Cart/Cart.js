@@ -4,10 +4,10 @@ import css from './Cart.module.scss';
 import CartItem from '../../components/Cart/CartItem/CartItem';
 
 function Cart({ cartCount, setCartCount }) {
-  const [userName, setUserName] = useState('샘플');
+  const [userName, setUserName] = useState('비회원');
   const [cartList, setCartList] = useState([]);
   const [itemState, setItemState] = useState(false);
-  const [itemTotal, setItemTotal] = useState(''); //전체아이템 총 합계
+  const [itemTotal, setItemTotal] = useState(0); //전체아이템 총 합계
   const [totalDelivery, setTotalDelivery] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
 
