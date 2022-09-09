@@ -23,7 +23,7 @@ import Footer from '../components/Footer/Footer';
 function Router() {
   const [cartCount, setCartCount] = useState(0);
 
-  useEffect(() => {
+  localStorage.getItem('token') && // useEffect(() => {
     fetch('http://localhost:8000/carts', {
       method: 'GET',
       headers: {
@@ -35,7 +35,7 @@ function Router() {
       .then(data => {
         setCartCount(data.data.cartList.length);
       });
-  }, [cartCount]);
+  // }, [cartCount]);
 
   return (
     <BrowserRouter>

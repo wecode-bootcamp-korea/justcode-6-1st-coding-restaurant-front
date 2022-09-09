@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './Login.module.scss';
 import LogoBox from '../../components/SignupLogin/LogoBox';
-import Header from '../../components/Header/Header';
 
 function Login() {
   const navigate = useNavigate();
