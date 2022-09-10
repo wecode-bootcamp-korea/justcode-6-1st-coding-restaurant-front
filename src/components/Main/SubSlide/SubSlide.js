@@ -7,26 +7,26 @@ function SubSlide(props) {
   const navigate = useNavigate();
   /////////////목데이터////////////
 
-  useEffect(() => {
-    fetch(`/data/main/${props.query}.json`)
-      .then(res => res.json())
-      .then(res => setImgData(res.data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/data/main/${props.query}.json`)
+  //     .then(res => res.json())
+  //     .then(res => setImgData(res.data));
+  // }, []);
 
   ///////서버통신///////////
-  // useEffect(() => {
-  //   fetch(`http://localhost:8000/products?${props.query}`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   })
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       setImgData(res.data);
-  //       // console.log('민우님 호출');
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(`http://localhost:8000/products?${props.query}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then(res => res.json())
+      .then(res => {
+        setImgData(res.data);
+        // console.log('민우님 호출');
+      });
+  }, []);
 
   const leftBtn = () => {
     if (imgLocation > 0) {
