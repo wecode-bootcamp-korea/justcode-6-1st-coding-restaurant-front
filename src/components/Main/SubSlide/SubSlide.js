@@ -5,7 +5,6 @@ function SubSlide(props) {
   const [imgData, setImgData] = useState([]);
   const [imgLocation, setImgLocation] = useState(0);
   const navigate = useNavigate();
-  console.log(props.query);
   /////////////목데이터////////////
 
   useEffect(() => {

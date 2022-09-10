@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 function Login({ setCartCount }) {
   const navigate = useNavigate();
   const [token, setToken] = useState(localStorage.length);
-
+  console.log();
   const logout = ({ setCartCount }) => {
     localStorage.removeItem('token');
     token ? setToken(false) : setToken(true);
@@ -17,7 +17,7 @@ function Login({ setCartCount }) {
   return (
     <div className={css['login-box']}>
       <span>고객센터</span>
-      {token ? (
+      {localStorage.getItem('token') !== null ? (
         <>
           <Link to="/mypage">마이페이지</Link>
           <span onClick={logout}>로그아웃</span>
