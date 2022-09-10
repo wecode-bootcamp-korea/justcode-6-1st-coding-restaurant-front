@@ -12,7 +12,7 @@ function Mypage() {
   const [userInfo, setUserInfo] = useState({
     name: '샘플',
     profileImg: 'https://cdn-icons-png.flaticon.com/128/847/847969.png',
-    point: 0,
+    point: 5000,
   });
 
   const [name, setName] = useState('');
@@ -96,7 +96,7 @@ function Mypage() {
                   <ul className={css.navBar}>
                     <li className={css.navBarItem}>
                       미식 포인트
-                      <span> {userInfo.point}원</span>
+                      <span> {userInfo.point.toLocaleString()}P</span>
                     </li>
                   </ul>
                 </div>
