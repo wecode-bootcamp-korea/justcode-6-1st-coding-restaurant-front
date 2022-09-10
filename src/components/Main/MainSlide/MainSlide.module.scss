@@ -3,7 +3,7 @@
   position: relative;
   justify-content: center;
   height: 420px;
-  width: 100vw;
+  width: 99vw;
   color: white;
   font-family: 'Noto Sans KR', sans-serif;
   font-weight: 600;
@@ -11,7 +11,7 @@
 
   .img-slide {
     display: flex;
-    width: 100vw;
+    width: 99vw;
     overflow: hidden;
     .img-slide-box {
       display: flex;
@@ -23,7 +23,7 @@
       height: 420px;
 
       img {
-        width: 100vw;
+        width: 99vw;
         height: 420px;
         object-fit: cover;
         object-position: 50% 50%;
@@ -35,7 +35,7 @@
     display: flex;
     position: absolute;
     top: 42%;
-    width: 100vw;
+    width: 99vw;
     align-items: center;
     overflow: hidden;
 
@@ -43,10 +43,10 @@
       display: flex;
 
       .description {
-        width: 100vw;
+        width: 99vw;
 
         div {
-          width: 100vw;
+          width: 99vw;
           padding-left: 220px;
         }
         .detail {

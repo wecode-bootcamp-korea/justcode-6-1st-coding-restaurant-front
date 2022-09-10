@@ -34,7 +34,7 @@ function Mypage() {
           let totalPoint = 0;
           pointArr.forEach(point => {
             totalPoint = totalPoint + point.point;
-          }); //통합데이터에서 point값만 더해서 totalPoint를 구한 후 보여줌
+          });
           setUserInfo({
             ...userInfo,
             name: req.data.name,

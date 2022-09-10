@@ -43,8 +43,8 @@ function MainSlide() {
         <div
           className={css['img-slide-box']}
           style={{
-            transform: `translate3d(${imgLocation * -100 + 'vw'},0px,0px)`,
-            transition: '450ms',
+            transform: `translate3d(${imgLocation * -99 + 'vw'},0px,0px)`,
+            transition: '600ms',
           }}
         >
           {imgData.map(item => {
@@ -60,8 +60,8 @@ function MainSlide() {
         <div
           className={css['description-box']}
           style={{
-            transform: `translate3d(${imgLocation * -100 + 'vw'},0px,0px)`,
-            transition: '450ms',
+            transform: `translate3d(${imgLocation * -99 + 'vw'},0px,0px)`,
+            transition: '600ms',
             width: `${slideLen * 100}vw`,
           }}
         >

@@ -23,18 +23,18 @@ import Footer from '../components/Footer/Footer';
 function Router() {
   const [cartCount, setCartCount] = useState(0);
 
-  localStorage.getItem('token') &&
-    fetch('http://localhost:8000/carts', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-    })
-      .then(res => res.json())
-      .then(data => {
-        setCartCount(data.data.cartList.length);
-      });
+  // localStorage.getItem('token') &&
+  // fetch('http://localhost:8000/carts', {
+  //   method: 'GET',
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+  //   },
+  // })
+  //   .then(res => res.json())
+  //   .then(data => {
+  // setCartCount(data.data.cartList.length);
+  // });
 
   return (
     <BrowserRouter>
