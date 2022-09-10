@@ -7,11 +7,11 @@ function SubSlide(props) {
   const navigate = useNavigate();
   /////////////목데이터////////////
 
-  useEffect(() => {
-    fetch(`/data/main/${props.query}.json`)
-      .then(res => res.json())
-      .then(res => setImgData(res.data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`/data/main/${props.query}.json`)
+  //     .then(res => res.json())
+  //     .then(res => setImgData(res.data));
+  // }, []);
 
   ///////서버통신///////////
   useEffect(() => {

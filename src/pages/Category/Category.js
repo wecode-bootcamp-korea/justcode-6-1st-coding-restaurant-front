@@ -10,7 +10,7 @@ function Category() {
   const [category, setCategory] = useState('');
   const location = useLocation();
   const navigate = useNavigate();
-  // /////////////////////목데이터 사용//////////////////////////
+  /////////////////////목데이터 사용//////////////////////////
   // useEffect(() => {
   //   fetch(`/data/category/categoryList.json`)
   //     .then(res => res.json())
@@ -18,7 +18,7 @@ function Category() {
   //       setData(res.data);
   //     });
   // }, []);
-  // //////////////////////통신 사용////////////////////////
+  //////////////////////통신 사용////////////////////////
 
   useEffect(() => {
     fetch(`http://localhost:8000/products${location.search}`, {

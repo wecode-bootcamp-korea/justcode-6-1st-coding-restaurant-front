@@ -6,8 +6,8 @@ function Orderlist() {
   const [orderList, setOrderListArray] = useState([]);
 
   useEffect(() => {
-    // fetch('http://localhost:8000/my', {
-    fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
+      // fetch('/data/myPage/myPage.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

@@ -38,7 +38,10 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   };
 
   const moveToCart = () => {
-    //모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
+    !localStorage.getItem('token') &&
+      alert('로그인이 필요한 기능입니다.\n로그인 페이지로 이동합니다');
+
+    // 모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
     fetch('http://localhost:8000/carts', {
       method: 'POST',
       headers: {

@@ -52,8 +52,8 @@ function Profile() {
   // };
 
   useEffect(() => {
-    fetch('/data/myPage/myPage.json', {
-      // fetch('http://localhost:8000/my', {
+    // fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -127,30 +127,30 @@ function Profile() {
       birth: Number(birthYear + birthMonth + birthDate),
     });
 
-    // fetch('http://localhost:8000/my', {
-    //   method: 'PATCH',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-    //   },
-    //   body: JSON.stringify({
-    //     phoneNumber: myProfile.phoneNumber,
-    //     birth: Number(birthYear + birthMonth + birthDate),
-    //     gender: myProfile.gender,
-    //     isConsent: 0,
-    //     profileImage: myProfile.profilePicture,
-    //     addressId: myProfile.addressId,
-    //     postalCode: myProfile.postalCode,
-    //     address: myProfile.address,
-    //     address1: myProfile.address1,
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data.message);
+    fetch('http://localhost:8000/my', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        phoneNumber: myProfile.phoneNumber,
+        birth: Number(birthYear + birthMonth + birthDate),
+        gender: myProfile.gender,
+        isConsent: 0,
+        profileImage: myProfile.profilePicture,
+        addressId: myProfile.addressId,
+        postalCode: myProfile.postalCode,
+        address: myProfile.address,
+        address1: myProfile.address1,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data.message);
 
-    alert('변경사항이 저장되었습니다');
-    //   });
+        alert('변경사항이 저장되었습니다');
+      });
   };
 
   return (

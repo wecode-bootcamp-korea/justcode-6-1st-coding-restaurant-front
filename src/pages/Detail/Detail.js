@@ -26,13 +26,13 @@ const Detail = ({ cartCount, setCartCount }) => {
       });
   }, []);
 
-  useEffect(() => {
-    fetch('/data/detail/detail.json')
-      .then(res => res.json())
-      .then(req => {
-        setData(req.data);
-      });
-  }, []);
+  // useEffect(() => {
+  //   fetch('/data/detail/detail.json')
+  //     .then(res => res.json())
+  //     .then(req => {
+  //       setData(req.data);
+  //     });
+  // }, []);
 
   return (
     <>
