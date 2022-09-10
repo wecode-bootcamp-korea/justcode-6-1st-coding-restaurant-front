@@ -39,24 +39,26 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
 
   const moveToCart = () => {
     //모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
-    // fetch('http://localhost:8000/carts', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${localStorage.getItem('token')}`,
-    //   },
-    //   body: JSON.stringify({
-    //     bundleId: bundleId,
-    //     quantity: quantity,
-    //   }),
-    // })
-    //   .then(res => res.json())
-    //   .then(data => {
-    //     console.log(data);
+    fetch('http://localhost:8000/carts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.getItem('token')}`,
+      },
+      body: JSON.stringify({
+        bundleId: bundleId,
+        quantity: quantity,
+      }),
+    })
+      .then(res => res.json())
+      .then(data => {
+        console.log(data);
 
-    alert('상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!');
-    //   setCartCount(cartCount + 1);
-    // });
+        alert(
+          '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
+        );
+        setCartCount(cartCount + 1);
+      });
   };
 
   return (
