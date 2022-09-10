@@ -11,22 +11,10 @@ function Cart({ cartCount, setCartCount }) {
   const [totalDelivery, setTotalDelivery] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0); //배달료 포함 총 금액
 
-  // useEffect(() => {
-  //   fetch('/data/cart/cartList.json')
-  //     .then(res => res.json())
-  //     .then(req => {
-  //       console.log(req.data);
-  //       setUserName(req.data.name);
-  //       setCartList(req.data.cartList);
-  //       setItemTotal(req.data.totalPrice);
-  //       setTotalDelivery(req.data.deliveryFee);
-  //       setTotalPrice(req.data.orderPrice);
-  //     });
-  // }, []);
-
   // 장바구니 조회 api
   useEffect(() => {
-    fetch('http://localhost:8000/carts', {
+    fetch('/data/cart/cartList.json', {
+      // fetch('http://localhost:8000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

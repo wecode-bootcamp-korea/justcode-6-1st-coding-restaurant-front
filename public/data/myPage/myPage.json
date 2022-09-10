@@ -16,26 +16,27 @@
         "address1": "서울스퀘어"
       }
     ],
-    "point": [
-      {
-        "pointId": 1,
-        "point": 5000,
-        "history": "가입 축하 기념",
-        "createdAt": "2022-09-06"
-      },
-      {
-        "pointId": 2,
-        "point": 5000,
-        "history": "충전",
-        "createdAt": "2022-09-06"
-      },
-      {
-        "pointId": 3,
-        "point": -6000,
-        "history": "사용",
-        "createdAt": "2022-09-06"
-      }
-    ],
+    "point": null,
+    //  [
+    //   {
+    //     "pointId": 1,
+    //     "point": 5000,
+    //     "history": "가입 축하 기념",
+    //     "createdAt": "2022-09-06"
+    //   },
+    //   {
+    //     "pointId": 2,
+    //     "point": 5000,
+    //     "history": "충전",
+    //     "createdAt": "2022-09-06"
+    //   },
+    //   {
+    //     "pointId": 3,
+    //     "point": -6000,
+    //     "history": "사용",
+    //     "createdAt": "2022-09-06"
+    //   }
+    // ]
     "orderList": [
       {
         "createdAt": "2022-09-06",

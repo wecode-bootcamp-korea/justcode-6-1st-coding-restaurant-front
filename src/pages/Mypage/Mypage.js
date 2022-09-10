@@ -12,7 +12,7 @@ function Mypage() {
   const [userInfo, setUserInfo] = useState({
     name: '샘플',
     profileImg: 'https://cdn-icons-png.flaticon.com/128/847/847969.png',
-    point: 0,
+    point: 5000,
   });
 
   const [name, setName] = useState('');
@@ -34,7 +34,7 @@ function Mypage() {
           let totalPoint = 0;
           pointArr.forEach(point => {
             totalPoint = totalPoint + point.point;
-          }); //통합데이터에서 point값만 더해서 totalPoint를 구한 후 보여줌
+          });
           setUserInfo({
             ...userInfo,
             name: req.data.name,
@@ -96,7 +96,7 @@ function Mypage() {
                   <ul className={css.navBar}>
                     <li className={css.navBarItem}>
                       미식 포인트
-                      <span> {userInfo.point}원</span>
+                      <span> {userInfo.point.toLocaleString()}P</span>
                     </li>
                   </ul>
                 </div>
