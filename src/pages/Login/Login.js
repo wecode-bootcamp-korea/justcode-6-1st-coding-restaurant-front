@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import css from './Login.module.scss';
 import LogoBox from '../../components/SignupLogin/LogoBox';
-import Header from '../../components/Header/Header';
 
 function Login() {
   const navigate = useNavigate();
@@ -30,27 +29,27 @@ function Login() {
     } else if (userPassword.length < 10) {
       alert('비밀번호는 10자리이상이어야 합니다.');
     } else {
-      fetch('http://localhost:8000/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: userEmail,
-          password: userPassword,
-        }),
-      })
-        .then(response => response.json())
-        .then(result => {
-          if (result.token) {
-            localStorage.setItem('token', result.token);
-            alert('로그인에 성공하였습니다.');
-            window.location.replace('/');
-            // navigate('/') 46line 새로고침 오류 발생시 원상복귀
-          } else {
-            alert('이메일과 비밀번호를 찾을 수 없습니다.');
-          }
-        });
+      // fetch('http://localhost:8000/login', {
+      //   method: 'POST',
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //   },
+      //   body: JSON.stringify({
+      //     email: userEmail,
+      //     password: userPassword,
+      //   }),
+      // })
+      //   .then(response => response.json())
+      //   .then(result => {
+      //     if (result.token) {
+      //       localStorage.setItem('token', result.token);
+      alert('로그인에 성공하였습니다.');
+      window.location.replace('/');
+      //       // navigate('/') 46line 새로고침 오류 발생시 원상복귀
+      //     } else {
+      //       alert('이메일과 비밀번호를 찾을 수 없습니다.');
+      //     }
+      //   });
     }
   };
 
@@ -117,6 +116,7 @@ function Login() {
           <a
             className={css['text-link']}
             onClick={() => {
+              alert('회원가입 페이지로 이동합니다.');
               navigate('/signup');
             }}
           >

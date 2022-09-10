@@ -1,6 +1,9 @@
+import { useState, useEffect } from 'react';
+
 import profileCss from './Profile.module.scss';
 import css from '../../pages/Mypage/Mypage.module.scss';
-import { useState, useEffect } from 'react';
+
+import DaumPost from './DaumPost';
 
 function Profile() {
   const [myProfile, setMyProfile] = useState({
@@ -9,12 +12,15 @@ function Profile() {
     profilePicture: '',
     phoneNumber: '',
     postalCode: '',
+    addressId: '',
     address: '',
     address1: '',
     gender: '',
     birth: '',
     isConsent: 0,
   });
+  console.log(myProfile);
+  const [addressOpen, setAddressOpen] = useState(false);
 
   const [birthYear, setBirthYear] = useState(
     String(myProfile.birth).substring(0, 4)
@@ -46,8 +52,8 @@ function Profile() {
   // };
 
   useEffect(() => {
-    // fetch('/data/myPage/myPage.json', {
-    fetch('http://localhost:8000/my', {
+    fetch('/data/myPage/myPage.json', {
+      // fetch('http://localhost:8000/my', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -65,6 +71,7 @@ function Profile() {
           birth: data.data.birth.toString(),
           gender: data.data.gender,
           isConsent: data.data.isConsent,
+          addressId: data.data.address[0].addressId,
           postalCode: data.data.address[0].postalCode,
           address: data.data.address[0].address,
           address1: data.data.address[0].address1,
@@ -102,33 +109,48 @@ function Profile() {
     setBirthDate(e.target.value);
   };
 
+  const chageAddress1 = e => {
+    setMyProfile({
+      ...myProfile,
+      address1: e.target.value,
+    });
+  };
+
+  const addressClick = () => {
+    addressOpen == false && setAddressOpen(true);
+    addressOpen == true && setAddressOpen(false);
+  };
+
   const saveBtnClick = () => {
     setMyProfile({
       ...myProfile,
       birth: Number(birthYear + birthMonth + birthDate),
     });
 
-    fetch('http://localhost:8000/my', {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        name: myProfile.name,
-        phoneNumber: myProfile.phoneNumber,
-        birth: Number(birthYear + birthMonth + birthDate),
-        gender: myProfile.gender,
-        isConsent: 0,
-        profileImage: myProfile.profilePicture,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data.message);
+    // fetch('http://localhost:8000/my', {
+    //   method: 'PATCH',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${localStorage.getItem('token')}`,
+    //   },
+    //   body: JSON.stringify({
+    //     phoneNumber: myProfile.phoneNumber,
+    //     birth: Number(birthYear + birthMonth + birthDate),
+    //     gender: myProfile.gender,
+    //     isConsent: 0,
+    //     profileImage: myProfile.profilePicture,
+    //     addressId: myProfile.addressId,
+    //     postalCode: myProfile.postalCode,
+    //     address: myProfile.address,
+    //     address1: myProfile.address1,
+    //   }),
+    // })
+    //   .then(res => res.json())
+    //   .then(data => {
+    //     console.log(data.message);
 
-        alert('변경사항이 저장되었습니다');
-      });
+    alert('변경사항이 저장되었습니다');
+    //   });
   };
 
   return (
@@ -163,6 +185,7 @@ function Profile() {
                 className={profileCss.formInput}
                 defaultValue={myProfile.name}
                 onChange={changeName}
+                disabled
               ></input>
             </div>
             <div className={profileCss.formContent}>
@@ -187,10 +210,16 @@ function Profile() {
                     <button
                       type="button"
                       className={profileCss.formBtn}
-                      onClick={disabledBtnClick}
+                      onClick={addressClick}
                     >
                       우편번호 검색
                     </button>
+                    {addressOpen == true && (
+                      <DaumPost
+                        myProfile={myProfile}
+                        setMyProfile={setMyProfile}
+                      />
+                    )}
                   </span>
                 </div>
                 <input
@@ -203,7 +232,7 @@ function Profile() {
                   className={profileCss.formInput}
                   placeholder="상세 주소"
                   defaultValue={myProfile.address1}
-                  disabled
+                  onChange={chageAddress1}
                 ></input>
               </div>
             </div>
