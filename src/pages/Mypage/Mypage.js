@@ -19,8 +19,8 @@ function Mypage() {
 
   ////////////마이메이지 마이미식 get api/////////
   useEffect(() => {
-    fetch('/data/myPage/myPage.json', {
-      // fetch('http://localhost:8000/my', {
+    // fetch('/data/myPage/myPage.json', {
+    fetch('http://localhost:8000/my', {
       method: 'GET',
       headers: {
         Authorization: `Bearer ${localStorage.getItem('token')}`,

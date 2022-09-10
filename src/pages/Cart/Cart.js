@@ -13,8 +13,8 @@ function Cart({ cartCount, setCartCount }) {
 
   // 장바구니 조회 api
   useEffect(() => {
-    fetch('/data/cart/cartList.json', {
-      // fetch('http://localhost:8000/carts', {
+    // fetch('/data/cart/cartList.json', {
+    fetch('http://localhost:8000/carts', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
