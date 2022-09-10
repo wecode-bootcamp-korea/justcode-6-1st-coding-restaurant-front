@@ -88,7 +88,7 @@ function Cart({ cartCount, setCartCount }) {
                     key={item.id}
                     item={item}
                     cartList={cartList}
-                    setCartList={setCartList}
+                    // setCartList={setCartList}
                     itemState={itemState}
                     setItemState={setItemState}
                     cartCount={cartCount}

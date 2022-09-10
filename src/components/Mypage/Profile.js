@@ -19,7 +19,6 @@ function Profile() {
     birth: '',
     isConsent: 0,
   });
-  console.log(myProfile);
   const [addressOpen, setAddressOpen] = useState(false);
 
   const [birthYear, setBirthYear] = useState(

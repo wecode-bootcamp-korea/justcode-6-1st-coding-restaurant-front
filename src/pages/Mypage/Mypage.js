@@ -32,9 +32,10 @@ function Mypage() {
         {
           let pointArr = req.data.point;
           let totalPoint = 0;
-          pointArr.forEach(point => {
-            totalPoint = totalPoint + point.point;
-          });
+          req.data.point !== null &&
+            pointArr.forEach(point => {
+              totalPoint = totalPoint + point.point;
+            });
           setUserInfo({
             ...userInfo,
             name: req.data.name,
@@ -68,7 +69,7 @@ function Mypage() {
         return setNavigate(<Profile />);
     }
   };
-
+  // console.log(userInfo);
   return (
     { name } && (
       <div className={css.mypageBackground}>

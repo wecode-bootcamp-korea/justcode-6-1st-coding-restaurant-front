@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 
 import css from './DetailSub.module.scss';
 import Option from '../../components/Detail/Option';
+import { useNavigate } from 'react-router-dom';
 
 const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
+  const navigate = useNavigate();
   const [option, setOption] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [deliveryFee, setDeliveryFee] = useState(3500);
@@ -38,8 +40,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   };
 
   const moveToCart = () => {
-    !localStorage.getItem('token') &&
-      alert('로그인이 필요한 기능입니다.\n로그인 페이지로 이동합니다');
+    !localStorage.getItem('token') && alert('로그인이 필요한 기능입니다.');
 
     // 모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
     fetch('http://localhost:8000/carts', {
