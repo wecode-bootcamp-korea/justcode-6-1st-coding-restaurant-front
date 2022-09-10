@@ -28,7 +28,6 @@ function CartItem({
     const newCartList = cartList.filter(item => {
       return id != item.id;
     });
-    // setCartList(newCartList);
     fetch('http://localhost:8000/carts', {
       method: 'DELETE',
       headers: {
