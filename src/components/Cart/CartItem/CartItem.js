@@ -18,8 +18,6 @@ function CartItem({
     Number(`${count * price}`)
   );
 
-  useEffect(() => {}, [count]);
-
   const deliveryFee = 3500;
   const deliveryDate = '2022-09-06';
 
