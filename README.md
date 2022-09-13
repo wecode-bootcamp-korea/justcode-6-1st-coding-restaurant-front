@@ -20,7 +20,7 @@
 ### 유튜브 시연영상
 - 약 4분정도 되는 영상입니다. 많은 시청 부탁드립니다 :)
 
-  [!['미래식당' 클론프로젝트 시연영상](https://img.youtube.com/vi/f1He2K5uwyI/0.jpg)](https://www.youtube.com/watch?v=f1He2K5uwyI&t=5s)
+  [!['미래식당' 클론프로젝트 시연영상](https://img.youtube.com/vi/f1He2K5uwyI/0.jpg)](https://www.youtube.com/watch?v=f1He2K5uwyI&t=1s)
 
 <br/>
 
@@ -38,9 +38,9 @@
 | 프론트엔드 | 블로그 | 깃허브 | 이메일 |
 | ------ | ------ | ------ | ------ |
 | 박예선 | https://velog.io/@lynn080 | https://github.com/YesunPark | lynn08082@gmail.com |
-| 박찬영 | https://poylib.tistory.com/ | | poy.alev@gmail.com |
-| 이은지 | | https://github.com/Chooteacher | zmz14s@gmail.com |
-| 임지영 | https://roxylife-twinkledawn101.tistory.com/ | | misoamy16@gmail.com |
+| 박찬영 | https://poylib.tistory.com/ | https://github.com/Poylib | poy.alev@gmail.com |
+| 이은지 | - | https://github.com/Chooteacher | zmz14s@gmail.com |
+| 임지영 | https://roxylife-twinkledawn101.tistory.com/ |  https://github.com/Roxy100 | misoamy16@gmail.com |
 
   <br/>
 
