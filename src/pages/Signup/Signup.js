@@ -12,8 +12,8 @@ function Signup() {
   const [password, setPassword] = useState('');
   const [rePassword, setRePassword] = useState('');
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [birthday, setBirthday] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [birth, setBirth] = useState('');
   const [gender, setGender] = useState('');
   const [femaleBorder, setFemaleBorder] = useState('#d3d3d3');
   const [maleBorder, setMaleBorder] = useState('#d3d3d3');
@@ -23,8 +23,39 @@ function Signup() {
   };
 
   const onEmailHandle = e => {
-    const emailValue = e.target.value;
-    setEmail(emailValue);
+    setEmail(e.target.value);
+  };
+
+  const onPasswordHandle = e => {
+    setPassword(e.target.value);
+  };
+
+  const onRePasswordHandle = e => {
+    setRePassword(e.target.value);
+  };
+
+  const onNameHandle = e => {
+    setName(e.target.value);
+  };
+
+  const onPhoneNumberHandle = e => {
+    setPhoneNumber(e.target.value);
+  };
+
+  const onBirthHandle = e => {
+    setBirth(e.target.value);
+  };
+
+  const genderClick = e => {
+    const genderValue = e.target.value;
+    setGender(genderValue);
+    if (genderValue == 'female') {
+      setFemaleBorder('#bfaf96');
+      setMaleBorder('#d3d3d3');
+    } else if (genderValue == 'male') {
+      setMaleBorder('#bfaf96');
+      setFemaleBorder('#d3d3d3');
+    }
   };
 
   const name_pattern = /^[가-힣]{2,4}$/;
@@ -42,9 +73,9 @@ function Signup() {
       alert('비밀번호를 확인하세요!');
     } else if (name_pattern.test(name) == false) {
       alert('이름은 2~4자리여야 합니다.');
-    } else if (phone_pattern.test(phone) == false) {
+    } else if (phone_pattern.test(phoneNumber) == false) {
       alert('전화번호는 010으로 시작하는 10~11자리여야 합니다.');
-    } else if (birthday_pattern.test(birthday) == false) {
+    } else if (birthday_pattern.test(birth) == false) {
       alert('생년월일 8자리를 확인해주세요.');
     } else if (!gender) {
       alert('성별을 확인해주세요.');
@@ -55,12 +86,12 @@ function Signup() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email: email,
-          password: password,
-          name: name,
-          phoneNumber: phone,
-          birth: birthday,
-          gender: gender,
+          email,
+          password,
+          name,
+          phoneNumber,
+          birth,
+          gender,
         }),
       })
         .then(response => response.json())
@@ -74,40 +105,6 @@ function Signup() {
             alert('회원가입에 실패하였습니다.');
           }
         });
-    }
-  };
-
-  const onPasswordHandle = e => {
-    const passwordValue = e.target.value;
-    setPassword(passwordValue);
-  };
-
-  const onRePasswordHandle = e => {
-    const repasswordValue = e.target.value;
-    setRePassword(repasswordValue);
-  };
-
-  const onNameHandle = e => {
-    setName(e.target.value);
-  };
-
-  const onPhoneHandle = e => {
-    setPhone(e.target.value);
-  };
-
-  const onBirthdayHandle = e => {
-    setBirthday(e.target.value);
-  };
-
-  const genderClick = e => {
-    const genderValue = e.target.value;
-    setGender(genderValue);
-    if (genderValue == 'female') {
-      setFemaleBorder('#bfaf96');
-      setMaleBorder('#d3d3d3');
-    } else if (genderValue == 'male') {
-      setMaleBorder('#bfaf96');
-      setFemaleBorder('#d3d3d3');
     }
   };
 
@@ -209,12 +206,12 @@ function Signup() {
                   <input
                     id="userPhone"
                     type="text"
-                    name="phone"
-                    value={phone}
+                    name="phoneNumber"
+                    value={phoneNumber}
                     placeholder="예 : 01012345678"
                     required={true}
                     className={css['input-text']}
-                    onChange={onPhoneHandle}
+                    onChange={onPhoneNumberHandle}
                   />
                 </div>
                 <div className={css['user-birthday']}>
@@ -224,12 +221,12 @@ function Signup() {
                   <input
                     id="userBirthday"
                     type="text"
-                    name="birthday"
-                    value={birthday}
+                    name="birth"
+                    value={birth}
                     placeholder="예 : 19840707"
                     required={true}
                     className={css['input-text']}
-                    onChange={onBirthdayHandle}
+                    onChange={onBirthHandle}
                   />
                 </div>
                 <div className={css['user-gender']}>
