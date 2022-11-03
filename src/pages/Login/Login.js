@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import css from './Login.module.scss';
 import LogoBox from '../../components/SignupLogin/LogoBox';
+import css from './Login.module.scss';
 
 function Login() {
   const navigate = useNavigate();
@@ -10,16 +10,14 @@ function Login() {
   const [userPassword, setUserPassword] = useState('');
 
   const onUserEmailHandle = e => {
-    const userEmailValue = e.target.value;
-    setUserEmail(userEmailValue);
+    setUserEmail(e.target.value);
   };
 
   const onUserPasswordHandle = e => {
-    const userPasswordValue = e.target.value;
-    setUserPassword(userPasswordValue);
+    setUserPassword(e.target.value);
   };
 
-  const loginClick = () => {
+  const userLogin = () => {
     if (
       !userEmail.includes('@') ||
       userEmail.split('.').length - 1 < 1 ||
@@ -97,7 +95,7 @@ function Login() {
               />
             </div>
             <div className={css['login-btn']}>
-              <button className={css.btn} type="submit" onClick={loginClick}>
+              <button className={css.btn} type="submit" onClick={userLogin}>
                 로그인하기
               </button>
             </div>
@@ -109,7 +107,6 @@ function Login() {
           <div className={css['divideror-line']}></div>
         </div>
         <LogoBox>로그인하기</LogoBox>
-
         <div className={css['account-smallbox']}>
           아직 미래식당 회원이 아니세요?
           <a
