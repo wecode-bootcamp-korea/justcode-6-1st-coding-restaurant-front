@@ -73,6 +73,9 @@
           margin: 0px 10px;
           background-color: inherit;
           opacity: 50%;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
 
@@ -96,6 +99,9 @@
         border: 1px solid #ddd;
         background-color: inherit;
         color: #bfaf96;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
