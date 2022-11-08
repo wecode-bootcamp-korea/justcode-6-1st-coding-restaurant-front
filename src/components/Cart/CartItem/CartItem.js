@@ -24,9 +24,6 @@ function CartItem({
     itemTotalPrice >= 50000 ? '무료배송' : deliveryFee.toLocaleString() + ' 원';
 
   const deleteClick = () => {
-    const newCartList = cartList.filter(item => {
-      return id != item.id;
-    });
     fetch('http://localhost:8000/carts', {
       method: 'DELETE',
       headers: {
