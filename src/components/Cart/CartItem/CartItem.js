@@ -5,7 +5,6 @@ import css from './CartItem.module.scss';
 function CartItem({
   item,
   cartList,
-  setCartList,
   itemState,
   setItemState,
   cartCount,
