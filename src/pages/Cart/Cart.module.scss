@@ -154,11 +154,17 @@
         border: 1px solid #928470;
         background-color: inherit;
         font-size: 17px;
+        &:hover {
+          cursor: pointer;
+        }
       }
 
       .button-total {
         background-color: #928470;
         color: white;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
@@ -186,6 +192,9 @@
         color: #928470;
         font-size: 17px;
         font-weight: 500;
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
 
