@@ -84,7 +84,6 @@ function Cart({ cartCount, setCartCount }) {
                 <CartItem
                   key={item.id}
                   item={item}
-                  cartList={cartList}
                   itemState={itemState}
                   setItemState={setItemState}
                   cartCount={cartCount}

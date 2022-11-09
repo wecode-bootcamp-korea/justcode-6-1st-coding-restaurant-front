@@ -1,25 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import css from './CartItem.module.scss';
 
-function CartItem({
-  item,
-  cartList,
-  itemState,
-  setItemState,
-  cartCount,
-  setCartCount,
-}) {
-  const { id, brandName, itemName, img, options } = item;
+function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
+  const { brandName, itemName, img, options } = item;
   const [count, setCount] = useState(item.quantity);
   const [price, setPrice] = useState(item.price);
   const [itemTotalPrice, setItemTotalPrice] = useState(
     Number(`${count * price}`)
   );
-
   const deliveryFee = 3500;
   const deliveryDate = '2022-09-06';
-
   const freeDelivery =
     itemTotalPrice >= 50000 ? '무료배송' : deliveryFee.toLocaleString() + ' 원';
 
