@@ -23,12 +23,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
       body: JSON.stringify({
         cartsId: item.id,
       }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
-
+    }).then(res => res.json());
     itemState == true && setItemState(false);
     itemState == false && setItemState(true);
     setCartCount(cartCount - 1);
@@ -48,11 +43,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
         cartsId: item.id,
         quantity: 1,
       }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-      });
+    }).then(res => res.json());
     itemState == true && setItemState(false);
     itemState == false && setItemState(true);
   };
@@ -71,11 +62,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
           cartsId: item.id,
           quantity: -1,
         }),
-      })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-        });
+      }).then(res => res.json());
     itemState == true && setItemState(false);
     itemState == false && setItemState(true);
   };
