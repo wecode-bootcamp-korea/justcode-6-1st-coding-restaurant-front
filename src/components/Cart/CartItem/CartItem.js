@@ -78,7 +78,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
           </div>
           <div className={css['item-detail-list']}>
             <div className={css['item-select']}>
-              <input type="checkbox"></input>
+              <input type="checkbox" />
               <div className={css['item-option']}>{options}</div>
             </div>
 
