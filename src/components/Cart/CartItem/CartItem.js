@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import css from './CartItem.module.scss';
 
@@ -24,7 +25,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
         cartsId: item.id,
       }),
     }).then(res => res.json());
-    itemState == true ? setItemState(false) : setItemState(true);
+    itemState === true ? setItemState(false) : setItemState(true);
     setCartCount(cartCount - 1);
   };
 
@@ -43,7 +44,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
         quantity: 1,
       }),
     }).then(res => res.json());
-    itemState == true ? setItemState(false) : setItemState(true);
+    itemState === true ? setItemState(false) : setItemState(true);
   };
 
   const countMinus = () => {
@@ -61,7 +62,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
           quantity: -1,
         }),
       }).then(res => res.json());
-    itemState == true ? setItemState(false) : setItemState(true);
+    itemState === true ? setItemState(false) : setItemState(true);
   };
 
   return (
@@ -74,7 +75,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
         <img className={css['item-img']} alt={itemName} src={img} />
         <div className={css['item-detail']}>
           <div className={css['item-name']}>
-            <a>{itemName}</a>
+            <Link>{itemName}</Link>
           </div>
           <div className={css['item-detail-list']}>
             <div className={css['item-select']}>
@@ -90,12 +91,14 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
                 <img
                   onClick={countMinus}
                   src=" https://cdn-icons-png.flaticon.com/128/992/992683.png"
+                  alt="minusButton"
                   className={`${css.button} ${css.minus}`}
                 />
                 {count}
                 <img
                   onClick={countPlus}
                   src="https://cdn-icons-png.flaticon.com/128/3303/3303893.png"
+                  alt="plusButton"
                   className={`${css.button} ${css.plus}`}
                 />
               </span>
