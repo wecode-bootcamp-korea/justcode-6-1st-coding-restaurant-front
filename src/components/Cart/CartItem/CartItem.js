@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
 import css from './CartItem.module.scss';
 
 function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
@@ -82,7 +81,6 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
               <input type="checkbox" />
               <div className={css['item-option']}>{options}</div>
             </div>
-
             <div>
               <span className={css.price}>
                 {item.price.toLocaleString()} 원
@@ -102,14 +100,11 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
                   className={`${css.button} ${css.plus}`}
                 />
               </span>
-
               <span className={css['total-price']}>
                 {itemTotalPrice.toLocaleString()} 원
               </span>
               <span className={css['delivery-fee']}>{freeDelivery}</span>
-
               <span className={css['delivery-date']}>{deliveryDate}</span>
-
               <button
                 onClick={deleteClick}
                 className={`${css.small} ${css.delete}`}
