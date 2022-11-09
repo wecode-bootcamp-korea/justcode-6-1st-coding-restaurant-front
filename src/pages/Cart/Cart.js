@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import css from './Cart.module.scss';
 import CartItem from '../../components/Cart/CartItem/CartItem';
+import css from './Cart.module.scss';
 
 function Cart({ cartCount, setCartCount }) {
   const [userName, setUserName] = useState('비회원');
