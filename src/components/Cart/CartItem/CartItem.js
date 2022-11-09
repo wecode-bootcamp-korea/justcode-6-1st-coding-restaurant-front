@@ -24,8 +24,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
         cartsId: item.id,
       }),
     }).then(res => res.json());
-    itemState == true && setItemState(false);
-    itemState == false && setItemState(true);
+    itemState == true ? setItemState(false) : setItemState(true);
     setCartCount(cartCount - 1);
   };
 
@@ -44,8 +43,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
         quantity: 1,
       }),
     }).then(res => res.json());
-    itemState == true && setItemState(false);
-    itemState == false && setItemState(true);
+    itemState == true ? setItemState(false) : setItemState(true);
   };
 
   const countMinus = () => {
@@ -63,8 +61,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
           quantity: -1,
         }),
       }).then(res => res.json());
-    itemState == true && setItemState(false);
-    itemState == false && setItemState(true);
+    itemState == true ? setItemState(false) : setItemState(true);
   };
 
   return (
