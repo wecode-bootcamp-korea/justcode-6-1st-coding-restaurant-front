@@ -5,9 +5,8 @@ import css from './CartItem.module.scss';
 function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
   const { brandName, itemName, img, options } = item;
   const [count, setCount] = useState(item.quantity);
-  const [price, setPrice] = useState(item.price);
   const [itemTotalPrice, setItemTotalPrice] = useState(
-    Number(`${count * price}`)
+    Number(`${count * item.price}`)
   );
   const deliveryFee = 3500;
   const deliveryDate = '2022-09-06';
@@ -36,7 +35,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
   };
 
   const countPlus = () => {
-    let newPrice = Number(`${(count + 1) * price}`);
+    let newPrice = Number(`${(count + 1) * item.price}`);
     setCount(count + 1);
     setItemTotalPrice(newPrice);
     fetch('http://localhost:8000/carts', {
@@ -60,7 +59,7 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
 
   const countMinus = () => {
     count >= 2 && setCount(count - 1);
-    count >= 2 && setItemTotalPrice(Number(`${(count - 1) * price}`));
+    count >= 2 && setItemTotalPrice(Number(`${(count - 1) * item.price}`));
     count >= 2 &&
       fetch('http://localhost:8000/carts', {
         method: 'PATCH',
@@ -101,7 +100,9 @@ function CartItem({ item, itemState, setItemState, cartCount, setCartCount }) {
               </div>
 
               <div>
-                <span className={css.price}>{price.toLocaleString()} 원</span>
+                <span className={css.price}>
+                  {item.price.toLocaleString()} 원
+                </span>
                 <span className={`${css.small} ${css.count}`}>
                   <img
                     onClick={countMinus}
