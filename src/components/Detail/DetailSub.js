@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import Option from '../../components/Detail/Option';
 import css from './DetailSub.module.scss';
 
 const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
-  const navigate = useNavigate();
   const [option, setOption] = useState('');
   const [productPrice, setProductPrice] = useState('');
   const [quantity, setQuantity] = useState(1);
@@ -61,7 +59,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
           </div>
         </div>
         <div className={css.delivery}>
-          <div className={`${css['price']} ${css['delivery-fee']}`}>
+          <div className={`${css.price} ${css['delivery-fee']}`}>
             <span className={css['sub-title']}>
               배송비
               <br />
@@ -73,7 +71,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
                 : deliveryFee.toLocaleString() + ' 원'}
             </div>
           </div>
-          <div className={`${css['price']} ${css['delivery-fee']}`}>
+          <div className={`${css.price} ${css['delivery-fee']}`}>
             <span className={css['sub-title']}>배송 도착일</span>
             <div>{deliveryDate}</div>
           </div>
@@ -85,7 +83,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
             (옵션은 한 가지만 선택해주세요)
           </div>
           <select className={css.option} onChange={selectOption}>
-            <option value={''}>메뉴 선택하기</option>
+            <option value="">메뉴 선택하기</option>
             {bundles.map(bundle => {
               return (
                 <option
@@ -100,7 +98,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
             })}
           </select>
         </div>
-        {productPrice != '' && (
+        {productPrice !== '' && (
           <div>
             <div>
               <div className={css.price}>
