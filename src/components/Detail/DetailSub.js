@@ -11,7 +11,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   const deliveryFee = 3500;
   const deliveryDate = '09월 30일';
 
-  const selectOption = e => {
+  const clickOption = e => {
     setProductPrice(Number(e.target.value));
     setTotalPrice(Number(e.target.value));
     setOption(
@@ -22,7 +22,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
     );
   };
 
-  const moveToCart = () => {
+  const clickPutCartBtn = () => {
     !localStorage.getItem('token') && alert('로그인이 필요한 기능입니다.');
     fetch('http://localhost:8000/carts', {
       method: 'POST',
@@ -82,7 +82,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
             <br />
             (옵션은 한 가지만 선택해주세요)
           </div>
-          <select className={css.option} onChange={selectOption}>
+          <select className={css.option} onChange={clickOption}>
             <option value="">메뉴 선택하기</option>
             {bundles.map(bundle => {
               return (
@@ -126,7 +126,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
         </div>
       </div>
       <div className={css['button-box']}>
-        <button className={css['add-to-cart']} onClick={moveToCart}>
+        <button className={css['add-to-cart']} onClick={clickPutCartBtn}>
           장바구니에 담기
         </button>
         <button className={css['order-now']}>바로 주문하기</button>
