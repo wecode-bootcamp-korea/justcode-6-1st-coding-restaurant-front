@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import DetailMain from '../../components/Detail/DetailMain/DetailMain';
 import DetailSub from '../../components/Detail/DetailSub';
-import Header from '../../components/Header/Header';
 
 import css from './Detail.module.scss';
 
@@ -14,7 +13,8 @@ const Detail = ({ cartCount, setCartCount }) => {
     data;
 
   useEffect(() => {
-    fetch(`http://localhost:8000/product/${params.id}`, {
+    // fetch(`http://localhost:8000/product/${params.id}`, {
+    fetch('/data/detail/detail.json', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -25,14 +25,6 @@ const Detail = ({ cartCount, setCartCount }) => {
         setData(req.data);
       });
   }, []);
-
-  // useEffect(() => {
-  //   fetch('/data/detail/detail.json')
-  //     .then(res => res.json())
-  //     .then(req => {
-  //       setData(req.data);
-  //     });
-  // }, []);
 
   return (
     <>
