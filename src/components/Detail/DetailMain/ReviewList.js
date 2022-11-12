@@ -1,8 +1,5 @@
-import React from 'react';
-
-import css from './ReviewList.module.scss';
-
 import Review from './Review';
+import css from './ReviewList.module.scss';
 
 const ReviewList = ({ reviews }) => {
   console.log({ reviews });
