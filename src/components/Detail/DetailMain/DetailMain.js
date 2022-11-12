@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
-
-import css from './DetailMain.module.scss';
-
+import { useState } from 'react';
 import Content from './Content';
 import ReviewList from './ReviewList';
 import Delivery from './Delivery';
 import Ask from './Ask';
+import css from './DetailMain.module.scss';
 
-const DetailMain = ({ name, description, images, content, reviews }) => {
+const DetailMain = ({ name, description, images, reviews }) => {
   const [component, setComponent] = useState(<Content />);
 
   const clickTab = e => {
     switch (e.target.value) {
       case '메뉴 소개':
-        return setComponent(<Content content={content} />);
-
+        return setComponent(<Content />);
       case '미식평':
         return setComponent(<ReviewList reviews={reviews} />);
-
       case '배송 정보':
         return setComponent(<Delivery />);
-
       case '질문과 답변':
         return setComponent(<Ask />);
     }
@@ -31,7 +26,6 @@ const DetailMain = ({ name, description, images, content, reviews }) => {
       <div className={css.title}>
         <h1 className={css.name}>[{name}]</h1>
         <div className={css.description}>{description}</div>
-        {/* <Rating /> */}
         <div className={css.rating}>
           <img
             className={css.star}

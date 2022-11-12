@@ -1,68 +1,50 @@
-import React, { useState } from 'react';
-
-import css from './DetailSub.module.scss';
+import { useState } from 'react';
 import Option from '../../components/Detail/Option';
-import { useNavigate } from 'react-router-dom';
+import css from './DetailSub.module.scss';
 
 const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
-  const navigate = useNavigate();
   const [option, setOption] = useState('');
   const [productPrice, setProductPrice] = useState('');
-  const [deliveryFee, setDeliveryFee] = useState(3500);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
   const [bundleId, setBundleId] = useState('');
+  const deliveryFee = 3500;
   const deliveryDate = '09월 30일';
 
-  const selectOption = e => {
+  const clickOption = e => {
     setProductPrice(Number(e.target.value));
     setTotalPrice(Number(e.target.value));
-
     setOption(
       e.target.options[e.target.options.selectedIndex].getAttribute('option')
     );
-
     setBundleId(
       e.target.options[e.target.options.selectedIndex].getAttribute('bundleid')
     );
   };
 
-  const optionBox = () => {
-    return (
-      <Option
-        option={option}
-        quantity={quantity}
-        setQuantity={setQuantity}
-        setTotalPrice={setTotalPrice}
-        productPrice={productPrice}
-      />
-    );
-  };
-
-  const moveToCart = () => {
-    !localStorage.getItem('token') && alert('로그인이 필요한 기능입니다.');
-
-    // 모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
-    fetch('http://localhost:8000/carts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        bundleId: bundleId,
-        quantity: quantity,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-
-        alert(
-          '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
-        );
-        setCartCount(cartCount + 1);
-      });
+  const clickPutCartBtn = () => {
+    if (localStorage.getItem('token')) {
+      fetch('http://localhost:8000/carts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+          bundleId: bundleId,
+          quantity: quantity,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(
+            '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
+          );
+          setCartCount(cartCount + 1);
+        });
+    } else {
+      alert('로그인이 필요한 기능입니다.');
+    }
   };
 
   return (
@@ -80,7 +62,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
           </div>
         </div>
         <div className={css.delivery}>
-          <div className={`${css['price']} ${css['delivery-fee']}`}>
+          <div className={`${css.price} ${css['delivery-fee']}`}>
             <span className={css['sub-title']}>
               배송비
               <br />
@@ -92,20 +74,19 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
                 : deliveryFee.toLocaleString() + ' 원'}
             </div>
           </div>
-          <div className={`${css['price']} ${css['delivery-fee']}`}>
+          <div className={`${css.price} ${css['delivery-fee']}`}>
             <span className={css['sub-title']}>배송 도착일</span>
             <div>{deliveryDate}</div>
           </div>
         </div>
-
         <div className={`${css['sub-title']} ${css['option-box']} `}>
           <div className={css['select-option']}>
             메뉴 선택하기
             <br />
             (옵션은 한 가지만 선택해주세요)
           </div>
-          <select className={css.option} onChange={selectOption}>
-            <option value={''}>메뉴 선택하기</option>
+          <select className={css.option} onChange={clickOption}>
+            <option value="">메뉴 선택하기</option>
             {bundles.map(bundle => {
               return (
                 <option
@@ -120,14 +101,20 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
             })}
           </select>
         </div>
-        {productPrice != '' && (
-          <div className={css['']}>
+        {productPrice !== '' && (
+          <div>
             <div>
               <div className={css.price}>
                 <span className={css['sub-title']}>수량 선택하기</span>
               </div>
             </div>
-            {optionBox()}
+            <Option
+              option={option}
+              quantity={quantity}
+              setQuantity={setQuantity}
+              setTotalPrice={setTotalPrice}
+              productPrice={productPrice}
+            />
           </div>
         )}
         <div className={css.price}>
@@ -142,7 +129,7 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
         </div>
       </div>
       <div className={css['button-box']}>
-        <button className={css['add-to-cart']} onClick={moveToCart}>
+        <button className={css['add-to-cart']} onClick={clickPutCartBtn}>
           장바구니에 담기
         </button>
         <button className={css['order-now']}>바로 주문하기</button>
