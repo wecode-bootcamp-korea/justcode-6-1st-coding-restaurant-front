@@ -25,33 +25,31 @@ const Detail = ({ cartCount, setCartCount }) => {
   }, []);
 
   return (
-    <>
-      <div className={css.detail}>
-        <div className={css.container}>
-          <div className={css['main-container']}>
-            {data.id && (
-              <DetailMain
-                name={name}
-                description={description}
-                content={content}
-                images={images}
-                reviews={reviews}
-              />
-            )}
-          </div>
-          <div className={css['sub-container']}>
-            {data.id && (
-              <DetailSub
-                price={fixedprice}
-                bundles={bundles}
-                setCartCount={setCartCount}
-                cartCount={cartCount}
-              />
-            )}
-          </div>
+    <div className={css.detail}>
+      <div className={css.container}>
+        <div className={css['main-container']}>
+          {data.id && (
+            <DetailMain
+              name={name}
+              description={description}
+              content={content}
+              images={images}
+              reviews={reviews}
+            />
+          )}
+        </div>
+        <div className={css['sub-container']}>
+          {data.id && (
+            <DetailSub
+              price={fixedprice}
+              bundles={bundles}
+              setCartCount={setCartCount}
+              cartCount={cartCount}
+            />
+          )}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
