@@ -7,10 +7,10 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   const navigate = useNavigate();
   const [option, setOption] = useState('');
   const [productPrice, setProductPrice] = useState('');
-  const [deliveryFee, setDeliveryFee] = useState(3500);
   const [quantity, setQuantity] = useState(1);
   const [totalPrice, setTotalPrice] = useState(0);
   const [bundleId, setBundleId] = useState('');
+  const deliveryFee = 3500;
   const deliveryDate = '09월 30일';
 
   const selectOption = e => {
