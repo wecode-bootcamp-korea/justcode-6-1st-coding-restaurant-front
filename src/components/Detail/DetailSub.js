@@ -23,25 +23,28 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   };
 
   const clickPutCartBtn = () => {
-    !localStorage.getItem('token') && alert('로그인이 필요한 기능입니다.');
-    fetch('http://localhost:8000/carts', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('token')}`,
-      },
-      body: JSON.stringify({
-        bundleId: bundleId,
-        quantity: quantity,
-      }),
-    })
-      .then(res => res.json())
-      .then(data => {
-        alert(
-          '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
-        );
-        setCartCount(cartCount + 1);
-      });
+    if (localStorage.getItem('token')) {
+      fetch('http://localhost:8000/carts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+        body: JSON.stringify({
+          bundleId: bundleId,
+          quantity: quantity,
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert(
+            '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
+          );
+          setCartCount(cartCount + 1);
+        });
+    } else {
+      alert('로그인이 필요한 기능입니다.');
+    }
   };
 
   return (
