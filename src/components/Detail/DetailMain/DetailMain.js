@@ -11,7 +11,7 @@ const DetailMain = ({ name, description, images, content, reviews }) => {
   const clickTab = e => {
     switch (e.target.value) {
       case '메뉴 소개':
-        return setComponent(<Content content={content} />);
+        return setComponent(<Content />);
 
       case '미식평':
         return setComponent(<ReviewList reviews={reviews} />);
