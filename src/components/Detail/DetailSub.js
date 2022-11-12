@@ -16,11 +16,9 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   const selectOption = e => {
     setProductPrice(Number(e.target.value));
     setTotalPrice(Number(e.target.value));
-
     setOption(
       e.target.options[e.target.options.selectedIndex].getAttribute('option')
     );
-
     setBundleId(
       e.target.options[e.target.options.selectedIndex].getAttribute('bundleid')
     );
@@ -40,8 +38,6 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
 
   const moveToCart = () => {
     !localStorage.getItem('token') && alert('로그인이 필요한 기능입니다.');
-
-    // 모달창 대신 임시로 alert 기능 넣었습니다 여유되면 모달기능추가
     fetch('http://localhost:8000/carts', {
       method: 'POST',
       headers: {
@@ -55,8 +51,6 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
-
         alert(
           '상품이 장바구니에 담겼습니다:)\n장바구니에서 상품을 확인하세요!'
         );
@@ -96,7 +90,6 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
             <div>{deliveryDate}</div>
           </div>
         </div>
-
         <div className={`${css['sub-title']} ${css['option-box']} `}>
           <div className={css['select-option']}>
             메뉴 선택하기
