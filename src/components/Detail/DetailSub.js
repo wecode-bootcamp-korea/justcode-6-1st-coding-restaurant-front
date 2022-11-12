@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-
-import css from './DetailSub.module.scss';
-import Option from '../../components/Detail/Option';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Option from '../../components/Detail/Option';
+import css from './DetailSub.module.scss';
 
 const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
   const navigate = useNavigate();

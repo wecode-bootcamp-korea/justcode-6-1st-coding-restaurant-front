@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-
-import css from './DetailMain.module.scss';
-
+import { useState } from 'react';
 import Content from './Content';
 import ReviewList from './ReviewList';
 import Delivery from './Delivery';
 import Ask from './Ask';
+import css from './DetailMain.module.scss';
 
 const DetailMain = ({ name, description, images, content, reviews }) => {
   const [component, setComponent] = useState(<Content />);
