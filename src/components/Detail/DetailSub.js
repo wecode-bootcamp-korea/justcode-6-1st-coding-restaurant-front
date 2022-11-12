@@ -24,18 +24,6 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
     );
   };
 
-  const optionBox = () => {
-    return (
-      <Option
-        option={option}
-        quantity={quantity}
-        setQuantity={setQuantity}
-        setTotalPrice={setTotalPrice}
-        productPrice={productPrice}
-      />
-    );
-  };
-
   const moveToCart = () => {
     !localStorage.getItem('token') && alert('로그인이 필요한 기능입니다.');
     fetch('http://localhost:8000/carts', {
@@ -113,13 +101,19 @@ const DetailSub = ({ price, bundles, cartCount, setCartCount }) => {
           </select>
         </div>
         {productPrice != '' && (
-          <div className={css['']}>
+          <div>
             <div>
               <div className={css.price}>
                 <span className={css['sub-title']}>수량 선택하기</span>
               </div>
             </div>
-            {optionBox()}
+            <Option
+              option={option}
+              quantity={quantity}
+              setQuantity={setQuantity}
+              setTotalPrice={setTotalPrice}
+              productPrice={productPrice}
+            />
           </div>
         )}
         <div className={css.price}>
